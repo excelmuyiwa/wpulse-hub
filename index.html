@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WPulse Player Hub</title>
+  <meta name="description" content="Schedule, setup guide and help for WPulse players.">
+  <meta name="theme-color" content="#060b14">
+
+  <!-- Fonts only (no scripts, no tracking). Falls back to system fonts if blocked. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- =====================================================================
+     STICKY MENU  (edit link text here; the href must match a section id)
+     ===================================================================== -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">W<span>Pulse</span></a>
+    <nav class="nav" aria-label="Page sections">
+      <a href="#schedule">Schedule</a>
+      <a href="#setup">Player setup</a>
+      <a href="#proctor">Proctor</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- =====================================================================
+     SECTION 1: HEADER / HERO
+     ===================================================================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Live Scrabble broadcast</div>
+    <h1>WPulse Player Hub</h1>
+    <p class="lead">TODO: One-line description, e.g. everything you need to set up and play in a WPulse-broadcast duel.</p>
+    <!-- TODO: replace the placeholder stream URL below -->
+    <a class="btn btn-big" href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Watch the stream</a>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 2: NEXT DUEL AND SCHEDULE
+     To add a game: copy one <tr>...</tr> row and edit it.
+     ===================================================================== -->
+<section id="schedule">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Next duel &amp; schedule</h2>
+      <p>All times shown are TODO: time zone (e.g. WAT / UTC+1).</p>
+    </div>
+
+    <!-- Next duel highlight -->
+    <div class="card next-duel">
+      <div class="label">Next duel</div>
+      <div class="players">TODO: Player A vs Player B</div>
+      <p style="margin:6px 0 12px">TODO: Day, date, time &middot; Round / notes</p>
+      <a class="btn btn-ghost" href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Stream link</a>
+    </div>
+
+    <!-- Schedule table -->
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Schedule table">
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Time</th><th>Players</th><th>Round / notes</th><th>Stream</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TODO: Mon 1 Jan</td><td>TODO: 18:00</td><td>TODO: Player A vs Player B</td><td>TODO: Round 1</td>
+            <td><a href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Watch</a></td>
+          </tr>
+          <tr>
+            <td>TODO: Tue 2 Jan</td><td>TODO: 18:00</td><td>TODO: Player C vs Player D</td><td>TODO: Round 2</td>
+            <td><a href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Watch</a></td>
+          </tr>
+          <tr>
+            <td>TODO: Wed 3 Jan</td><td>TODO: 18:00</td><td>TODO: Player E vs Player F</td><td>TODO: Semi-final</td>
+            <td><a href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Watch</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 3: PLAYER SETUP
+     Replace each ".shot-ph" box with a real image, like this:
+       <img class="shot" src="images/step-1.png" width="1280" height="720" alt="Describe the screenshot">
+     Keep 16:9 screenshots so the layout does not jump.
+     ===================================================================== -->
+<section id="setup">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Player setup</h2>
+      <p>Follow the steps in order. It takes about 5 minutes.</p>
+    </div>
+
+    <ol class="steps">
+
+      <!-- Step a: Download -->
+      <li class="step" id="step-download">
+        <h3>Download the extension</h3>
+        <p>Click the button to download the WPulse extension (a .zip file).</p>
+        <a class="btn btn-big" href="downloads/wpulse-extension.zip" download>Download extension</a>
+        <!-- VERSION + DATE: change these two values here, in ONE place -->
+        <p class="version-line">
+          Version: <strong>TODO: 0.0.0</strong> &middot; Updated: <strong>TODO: 1 Jan 2026</strong>
+        </p>
+        <div class="shot-ph">Screenshot: the downloaded zip file in your Downloads folder</div>
+      </li>
+
+      <!-- Step b: Unzip -->
+      <li class="step">
+        <h3>Unzip to a folder that stays in place</h3>
+        <p>Right-click the zip and choose <strong>Extract All</strong> (or use your unzip tool). Put the folder somewhere permanent, such as <code>Documents</code>. <strong>Do not move or delete it later</strong>, or the extension will stop working.</p>
+        <div class="shot-ph">Screenshot: the unzipped WPulse folder in its permanent location</div>
+      </li>
+
+      <!-- Step c: Load unpacked -->
+      <li class="step">
+        <h3>Load it into Chrome</h3>
+        <p>In Chrome, type <code>chrome://extensions</code> in the address bar and press Enter. Then:</p>
+        <p>1. Turn on <strong>Developer mode</strong> (top right).<br>
+           2. Click <strong>Load unpacked</strong>.<br>
+           3. Choose the unzipped WPulse folder.</p>
+        <div class="shot-ph">Screenshot: chrome://extensions with Developer mode on and the Load unpacked button</div>
+      </li>
+
+      <!-- Step d: Install ID -->
+      <li class="step">
+        <h3>Find your install ID</h3>
+        <p>Open <strong>Woogles</strong> in a game, then click the <strong>WPulse icon</strong> in the Chrome toolbar. Your install ID is shown in the popup. (Tip: click the puzzle-piece icon and pin WPulse if you cannot see it.)</p>
+        <div class="shot-ph">Screenshot: the WPulse popup showing the install ID</div>
+      </li>
+
+      <!-- Step e: Send ID -->
+      <li class="step">
+        <h3>Send your install ID and wait for approval</h3>
+        <p>Send your install ID directly to the organizer: <strong>TODO: contact line, e.g. WhatsApp / Discord / email</strong>. Then wait to be approved. The organizer will confirm when you are set.</p>
+        <div class="shot-ph">Screenshot: example message with the install ID (optional)</div>
+      </li>
+
+      <!-- Step f: Chrome notice -->
+      <li class="step">
+        <h3>If Chrome shows a developer mode notice</h3>
+        <p class="note">When Chrome starts, it may show a message about <strong>disabling developer mode extensions</strong>. <strong>Dismiss it. Do not remove the extension.</strong></p>
+        <div class="shot-ph">Screenshot: the Chrome startup notice and where to dismiss it</div>
+      </li>
+
+      <!-- Step g: Links -->
+      <li class="step">
+        <h3>Camera and screen-share links</h3>
+        <p>You will receive your links from the organizer. TODO: add any extra instructions here.</p>
+        <div class="shot-ph">Screenshot: TODO (optional)</div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 4: PROCTOR
+     ===================================================================== -->
+<section id="proctor">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Proctor</h2>
+      <p class="todo">TODO: short intro for proctors and players.</p>
+    </div>
+    <div class="grid three">
+      <div class="box">
+        <h3>What the proctor does</h3>
+        <p class="todo">TODO: describe the proctor's role.</p>
+      </div>
+      <div class="box">
+        <h3>What players must expect</h3>
+        <p class="todo">TODO: describe what players will see and be asked to do.</p>
+      </div>
+      <div class="box">
+        <h3>Rules</h3>
+        <p class="todo">TODO: list the proctoring rules.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 5: ABOUT THE STREAM
+     ===================================================================== -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About the stream</h2>
+    </div>
+    <p class="todo">TODO: short paragraph about the stream.</p>
+    <div class="grid three">
+      <div class="box">
+        <h3>Where to watch</h3>
+        <p class="todo">TODO: platform and link. <a href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Stream link</a></p>
+      </div>
+      <div class="box">
+        <h3>Format</h3>
+        <p class="todo">TODO: game format, number of games, time controls.</p>
+      </div>
+      <div class="box">
+        <h3>Rules</h3>
+        <p class="todo">TODO: tournament rules.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 6: FAQ / TROUBLESHOOTING
+     To add a question: copy one <details>...</details> block.
+     ===================================================================== -->
+<section id="faq">
+  <div class="wrap faq">
+    <div class="section-head">
+      <h2>FAQ &amp; troubleshooting</h2>
+    </div>
+
+    <details>
+      <summary>TODO: Question 1?</summary>
+      <div class="answer"><p>TODO: Answer 1.</p></div>
+    </details>
+    <details>
+      <summary>TODO: Question 2?</summary>
+      <div class="answer"><p>TODO: Answer 2.</p></div>
+    </details>
+    <details>
+      <summary>TODO: Question 3?</summary>
+      <div class="answer"><p>TODO: Answer 3.</p></div>
+    </details>
+    <details>
+      <summary>TODO: Question 4?</summary>
+      <div class="answer"><p>TODO: Answer 4.</p></div>
+    </details>
+    <details>
+      <summary>TODO: Question 5?</summary>
+      <div class="answer"><p>TODO: Answer 5.</p></div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<!-- =====================================================================
+     SECTION 7: CONTACT / FOOTER
+     ===================================================================== -->
+<footer id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>TODO: organizer name and how to reach them (email / WhatsApp / Discord).</p>
+    <p class="small">&copy; TODO: year &middot; WPulse. Not affiliated with Woogles.</p>
+  </div>
+</footer>
+
+</body>
+</html>

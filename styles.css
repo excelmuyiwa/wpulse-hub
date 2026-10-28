@@ -1,0 +1,188 @@
+/* WPulse Player Hub - styles.css
+   Colours are set once in :root below. Change them there. */
+
+:root {
+  --bg: #060b14;
+  --bg-2: #0b1424;
+  --card: #0f1b2f;
+  --line: #1c2f4a;
+  --text: #dce6f2;
+  --muted: #8da2bb;
+  --accent: #19d3c5;
+  --accent-2: #22b8ee;
+  --warn: #f5b942;
+  --head-font: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image: radial-gradient(ellipse at top, #0c2036 0%, var(--bg) 55%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--body-font);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+
+a { color: var(--accent); }
+a:hover { color: #6ff0e5; }
+
+h1, h2, h3 {
+  font-family: var(--head-font);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+  color: #fff;
+}
+h1 { font-size: clamp(2.6rem, 9vw, 4.6rem); }
+h2 { font-size: clamp(1.9rem, 6vw, 2.6rem); color: var(--accent); }
+h3 { font-size: 1.35rem; }
+
+p { margin: 0 0 1em; }
+
+.wrap { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 16px; }
+
+section { padding: 56px 0 24px; }
+.section-head { border-left: 4px solid var(--accent); padding-left: 14px; margin-bottom: 22px; }
+.section-head p { color: var(--muted); margin: 0; }
+
+/* ---------- Sticky menu ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(6, 11, 20, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar .wrap { display: flex; align-items: center; gap: 12px; }
+.brand {
+  font-family: var(--head-font); font-weight: 700; font-size: 1.3rem;
+  text-transform: uppercase; letter-spacing: 0.05em; color: #fff;
+  text-decoration: none; white-space: nowrap; padding: 12px 0;
+}
+.brand span { color: var(--accent); }
+.nav {
+  display: flex; gap: 4px; overflow-x: auto; margin-left: auto;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  color: var(--muted); text-decoration: none; white-space: nowrap;
+  padding: 14px 10px; font-size: 0.9rem; font-weight: 500;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover, .nav a:focus-visible { color: #fff; border-bottom-color: var(--accent); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block; padding: 14px 26px; border-radius: 6px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #04121a; font-weight: 700; text-decoration: none;
+  font-family: var(--head-font); font-size: 1.25rem;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.btn:hover { color: #04121a; filter: brightness(1.1); }
+.btn-big { padding: 18px 34px; font-size: 1.5rem; }
+.btn-ghost { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+.btn-ghost:hover { color: #fff; background: rgba(25, 211, 197, 0.12); }
+
+/* ---------- Header ---------- */
+.hero { padding: 64px 0 40px; }
+.eyebrow {
+  font-family: var(--head-font); color: var(--accent); letter-spacing: 0.2em;
+  text-transform: uppercase; font-size: 1.05rem; margin-bottom: 8px;
+}
+.hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 40em; }
+
+/* ---------- Cards / schedule ---------- */
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 10px; padding: 18px 20px; margin-bottom: 18px;
+}
+.next-duel { border-color: var(--accent); box-shadow: 0 0 0 1px rgba(25, 211, 197, 0.25), 0 8px 30px rgba(25, 211, 197, 0.08); }
+.next-duel .label { font-family: var(--head-font); color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; }
+.next-duel .players { font-family: var(--head-font); font-size: 2rem; text-transform: uppercase; color: #fff; line-height: 1.1; }
+
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; min-width: 560px; background: var(--card); }
+th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--head-font); text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); background: var(--bg-2); font-size: 1.05rem; }
+tr:last-child td { border-bottom: 0; }
+
+/* ---------- Setup steps ---------- */
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.step {
+  counter-increment: step; position: relative;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: 18px 20px 20px 20px; margin-bottom: 18px;
+}
+.step h3 { display: flex; align-items: center; gap: 12px; }
+.step h3::before {
+  content: counter(step); flex: none;
+  width: 2.1rem; height: 2.1rem; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #04121a; font-size: 1.25rem; font-weight: 700;
+}
+.step code, .faq code, .box code {
+  background: #0a1626; border: 1px solid var(--line); border-radius: 4px;
+  padding: 1px 6px; font-size: 0.92em; color: #9ff3ec; overflow-wrap: anywhere;
+}
+.version-line { color: var(--muted); font-size: 0.95rem; margin: 10px 0 0; }
+.version-line strong { color: var(--text); }
+.note { border-left: 3px solid var(--warn); background: rgba(245, 185, 66, 0.07); padding: 10px 14px; border-radius: 0 6px 6px 0; }
+
+/* Screenshot placeholder: aspect-ratio reserves space so layout never jumps.
+   When you add a real <img>, give it class="shot" and keep width/height attributes. */
+.shot-ph, img.shot {
+  display: block; width: 100%; max-width: 640px; aspect-ratio: 16 / 9;
+  margin: 14px 0 0; border-radius: 8px; object-fit: cover; height: auto;
+}
+.shot-ph {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 12px; color: var(--muted); font-size: 0.95rem;
+  background: repeating-linear-gradient(45deg, #0a1626, #0a1626 12px, #0d1a2e 12px, #0d1a2e 24px);
+  border: 2px dashed var(--line);
+}
+
+/* ---------- Placeholder text blocks ---------- */
+.grid { display: grid; gap: 18px; grid-template-columns: 1fr; }
+.box { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+.box h3 { color: var(--accent); }
+.box > :last-child { margin-bottom: 0; }
+.todo { color: var(--warn); }
+
+/* ---------- FAQ ---------- */
+.faq details { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; }
+.faq summary {
+  cursor: pointer; padding: 14px 18px; font-weight: 600; list-style: none;
+  display: flex; justify-content: space-between; gap: 12px; align-items: center;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--accent); font-size: 1.5rem; line-height: 1; flex: none; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details[open] summary { border-bottom: 1px solid var(--line); }
+.faq .answer { padding: 14px 18px 4px; }
+
+/* ---------- Footer ---------- */
+footer { margin-top: 56px; border-top: 1px solid var(--line); background: var(--bg-2); padding: 32px 0 40px; color: var(--muted); }
+footer h2 { font-size: 1.8rem; }
+footer p { margin-bottom: 0.5em; }
+.small { font-size: 0.85rem; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (min-width: 720px) {
+  .wrap { padding: 0 24px; }
+  body { font-size: 1.05rem; }
+  .grid.three { grid-template-columns: repeat(3, 1fr); }
+  .nav a { padding: 18px 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

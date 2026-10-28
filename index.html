@@ -21,6 +21,23 @@
 </head>
 <body>
 
+<!-- Contact icons: simple single-colour SVG symbols (inherit text colour), reused below with <use>. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+    <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M9 8.5c.3 2.6 2.9 5.2 5.5 5.5l1.3-1.3-2-1-.9.8c-.9-.4-1.9-1.4-2.3-2.3l.8-.9-1-2z" fill="currentColor"/>
+  </symbol>
+  <symbol id="icon-telegram" viewBox="0 0 24 24">
+    <path d="M21 4 3 11l5.5 2 2 6 3-3.5 4.5 3.5L21 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M8.5 13 21 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-discord" viewBox="0 0 24 24">
+    <path d="M6 6.5c1.9-1 3.8-1.5 6-1.5s4.1.5 6 1.5c1.6 2.7 2.4 5.7 2.6 9-1.6 1.3-3.2 2-4.8 2.4l-1-1.6c-.9.2-1.8.3-2.8.3s-1.9-.1-2.8-.3l-1 1.6c-1.6-.4-3.2-1.1-4.8-2.4.2-3.3 1-6.3 2.6-9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <circle cx="9" cy="12.5" r="1.4" fill="currentColor"/>
+    <circle cx="15" cy="12.5" r="1.4" fill="currentColor"/>
+  </symbol>
+</svg>
+
 <!-- =====================================================================
      STICKY MENU  (edit link text here; the href must match a section id)
      ===================================================================== -->
@@ -70,7 +87,8 @@
     <div class="card next-duel">
       <div class="label">Next duel</div>
       <div class="players">TODO: Player A vs Player B</div>
-      <p style="margin:6px 0 12px">TODO: Day, date, time &middot; Round / notes</p>
+      <p style="margin:6px 0 4px">TODO: Day, date, time &middot; Round / notes</p>
+      <p class="small" style="margin:0 0 12px">All times in WAT (UTC+1)</p>
       <!-- TODO: restore stream link when YouTube is ready -->
       <span class="btn btn-off" aria-disabled="true">Stream link coming soon</span>
     </div>
@@ -79,7 +97,7 @@
     <div class="table-scroll" tabindex="0" role="region" aria-label="Schedule table">
       <table>
         <thead>
-          <tr><th>Date</th><th>Time</th><th>Players</th><th>Round / notes</th><th>Stream</th></tr>
+          <tr><th>Date</th><th>Time (WAT, UTC+1)</th><th>Players</th><th>Round / notes</th><th>Stream</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -161,10 +179,10 @@
       <li class="step">
         <h3>Send your install ID and wait for approval</h3>
         <p>Send your install ID directly to the organizer. You can use any of these three contacts:</p>
-        <ul>
-          <li>WhatsApp: <a href="https://wa.me/2349065728333" target="_blank" rel="noopener">+234 9065728333</a></li>
-          <li>Telegram: +234 9065728333</li>
-          <li>Discord: excelmuyiwa</li>
+        <ul class="contact-list">
+          <li><svg class="ci-sm" aria-hidden="true"><use href="#icon-whatsapp"/></svg> WhatsApp: <a href="https://wa.me/2349065728333" target="_blank" rel="noopener">+234 9065728333</a></li>
+          <li><svg class="ci-sm" aria-hidden="true"><use href="#icon-telegram"/></svg> Telegram: <a href="https://t.me/ExcelMuyiwa" target="_blank" rel="noopener">@ExcelMuyiwa</a></li>
+          <li><svg class="ci-sm" aria-hidden="true"><use href="#icon-discord"/></svg> Discord: <span class="handle">excelmuyiwa.</span></li>
         </ul>
         <p>Send these <strong>three things in one message</strong>: your <strong>install ID</strong>, your <strong>name</strong>, and your <strong>Woogles username(s)</strong>.</p>
         <p>Then wait to be approved. The organizer will confirm when you are set.</p>
@@ -260,7 +278,7 @@
     <div class="section-head">
       <h2>About the stream</h2>
     </div>
-    <p class="todo">TODO: short paragraph about the stream.</p>
+    <p>WPulse Gaming is a live stream channel featuring competitive online Scrabble duels between players from around the world, played on Woogles.io. Our series is called <strong>WPulse Duels</strong>.</p>
     <div class="grid three">
       <div class="box">
         <h3>Where to watch</h3>
@@ -269,11 +287,14 @@
       </div>
       <div class="box">
         <h3>Format</h3>
-        <p class="todo">TODO: game format, number of games, time controls.</p>
+        <p><strong>Format:</strong> matches are Best of 7, 9, 11 or 15 games (first to 4, 5, 6 or 8 wins).</p>
+        <p><strong>Time controls:</strong> rapid and blitz, between 5 and 10 minutes.</p>
       </div>
       <div class="box">
         <h3>Rules</h3>
-        <p class="todo">TODO: tournament rules.</p>
+        <p><strong>Games:</strong> online Scrabble on Woogles.io, strictly CSW lexicon.</p>
+        <p><strong>Players:</strong> from all over the world.</p>
+        <p><strong>Time zone:</strong> all times on this page are in WAT (West Africa Time, UTC+1). Please convert to your own time zone.</p>
       </div>
     </div>
   </div>
@@ -320,11 +341,20 @@
 <footer id="contact">
   <div class="wrap">
     <h2>Contact</h2>
-    <ul>
-      <li>WhatsApp: <a href="https://wa.me/2349065728333" target="_blank" rel="noopener">+234 9065728333</a></li>
-      <li>Telegram: +234 9065728333</li>
-      <li>Discord: excelmuyiwa</li>
-    </ul>
+    <div class="contact-cards">
+      <a class="contact-card" href="https://wa.me/2349065728333" target="_blank" rel="noopener">
+        <svg class="ci" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+        <span class="cc-text"><span class="cc-name">WhatsApp</span><span class="cc-handle">+234 9065728333</span></span>
+      </a>
+      <a class="contact-card" href="https://t.me/ExcelMuyiwa" target="_blank" rel="noopener">
+        <svg class="ci" aria-hidden="true"><use href="#icon-telegram"/></svg>
+        <span class="cc-text"><span class="cc-name">Telegram</span><span class="cc-handle">@ExcelMuyiwa</span></span>
+      </a>
+      <div class="contact-card is-static">
+        <svg class="ci" aria-hidden="true"><use href="#icon-discord"/></svg>
+        <span class="cc-text"><span class="cc-name">Discord</span><span class="cc-handle">excelmuyiwa.</span></span>
+      </div>
+    </div>
     <p class="small">&copy; TODO: year &middot; WPulse. Not affiliated with Woogles.</p>
   </div>
 </footer>

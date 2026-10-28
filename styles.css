@@ -164,6 +164,9 @@ tr:last-child td { border-bottom: 0; }
 .box h3 { color: var(--accent); }
 .box > :last-child { margin-bottom: 0; }
 .todo { color: var(--warn); }
+.rules-list { margin: 0; padding-left: 1.2em; }
+.rules-list li { margin-bottom: 0.5em; }
+.rules-list li::marker { color: var(--accent); }
 
 /* ---------- FAQ ---------- */
 .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; }
@@ -219,6 +222,7 @@ a.contact-card:hover, a.contact-card:focus-visible {
   .wrap { padding: 0 24px; }
   body { font-size: 1.05rem; }
   .grid.three { grid-template-columns: repeat(3, 1fr); }
+  .grid.two { grid-template-columns: repeat(2, 1fr); }
   .nav a { padding: 18px 12px; }
 }
 

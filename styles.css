@@ -151,6 +151,8 @@ tr:last-child td { border-bottom: 0; }
   display: block; width: 100%; max-width: 640px; aspect-ratio: 16 / 9;
   margin: 14px 0 0; border-radius: 8px; object-fit: cover; height: auto;
 }
+img.shot { object-fit: contain; border: 1px solid var(--line); background: var(--bg-2); }
+.shot-ph.shot-wide { max-width: 960px; margin-top: 0; }
 .shot-ph {
   display: flex; align-items: center; justify-content: center; text-align: center;
   padding: 12px; color: var(--muted); font-size: 0.95rem;
@@ -167,6 +169,9 @@ tr:last-child td { border-bottom: 0; }
 .rules-list { margin: 0; padding-left: 1.2em; }
 .rules-list li { margin-bottom: 0.5em; }
 .rules-list li::marker { color: var(--accent); }
+.check-list { list-style: none; margin: 0; padding: 0; }
+.check-list li { position: relative; padding-left: 1.7em; margin-bottom: 0.5em; }
+.check-list li::before { content: "\2713"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 
 /* ---------- FAQ ---------- */
 .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; }

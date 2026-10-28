@@ -13,6 +13,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Inactive "coming soon" stream label (no link). Remove with the TODO comments when the stream is ready. */
+    .btn-off { background: #16253b; color: #8da2bb; border: 2px dashed #2a4263; cursor: not-allowed; user-select: none; }
+    .off-text { color: #8da2bb; font-style: italic; }
+  </style>
 </head>
 <body>
 
@@ -45,7 +50,8 @@
     <h1>WPulse Player Hub</h1>
     <p class="lead">TODO: One-line description, e.g. everything you need to set up and play in a WPulse-broadcast duel.</p>
     <!-- TODO: replace the placeholder stream URL below -->
-    <a class="btn btn-big" href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Watch the stream</a>
+    <!-- TODO: restore stream link when YouTube is ready -->
+    <span class="btn btn-big btn-off" aria-disabled="true">Stream link coming soon</span>
   </div>
 </section>
 
@@ -65,7 +71,8 @@
       <div class="label">Next duel</div>
       <div class="players">TODO: Player A vs Player B</div>
       <p style="margin:6px 0 12px">TODO: Day, date, time &middot; Round / notes</p>
-      <a class="btn btn-ghost" href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Stream link</a>
+      <!-- TODO: restore stream link when YouTube is ready -->
+      <span class="btn btn-off" aria-disabled="true">Stream link coming soon</span>
     </div>
 
     <!-- Schedule table -->
@@ -77,15 +84,18 @@
         <tbody>
           <tr>
             <td>TODO: Mon 1 Jan</td><td>TODO: 18:00</td><td>TODO: Player A vs Player B</td><td>TODO: Round 1</td>
-            <td><a href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Watch</a></td>
+            <!-- TODO: restore stream link when YouTube is ready -->
+            <td><span class="off-text">Stream link coming soon</span></td>
           </tr>
           <tr>
             <td>TODO: Tue 2 Jan</td><td>TODO: 18:00</td><td>TODO: Player C vs Player D</td><td>TODO: Round 2</td>
-            <td><a href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Watch</a></td>
+            <!-- TODO: restore stream link when YouTube is ready -->
+            <td><span class="off-text">Stream link coming soon</span></td>
           </tr>
           <tr>
             <td>TODO: Wed 3 Jan</td><td>TODO: 18:00</td><td>TODO: Player E vs Player F</td><td>TODO: Semi-final</td>
-            <td><a href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Watch</a></td>
+            <!-- TODO: restore stream link when YouTube is ready -->
+            <td><span class="off-text">Stream link coming soon</span></td>
           </tr>
         </tbody>
       </table>
@@ -150,7 +160,14 @@
       <!-- Step e: Send ID -->
       <li class="step">
         <h3>Send your install ID and wait for approval</h3>
-        <p>Send your install ID directly to the organizer: <strong>TODO: contact line, e.g. WhatsApp / Discord / email</strong>. Then wait to be approved. The organizer will confirm when you are set.</p>
+        <p>Send your install ID directly to the organizer. You can use any of these three contacts:</p>
+        <ul>
+          <li>WhatsApp: <a href="https://wa.me/2349065728333" target="_blank" rel="noopener">+234 9065728333</a></li>
+          <li>Telegram: +234 9065728333</li>
+          <li>Discord: excelmuyiwa</li>
+        </ul>
+        <p>Send these <strong>three things in one message</strong>: your <strong>install ID</strong>, your <strong>name</strong>, and your <strong>Woogles username(s)</strong>.</p>
+        <p>Then wait to be approved. The organizer will confirm when you are set.</p>
         <div class="shot-ph">Screenshot: example message with the install ID (optional)</div>
       </li>
 
@@ -247,7 +264,8 @@
     <div class="grid three">
       <div class="box">
         <h3>Where to watch</h3>
-        <p class="todo">TODO: platform and link. <a href="https://example.com/TODO-stream-url" target="_blank" rel="noopener">Stream link</a></p>
+        <!-- TODO: restore stream link when YouTube is ready -->
+        <p class="todo">TODO: platform and link. <span class="off-text">Stream link coming soon</span></p>
       </div>
       <div class="box">
         <h3>Format</h3>
@@ -302,7 +320,11 @@
 <footer id="contact">
   <div class="wrap">
     <h2>Contact</h2>
-    <p>TODO: organizer name and how to reach them (email / WhatsApp / Discord).</p>
+    <ul>
+      <li>WhatsApp: <a href="https://wa.me/2349065728333" target="_blank" rel="noopener">+234 9065728333</a></li>
+      <li>Telegram: +234 9065728333</li>
+      <li>Discord: excelmuyiwa</li>
+    </ul>
     <p class="small">&copy; TODO: year &middot; WPulse. Not affiliated with Woogles.</p>
   </div>
 </footer>

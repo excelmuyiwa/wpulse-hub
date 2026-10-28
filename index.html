@@ -25,6 +25,7 @@
     <nav class="nav" aria-label="Page sections">
       <a href="#schedule">Schedule</a>
       <a href="#setup">Player setup</a>
+      <a href="#update">Update</a>
       <a href="#proctor">Proctor</a>
       <a href="#about">About</a>
       <a href="#faq">FAQ</a>
@@ -114,7 +115,7 @@
         <a class="btn btn-big" href="downloads/wpulse-extension.zip" download>Download extension</a>
         <!-- VERSION + DATE: change these two values here, in ONE place -->
         <p class="version-line">
-          Version: <strong>TODO: 0.0.0</strong> &middot; Updated: <strong>TODO: 1 Jan 2026</strong>
+          Version: <strong>1.2.0</strong> &middot; Updated: <strong>28 Oct 2026</strong>
         </p>
         <div class="shot-ph">Screenshot: the downloaded zip file in your Downloads folder</div>
       </li>
@@ -122,8 +123,10 @@
       <!-- Step b: Unzip -->
       <li class="step">
         <h3>Unzip to a folder that stays in place</h3>
-        <p>Right-click the zip and choose <strong>Extract All</strong> (or use your unzip tool). Put the folder somewhere permanent, such as <code>Documents</code>. <strong>Do not move or delete it later</strong>, or the extension will stop working.</p>
+        <p>Right-click the zip and choose <strong>Extract All</strong>. Keep the extracted folder somewhere permanent, such as <code>Documents</code>. <strong>Do not move or delete it afterwards</strong>, or the extension will stop working.</p>
+        <p>The zip also contains a file called <code>HOW TO INSTALL.txt</code> with the same steps.</p>
         <div class="shot-ph">Screenshot: the unzipped WPulse folder in its permanent location</div>
+        <div class="shot-ph">Screenshot: the extracted folder showing the inner 'WPulse Extension' folder</div>
       </li>
 
       <!-- Step c: Load unpacked -->
@@ -132,7 +135,8 @@
         <p>In Chrome, type <code>chrome://extensions</code> in the address bar and press Enter. Then:</p>
         <p>1. Turn on <strong>Developer mode</strong> (top right).<br>
            2. Click <strong>Load unpacked</strong>.<br>
-           3. Choose the unzipped WPulse folder.</p>
+           3. Open the extracted folder, then select the inner folder called <strong><code>WPulse Extension</code></strong> (the one that contains <code>manifest.json</code>), <strong>not the outer folder</strong>.</p>
+        <p class="note"><strong>Tip:</strong> if Chrome says <strong>"Manifest file is missing"</strong>, you picked the outer folder. Go one level deeper.</p>
         <div class="shot-ph">Screenshot: chrome://extensions with Developer mode on and the Load unpacked button</div>
       </li>
 
@@ -164,6 +168,43 @@
         <div class="shot-ph">Screenshot: TODO (optional)</div>
       </li>
 
+    </ol>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 3b: HOW TO UPDATE WPULSE
+     ===================================================================== -->
+<section id="update">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How to update WPulse</h2>
+      <p>When a new version is released, follow these steps.</p>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <h3>Download the new zip</h3>
+        <p>Download it from the <a href="#step-download">Player setup</a> section of this page. Check the <strong>Version</strong> line to make sure it is newer than yours.</p>
+      </li>
+
+      <li class="step">
+        <h3>Replace the old folder</h3>
+        <p>Close your Woogles tab. Delete the old extracted folder, then extract the new zip to the <strong>same place as before</strong> (the same folder location).</p>
+      </li>
+
+      <li class="step">
+        <h3>Refresh the extension</h3>
+        <p>Open <code>chrome://extensions</code> and click the <strong>refresh</strong> button (the circular arrow) on the WPulse card. <strong>Do not remove the extension.</strong></p>
+        <div class="shot-ph">Screenshot: the WPulse card on chrome://extensions with the refresh (circular arrow) button</div>
+      </li>
+
+      <li class="step">
+        <h3>Reload Woogles</h3>
+        <p>Reload your Woogles tab.</p>
+        <!-- TODO: organizer is still verifying that the install ID survives an update. Confirm or remove the note below before publishing. -->
+        <p class="note">Your install ID stays the same, so you do not need to be approved again.</p>
+      </li>
     </ol>
   </div>
 </section>

@@ -80,15 +80,22 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Next duel &amp; schedule</h2>
-      <p>All times shown are TODO: time zone (e.g. WAT / UTC+1).</p>
+      <p>All times in WAT (UTC+1).</p>
     </div>
 
     <!-- Next duel highlight -->
     <div class="card next-duel">
       <div class="label">Next duel</div>
-      <div class="players">TODO: Player A vs Player B</div>
-      <p style="margin:6px 0 4px">TODO: Day, date, time &middot; Round / notes</p>
-      <p class="small" style="margin:0 0 12px">All times in WAT (UTC+1)</p>
+      <div class="players">Enoch Nwali vs Doko Oluwatimilehin</div>
+      <p class="duel-when">Saturday, 7 November 2026 &middot; 4:00 PM WAT</p>
+      <p class="small duel-tz">16:00 WAT (UTC+1) &middot; 15:00 UTC &middot; All times in WAT (UTC+1)</p>
+      <dl class="duel-details">
+        <div><dt>Format</dt><dd>Best of 15 (first to 8 wins)</dd></div>
+        <div><dt>Time control</dt><dd>10 minutes per player + 1 minute overtime</dd></div>
+        <div><dt>Challenge rule</dt><dd>10-point challenge</dd></div>
+        <div><dt>Lexicon</dt><dd>CSW24</dd></div>
+        <div><dt>Platform</dt><dd>Woogles.io</dd></div>
+      </dl>
       <!-- TODO: restore stream link when YouTube is ready -->
       <span class="btn btn-off" aria-disabled="true">Stream link coming soon</span>
     </div>
@@ -97,21 +104,15 @@
     <div class="table-scroll" tabindex="0" role="region" aria-label="Schedule table">
       <table>
         <thead>
-          <tr><th>Date</th><th>Time (WAT, UTC+1)</th><th>Players</th><th>Round / notes</th><th>Stream</th></tr>
+          <tr><th>Date</th><th>Time (WAT, UTC+1)</th><th>Players</th><th>Format / rules</th><th>Stream</th></tr>
         </thead>
         <tbody>
+          <!-- To add a duel, copy this whole row and edit the text. -->
           <tr>
-            <td>TODO: Mon 1 Jan</td><td>TODO: 18:00</td><td>TODO: Player A vs Player B</td><td>TODO: Round 1</td>
-            <!-- TODO: restore stream link when YouTube is ready -->
-            <td><span class="off-text">Stream link coming soon</span></td>
-          </tr>
-          <tr>
-            <td>TODO: Tue 2 Jan</td><td>TODO: 18:00</td><td>TODO: Player C vs Player D</td><td>TODO: Round 2</td>
-            <!-- TODO: restore stream link when YouTube is ready -->
-            <td><span class="off-text">Stream link coming soon</span></td>
-          </tr>
-          <tr>
-            <td>TODO: Wed 3 Jan</td><td>TODO: 18:00</td><td>TODO: Player E vs Player F</td><td>TODO: Semi-final</td>
+            <td>Saturday, 7 November 2026</td>
+            <td>4:00 PM WAT (16:00)<br><span class="small off-text">15:00 UTC</span></td>
+            <td>Enoch Nwali vs Doko Oluwatimilehin</td>
+            <td>Best of 15 (first to 8 wins)<br>10 min per player + 1 min overtime<br>10-point challenge<br>CSW24 &middot; Woogles.io</td>
             <!-- TODO: restore stream link when YouTube is ready -->
             <td><span class="off-text">Stream link coming soon</span></td>
           </tr>

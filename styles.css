@@ -110,6 +110,13 @@ section { padding: 56px 0 24px; }
 .next-duel .label { font-family: var(--head-font); color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; }
 .next-duel .players { font-family: var(--head-font); font-size: 2rem; text-transform: uppercase; color: #fff; line-height: 1.1; }
 
+.next-duel .duel-when { font-size: 1.25rem; font-weight: 600; margin: 8px 0 2px; }
+.next-duel .duel-tz { color: var(--muted); margin: 0 0 14px; }
+.duel-details { display: grid; grid-template-columns: 1fr; gap: 8px 24px; margin: 0 0 16px; }
+.duel-details dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+.duel-details dd { margin: 0; font-size: 0.95rem; }
+@media (min-width: 720px) { .duel-details { grid-template-columns: 1fr 1fr; } }
+
 .table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
 table { width: 100%; border-collapse: collapse; min-width: 560px; background: var(--card); }
 th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }

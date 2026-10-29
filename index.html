@@ -118,13 +118,16 @@
      ===================================================================== -->
 <section class="hero">
   <div class="wrap">
-    <div class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Live Scrabble broadcast</div>
+    <div class="eyebrow">PROCTORED SCRABBLE DUELS</div>
     <h1>WPulse Player Hub</h1>
-    <div class="rack" aria-hidden="true"><span class="tile" style="--i:0">W<sub>4</sub></span><span class="tile" style="--i:1">P<sub>3</sub></span><span class="tile" style="--i:2">U<sub>1</sub></span><span class="tile" style="--i:3">L<sub>1</sub></span><span class="tile" style="--i:4">S<sub>1</sub></span><span class="tile" style="--i:5">E<sub>1</sub></span></div>
-    <p class="lead">WPulse Gaming streams online Scrabble matches on Woogles.io, with live commentary, live game information and player cameras.</p>
-    <p class="lead">Here you can apply to play, install the extension, get ready for match day, and find schedules and rules.</p>
-    <!-- TODO: replace the channel link with the specific live stream URL when one is available -->
-    <a class="btn btn-big" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>WPulse on YouTube</a>
+    <p class="spec-strip"><span>WOOGLES.IO LIVE SYNC</span><span>PROCTORED MATCHES</span><span>BROADCAST-READY</span></p>
+    <p class="lead">WPulse Gaming broadcasts proctored Scrabble duels played on Woogles.io, with live commentary, real-time game information and player cameras.</p>
+    <p class="lead">This is where players apply to play, install the WPulse extension, set up for match day, and find the schedule, fair-play rules and contacts.</p>
+    <div class="hero-cta">
+      <a class="btn btn-big btn-primary" href="#setup"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Install Extension</a>
+      <!-- TODO: replace the channel link with the specific live stream URL when one is available -->
+      <a class="btn btn-big btn-ghost btn-outline" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>WPulse on YouTube</a>
+    </div>
   </div>
 </section>
 
@@ -143,7 +146,7 @@
     <!-- Next duel highlight. The countdown reads data-start on the next line's div: update data-start whenever the next duel changes. -->
     <div class="card next-duel" data-start="2026-11-07T16:00:00+01:00">
       <div class="label">Next duel</div>
-      <div class="players">Enoch Nwali vs Doko Oluwatimilehin</div>
+      <div class="players"><span class="player">Enoch Nwali</span><span class="vs">vs</span><span class="player">Doko Oluwatimilehin</span></div>
       <dl class="duel-details">
         <div class="duel-wide"><dt><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg>Date and time</dt><dd>Saturday, 7 November 2026 &middot; 4:00 PM WAT<span class="duel-tz">16:00 WAT (UTC+1) &middot; 15:00 UTC</span></dd></div>
         <div><dt><svg class="ic" aria-hidden="true"><use href="#i-layout"/></svg>Format</dt><dd>Best of 15 (first to 8 wins)</dd></div>
@@ -399,8 +402,8 @@
           <li>Open your camera link on the phone. Choose the front camera and the default microphone, then start.</li>
           <li>Keep the browser tab open on the phone for the whole duel.</li>
         </ol>
-        <!-- TODO: replace with screenshot (suggested filename: images/setup-phone-placement.png) -->
-        <div class="shot-ph"><svg class="ic ph-ic" aria-hidden="true"><use href="#i-image"/></svg>Screenshot or diagram: ideal phone placement</div>
+        <img class="shot" src="images/phone-placement.png" width="2731" height="1536" loading="lazy" alt="Ideal phone placement: the phone stands in landscape on a tripod beside the desk, plugged in, with Do Not Disturb on, so its camera sees you from the side with your hands and screen in view.">
+
       </div>
       <div class="box acc-info">
         <h3><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg>Screen share</h3>
@@ -410,8 +413,8 @@
           <li>Select the screen where Woogles is running and turn on "share audio". Audio sharing is required.</li>
           <li>Start sharing, then minimize that window. Do not close it.</li>
         </ol>
-        <!-- TODO: replace with screenshot (suggested filename: images/setup-share-screen.png) -->
-        <div class="shot-ph"><svg class="ic ph-ic" aria-hidden="true"><use href="#i-image"/></svg>Screenshot: choosing the entire screen</div>
+        <img class="shot" src="images/screenshare.png" width="1919" height="1079" loading="lazy" alt="The browser's 'Choose what to share' window with the Entire Screen tab selected and 'Share with system audio' switched on.">
+
       </div>
     </div>
 
@@ -457,27 +460,34 @@
   <div class="wrap">
     <div class="section-head">
       <h2>About the stream</h2>
+      <p>WPulse Gaming streams online Scrabble matches with live commentary, live game information and player cameras. Matches are played on Woogles.io under the rules announced for each event.</p>
     </div>
-    <p>WPulse Gaming streams online Scrabble matches with live commentary, live game information and player cameras. Matches are played on Woogles.io under the rules announced for each event.</p>
-    <div class="grid three">
+    <div class="grid three about-cards">
       <div class="box">
         <h3><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>Where to watch</h3>
         <!-- TODO: replace the channel link with the specific live stream URL when one is available -->
-        <p>WPulse Gaming on <a class="btn btn-ghost btn-sm" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>YouTube</a>.</p>
+        <dl class="facts">
+          <div><dt>Channel</dt><dd>WPulse Gaming on YouTube.</dd></div>
+        </dl>
+        <a class="btn btn-ghost" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>WPulse on YouTube</a>
       </div>
       <div class="box">
         <h3><svg class="ic" aria-hidden="true"><use href="#i-layout"/></svg>Format</h3>
-        <p><strong>Format:</strong> matches are Best of 7, 9, 11 or 15 games (first to 4, 5, 6 or 8 wins).</p>
-        <p><strong>Time controls:</strong> rapid and blitz, between 5 and 10 minutes.</p>
-        <p class="small"><em>These are general descriptions. The specific match announcement is the source of truth.</em></p>
+        <dl class="facts">
+          <div><dt>Format</dt><dd>Matches are Best of 7, 9, 11 or 15 games (first to 4, 5, 6 or 8 wins).</dd></div>
+          <div><dt>Time controls</dt><dd>Rapid and blitz, between 5 and 10 minutes.</dd></div>
+        </dl>
       </div>
       <div class="box">
         <h3><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Rules</h3>
-        <p><strong>Games:</strong> online Scrabble on Woogles.io, strictly CSW lexicon.</p>
-        <p><strong>Players:</strong> from all over the world.</p>
-        <p><strong>Time zone:</strong> all times are in West Africa Time (WAT, UTC+1).</p>
+        <dl class="facts">
+          <div><dt>Games</dt><dd>Online Scrabble on Woogles.io, strictly CSW lexicon.</dd></div>
+          <div><dt>Players</dt><dd>From all over the world.</dd></div>
+          <div><dt>Time zone</dt><dd>All times are in West Africa Time (WAT, UTC+1).</dd></div>
+        </dl>
       </div>
     </div>
+    <p class="small about-note"><em>These are general descriptions. The specific match announcement is the source of truth.</em></p>
   </div>
 </section>
 
@@ -536,7 +546,19 @@
       </div>
     </div>
 
-    <img class="shot shot-wide" src="images/game-banner.png" width="1652" height="929" loading="lazy" alt="The game result banner appearing over the stream when a game ends: 'Player A wins', with the final score of 441 to 383.">
+    <!-- Game result banner, dark / light: CSS-only tabs (same pattern as above). -->
+    <div class="theme-tabs cards-gap">
+      <input type="radio" name="banner-theme" id="banner-dark" checked>
+      <input type="radio" name="banner-theme" id="banner-light">
+      <div class="tab-labels">
+        <label for="banner-dark">Dark theme</label>
+        <label for="banner-light">Light theme</label>
+      </div>
+      <div class="tab-panels">
+        <img class="shot shot-wide" src="images/game-banner-dark-mode.png" width="1919" height="1079" loading="lazy" alt="The game result banner in the dark theme, shown over the stream when a game ends: 'Game tied', with the final scores.">
+        <img class="shot shot-wide" src="images/game-banner.png" width="1652" height="929" loading="lazy" alt="The game result banner in the light theme: 'Player A wins', with the final score of 441 to 383.">
+      </div>
+    </div>
 
 
     <p class="note" style="margin-top:22px">Because both racks are visible on the stream, players must not watch or listen to it during a game. See <a href="#proctor">Fair play and the proctor</a>.</p>

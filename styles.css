@@ -106,9 +106,10 @@ section { padding: 56px 0 24px; }
 /* ---------- Header ---------- */
 .hero { padding: 64px 0 40px; }
 .eyebrow {
-  font-family: var(--head-font); color: var(--accent); letter-spacing: 0.2em;
-  text-transform: uppercase; font-size: 1.05rem; margin-bottom: 8px;
-  display: flex; align-items: center; gap: 0.6em;
+  display: inline-flex; align-items: center; margin-bottom: 14px; padding: 4px 14px;
+  font-family: var(--body-font); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #38bdf8; background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: 9999px;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
 }
 .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 40em; }
 
@@ -297,17 +298,7 @@ main > section:not(.hero)::before {
   mask-image: linear-gradient(#000 25%, transparent);
 }
 .hero .wrap { position: relative; z-index: 1; }
-.live-dot { position: relative; flex: none; width: 0.6em; height: 0.6em; border-radius: 50%; background: var(--bad); }
-.live-dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--bad); opacity: 0; }
 
-.rack { display: flex; gap: 6px; margin: 6px 0 18px; }
-.tile {
-  position: relative; flex: none; width: 44px; height: 44px; border-radius: 6px;
-  background: linear-gradient(145deg, #f6e7c1, #e2c98f); color: #2a2111;
-  font-family: var(--head-font); font-weight: 700; font-size: 1.9rem; line-height: 44px; text-align: center;
-  box-shadow: 0 2px 0 #b99a5a, 0 6px 10px rgba(0, 0, 0, 0.35); user-select: none;
-}
-.tile sub { position: absolute; right: 4px; bottom: 3px; font-family: var(--body-font); font-size: 0.6rem; font-weight: 700; line-height: 1; }
 
 /* Button sheen */
 .btn:not(.btn-ghost):not(.btn-off)::after {
@@ -413,6 +404,15 @@ footer::before { content: ""; position: absolute; top: -1px; left: 0; right: 0; 
 }
 .copy-msg:empty { display: none; }
 
+/* About the stream: labelled facts, cards that fill their row evenly, button pinned to the bottom */
+.about-cards .box { display: flex; flex-direction: column; border-top: 2px solid rgba(25, 211, 197, 0.5); }
+.about-cards .box > .btn { align-self: flex-start; margin-top: auto; padding: 9px 18px; font-size: 1.05rem; white-space: nowrap; }
+.about-cards .box > .btn .ic { margin-right: 0.4em; }
+.about-note { margin: 12px 0 0; color: var(--muted); }
+.facts { margin: 0 0 14px; display: grid; gap: 12px; }
+.facts dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+.facts dd { margin: 2px 0 0; }
+
 /* Stream preview: wide images and CSS-only dark/light tabs */
 img.shot.shot-wide { max-width: 960px; }
 .theme-tabs { position: relative; }
@@ -423,13 +423,15 @@ img.shot.shot-wide { max-width: 960px; }
   color: var(--muted); font-family: var(--head-font); font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase;
 }
 .tab-labels label:hover { color: #fff; border-color: var(--accent); }
-#theme-dark:checked ~ .tab-labels label[for="theme-dark"],
-#theme-light:checked ~ .tab-labels label[for="theme-light"] { background: rgba(25, 211, 197, 0.14); border-color: var(--accent); color: #fff; }
-#theme-dark:focus-visible ~ .tab-labels label[for="theme-dark"],
-#theme-light:focus-visible ~ .tab-labels label[for="theme-light"] { outline: 2px solid var(--accent); outline-offset: 2px; }
-.tab-panels .tab-light { display: none; }
-#theme-light:checked ~ .tab-panels .tab-dark { display: none; }
-#theme-light:checked ~ .tab-panels .tab-light { display: block; }
+/* Generic: first radio + first label + first panel, second radio + second label + second panel */
+.theme-tabs > input:nth-of-type(1):checked ~ .tab-labels label:nth-child(1),
+.theme-tabs > input:nth-of-type(2):checked ~ .tab-labels label:nth-child(2) { background: rgba(25, 211, 197, 0.14); border-color: var(--accent); color: #fff; }
+.theme-tabs > input:nth-of-type(1):focus-visible ~ .tab-labels label:nth-child(1),
+.theme-tabs > input:nth-of-type(2):focus-visible ~ .tab-labels label:nth-child(2) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tab-panels > :nth-child(2) { display: none; }
+.theme-tabs > input:nth-of-type(2):checked ~ .tab-panels > :nth-child(1) { display: none; }
+.theme-tabs > input:nth-of-type(2):checked ~ .tab-panels > :nth-child(2) { display: block; }
+.theme-tabs + .theme-tabs, .cards-gap { margin-top: 22px; }
 
 /* Collapsible secondary rules (details/summary, works without script) */
 .rule-stack { display: grid; gap: 10px; margin-top: 18px; }
@@ -566,9 +568,6 @@ img.shot.shot-wide { max-width: 960px; }
 
 /* Phones: sizes for the design-upgrade elements (after the compact block above) */
 @media (max-width: 719px) {
-  .rack { gap: 5px; margin: 4px 0 14px; }
-  .tile { width: 34px; height: 34px; line-height: 34px; font-size: 1.45rem; border-radius: 5px; }
-  .tile sub { font-size: 0.5rem; right: 3px; bottom: 2px; }
   .next-duel .players { font-size: 1.45rem; }
   .next-duel::before { width: 900px; height: 900px; margin: -450px 0 0 -450px; }
   .apply-grid { gap: 8px; }
@@ -591,6 +590,10 @@ img.shot.shot-wide { max-width: 960px; }
     background: linear-gradient(90deg, transparent, rgba(6, 11, 20, 0.96));
   }
   .tab-labels label { padding: 7px 14px; font-size: 0.9rem; }
+  .facts { gap: 9px; margin-bottom: 10px; }
+  .facts dd { font-size: 0.8125rem; }
+  .about-cards .box > .btn { padding: 8px 14px; font-size: 0.85rem; }
+  .about-note { margin-top: 10px; }
   .box.rule-details > summary { padding: 10px 12px; }
   .rule-details[open] > summary { margin-bottom: 8px; }
   .rule-details .rule-body { padding: 0 12px 10px; }
@@ -603,6 +606,82 @@ img.shot.shot-wide { max-width: 960px; }
   .copy-msg { right: 52px; }
 }
 
+/* ===================== Hero: broadcast command-center look ===================== */
+.hero {
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 30%, rgba(6, 182, 212, 0.12), transparent 75%),
+    radial-gradient(ellipse 60% 70% at 15% 0%, rgba(25, 211, 197, 0.16), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 92% 10%, rgba(34, 184, 238, 0.10), transparent 70%);
+}
+.hero h1 {
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, #FFFFFF 40%, #BAE6FD 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.spec-strip {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin: 10px 0 18px;
+  font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: #94a3b8; opacity: 0.85;
+}
+.spec-strip span:not(:last-child)::after { content: "\2022"; margin-left: 12px; color: rgba(6, 182, 212, 0.7); }
+.hero p.lead { color: #94a3b8; line-height: 1.6; max-width: 620px; }
+.hero p.lead:first-of-type { color: #cbd5e1; }
+.hero-cta { margin-top: 20px; }
+@media (min-width: 720px) {
+  .hero h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); }
+}
+
+/* ===================== Hero CTA row and Next duel card refresh ===================== */
+
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.hero-cta .btn { margin: 0; }
+.btn.btn-primary { background: #06b6d4; color: #0f172a; font-weight: 600; }
+.btn.btn-primary:hover { color: #0f172a; filter: none; background: #22d3ee; }
+.btn.btn-outline { background: transparent; border: 2px solid #06b6d4; color: #06b6d4; font-weight: 600; }
+.btn.btn-outline:hover { background: rgba(6, 182, 212, 0.1); color: #67e8f9; border-color: #22d3ee; box-shadow: 0 0 16px rgba(6, 182, 212, 0.5); }
+
+/* Sidebar: active anchor gets a cyan track */
+@media (min-width: 1400px) {
+  .toc a.is-active { border-left: 2px solid #06b6d4; background: linear-gradient(90deg, rgba(6, 182, 212, 0.14), transparent); }
+}
+
+/* Next duel: versus header */
+.next-duel .players {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px;
+  font-size: 1.7rem; font-weight: 700; letter-spacing: 0.06em; line-height: 1.15; text-transform: uppercase;
+}
+.next-duel .players .vs {
+  flex: none; padding: 2px 12px; border-radius: 999px; font-size: 0.8rem; letter-spacing: 0.18em;
+  color: #67e8f9; background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.6);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.35);
+}
+
+/* Countdown badge: glowing status dot */
+.countdown { display: inline-flex; align-items: center; gap: 0.55em; }
+.countdown::before {
+  content: ""; flex: none; width: 0.55em; height: 0.55em; border-radius: 50%;
+  background: #22d3ee; box-shadow: 0 0 8px #22d3ee;
+}
+
+/* Next duel: label / value hierarchy (icons keep their original colour) */
+.duel-details dt { color: rgba(103, 232, 249, 0.75); letter-spacing: 0.05em; }
+.duel-details dt .ic { color: var(--accent); }
+.duel-details dd { color: #f8fafc; font-weight: 500; }
+.duel-details .duel-wide dd { font-weight: 600; }
+.duel-details dd .duel-tz { color: var(--muted); font-weight: 400; }
+.duel-details dd .duel-local { color: var(--accent); font-weight: 600; }
+
+/* Next duel: card shadow and inner top highlight (the highlight sits on the card face layer, which covers the card's own inset shadow) */
+.next-duel { box-shadow: inset 0 1px 0 rgba(6, 182, 212, 0.3), 0 10px 30px rgba(0, 0, 0, 0.45); }
+.next-duel::after { box-shadow: inset 0 1px 0 rgba(6, 182, 212, 0.3); }
+
+/* Below 768px: single columns */
+@media (max-width: 767px) {
+  .hero-cta { flex-direction: column; align-items: stretch; }
+  .hero-cta .btn { text-align: center; }
+  .next-duel .players { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 1.5rem; }
+  .duel-details { grid-template-columns: 1fr; }
+}
+
 /* ===================== Motion: transform and opacity only ===================== */
 @media (prefers-reduced-motion: no-preference) {
   .btn, .box, .card, .step { transition: transform 0.2s ease, border-color 0.2s ease; }
@@ -612,15 +691,9 @@ img.shot.shot-wide { max-width: 960px; }
   .rule-details[open] .rule-body { animation: ans-in 0.25s ease; }
   .btn:active { transform: translateY(0) scale(0.98); }
 
-  .live-dot::after { animation: live-pulse 1.8s ease-out infinite; }
-  @keyframes live-pulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2.8); opacity: 0; } }
+  .countdown::before { animation: dot-pulse 1.8s ease-in-out infinite; }
+  @keyframes dot-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.7); } }
 
-  .tile {
-    animation: tile-in 0.5s ease backwards, tile-bob 4.5s ease-in-out infinite;
-    animation-delay: calc(var(--i) * 90ms), calc(var(--i) * 90ms + 0.6s);
-  }
-  @keyframes tile-in { from { opacity: 0; transform: translateY(14px) rotate(-6deg); } to { opacity: 1; transform: none; } }
-  @keyframes tile-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 
   .next-duel::before { animation: ring-spin 7s linear infinite; }
   @keyframes ring-spin { to { transform: rotate(360deg); } }
@@ -641,6 +714,7 @@ img.shot.shot-wide { max-width: 960px; }
   .box[class*="acc-"]:hover { border-left-color: var(--acc); }
   .next-duel:hover { border-color: transparent; }
   .btn:not(.btn-off):hover { transform: translateY(-2px); }
+  .btn.btn-primary:hover { transform: scale(1.04); }
   .btn:not(.btn-ghost):not(.btn-off):hover::after { transform: translateX(420%) skewX(-20deg); }
 }
 

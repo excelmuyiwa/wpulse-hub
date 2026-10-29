@@ -17,7 +17,8 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+html { scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
 body {
   margin: 0;
@@ -250,8 +251,8 @@ a.contact-card:hover, a.contact-card:focus-visible {
   body { font-size: 1.05rem; }
   .grid.three { grid-template-columns: repeat(3, 1fr); }
   .grid.two { grid-template-columns: repeat(2, 1fr); }
-  .nav a { padding: 18px 6px; font-size: 0.86rem; }
-  .topbar .wrap { max-width: 1120px; }
+  .nav a { padding: 18px 5px; font-size: 0.8rem; }
+  .nav { gap: 2px; }
 }
 
 /* ======================= Design upgrade (static styles) ======================= */
@@ -412,12 +413,79 @@ footer::before { content: ""; position: absolute; top: -1px; left: 0; right: 0; 
 }
 .copy-msg:empty { display: none; }
 
+/* Stream preview: wide images and CSS-only dark/light tabs */
+img.shot.shot-wide { max-width: 960px; }
+.theme-tabs { position: relative; }
+.theme-tabs > input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+.tab-labels { display: flex; gap: 8px; }
+.tab-labels label {
+  cursor: pointer; padding: 8px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--card);
+  color: var(--muted); font-family: var(--head-font); font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.tab-labels label:hover { color: #fff; border-color: var(--accent); }
+#theme-dark:checked ~ .tab-labels label[for="theme-dark"],
+#theme-light:checked ~ .tab-labels label[for="theme-light"] { background: rgba(25, 211, 197, 0.14); border-color: var(--accent); color: #fff; }
+#theme-dark:focus-visible ~ .tab-labels label[for="theme-dark"],
+#theme-light:focus-visible ~ .tab-labels label[for="theme-light"] { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tab-panels .tab-light { display: none; }
+#theme-light:checked ~ .tab-panels .tab-dark { display: none; }
+#theme-light:checked ~ .tab-panels .tab-light { display: block; }
+
+/* Collapsible secondary rules (details/summary, works without script) */
+.rule-stack { display: grid; gap: 10px; margin-top: 18px; }
+.box.rule-details { padding: 0; }
+.rule-details > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; }
+.rule-details > summary::-webkit-details-marker { display: none; }
+.rule-details > summary h3 { margin: 0; }
+.rule-details > summary::after { content: "+"; color: var(--acc); font-size: 1.5rem; line-height: 1; flex: none; }
+.rule-details[open] > summary { border-bottom: 1px solid var(--line); margin-bottom: 12px; }
+.rule-details[open] > summary::after { transform: rotate(45deg); }
+.rule-details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 9px; }
+.rule-details .rule-body { padding: 0 18px 14px; }
+.rule-details .rule-body p { margin: 0; }
+
+/* Two-column prohibited list on desktop */
+@media (min-width: 720px) {
+  .x-cols { columns: 2; column-gap: 28px; }
+  .x-cols li { break-inside: avoid; }
+}
+
+/* Visitor's local time (added by script.js) */
+.duel-local { display: block; margin-top: 2px; font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+
+/* Sticky table of contents: wide desktop screens only */
+.toc { display: none; }
+@media (min-width: 1400px) {
+  .toc {
+    display: block; position: fixed; z-index: 40; top: 88px; left: calc(50% - 672px); width: 176px;
+    max-height: calc(100vh - 110px); overflow-y: auto; padding: 6px 0; border-left: 1px solid var(--line);
+  }
+  .toc-title { margin: 0 0 6px 12px; font-family: var(--head-font); font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+  .toc a { display: block; padding: 5px 12px; margin-left: -1px; border-left: 2px solid transparent; color: var(--muted); text-decoration: none; font-size: 0.85rem; line-height: 1.35; }
+  .toc a:hover { color: #fff; }
+  .toc a.is-active { color: #fff; border-left-color: var(--accent); }
+  .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+}
+
 /* Focus */
 .btn:focus-visible, .contact-card:focus-visible, .nav a:focus-visible, .faq summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .faq summary:focus-visible { outline-offset: -2px; }
 
 @media (min-width: 720px) {
   #stream-preview .grid.three > .box:last-child { grid-column: 1 / -1; }
+}
+
+/* ---------- Desktop sizing (720px and up only): calmer type scale and spacing ---------- */
+@media (min-width: 720px) {
+  body { font-size: 1rem; }
+  h1 { font-size: clamp(2.6rem, 5vw, 3.4rem); }
+  h2 { font-size: 2.1rem; }
+  .hero { padding: 44px 0 28px; }
+  .hero p.lead { font-size: 1.05rem; }
+  section { padding-top: 44px; padding-bottom: 20px; }
+  .next-duel .players { font-size: 2.2rem; }
+  .btn-big { padding: 15px 28px; font-size: 1.35rem; }
+  .section-head { margin-bottom: 18px; }
 }
 
 /* ---------- Phones: compact layout (below the 720px desktop breakpoint) ---------- */
@@ -522,6 +590,12 @@ footer::before { content: ""; position: absolute; top: -1px; left: 0; right: 0; 
     content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 36px; pointer-events: none;
     background: linear-gradient(90deg, transparent, rgba(6, 11, 20, 0.96));
   }
+  .tab-labels label { padding: 7px 14px; font-size: 0.9rem; }
+  .box.rule-details > summary { padding: 10px 12px; }
+  .rule-details[open] > summary { margin-bottom: 8px; }
+  .rule-details .rule-body { padding: 0 12px 10px; }
+  .rule-stack { gap: 8px; margin-top: 12px; }
+  .duel-local { font-size: 0.78rem; }
   .contact-cards { grid-template-columns: 1fr; }
   .countdown { font-size: 0.8rem; padding: 2px 10px; }
   .has-copy .contact-card { padding-right: 58px; }
@@ -534,7 +608,8 @@ footer::before { content: ""; position: absolute; top: -1px; left: 0; right: 0; 
   .btn, .box, .card, .step { transition: transform 0.2s ease, border-color 0.2s ease; }
   .btn:not(.btn-ghost):not(.btn-off)::after { transition: transform 0.6s ease; }
   .nav a::after { transition: transform 0.2s ease; }
-  .faq summary::after { transition: transform 0.2s ease; }
+  .faq summary::after, .rule-details > summary::after { transition: transform 0.2s ease; }
+  .rule-details[open] .rule-body { animation: ans-in 0.25s ease; }
   .btn:active { transform: translateY(0) scale(0.98); }
 
   .live-dot::after { animation: live-pulse 1.8s ease-out infinite; }

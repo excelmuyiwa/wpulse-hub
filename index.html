@@ -95,6 +95,22 @@
   </div>
 </header>
 
+<!-- Table of contents: shown as a sticky sidebar on wide desktop screens only. Keep its links in step with the sections. -->
+<nav class="toc" aria-label="On this page">
+  <p class="toc-title">On this page</p>
+  <a href="#schedule">Schedule</a>
+  <a href="#apply">Apply to play</a>
+  <a href="#setup">Install the extension</a>
+  <a href="#update">Update</a>
+  <a href="#proctor">Fair play</a>
+  <a href="#your-setup">Match-day setup</a>
+  <a href="#recording">Camera &amp; recording</a>
+  <a href="#about">About</a>
+  <a href="#stream-preview">Stream preview</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+</nav>
+
 <main id="top">
 
 <!-- =====================================================================
@@ -105,8 +121,8 @@
     <div class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Live Scrabble broadcast</div>
     <h1>WPulse Player Hub</h1>
     <div class="rack" aria-hidden="true"><span class="tile" style="--i:0">W<sub>4</sub></span><span class="tile" style="--i:1">P<sub>3</sub></span><span class="tile" style="--i:2">U<sub>1</sub></span><span class="tile" style="--i:3">L<sub>1</sub></span><span class="tile" style="--i:4">S<sub>1</sub></span><span class="tile" style="--i:5">E<sub>1</sub></span></div>
-    <p class="lead">Download the extension, prepare your setup, and find schedules and match details for WPulse Duels.</p>
-    <p class="lead">WPulse Gaming brings online Scrabble matches to a live audience, with commentary, live game information and player camera feeds during broadcasts. Matches are played on Woogles.io and follow the rules announced for each event. Players must complete the required technical checks and receive organizer approval before taking part.</p>
+    <p class="lead">WPulse Gaming streams online Scrabble matches on Woogles.io, with live commentary, live game information and player cameras.</p>
+    <p class="lead">Here you can apply to play, install the extension, get ready for match day, and find schedules and rules.</p>
     <!-- TODO: replace the channel link with the specific live stream URL when one is available -->
     <a class="btn btn-big" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>WPulse on YouTube</a>
   </div>
@@ -120,7 +136,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Next duel &amp; schedule</h2>
-      <p>All times in West Africa Time (WAT, UTC+1).</p>
+      <p>All times in West Africa Time (WAT, UTC+1). Please convert to your own time zone.</p>
       <p>These are the official match settings and override any general description on this page. Check your Woogles game settings against them before play begins.</p>
     </div>
 
@@ -129,7 +145,7 @@
       <div class="label">Next duel</div>
       <div class="players">Enoch Nwali vs Doko Oluwatimilehin</div>
       <dl class="duel-details">
-        <div class="duel-wide"><dt><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg>Date and time</dt><dd>Saturday, 7 November 2026 &middot; 4:00 PM WAT<span class="duel-tz">16:00 West Africa Time (WAT, UTC+1) &middot; 15:00 UTC</span></dd></div>
+        <div class="duel-wide"><dt><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg>Date and time</dt><dd>Saturday, 7 November 2026 &middot; 4:00 PM WAT<span class="duel-tz">16:00 WAT (UTC+1) &middot; 15:00 UTC</span></dd></div>
         <div><dt><svg class="ic" aria-hidden="true"><use href="#i-layout"/></svg>Format</dt><dd>Best of 15 (first to 8 wins)</dd></div>
         <div><dt><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>Time control</dt><dd>10 minutes per player + 1 minute overtime</dd></div>
         <div><dt><svg class="ic" aria-hidden="true"><use href="#i-flag"/></svg>Challenge</dt><dd>10-point challenge</dd></div>
@@ -150,7 +166,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Apply to play</h2>
-      <p>WPulse Gaming welcomes Scrabble players of all levels. Selection depends on the match being arranged, your availability, and the requirements announced for it.</p>
+      <p>Scrabble players of all levels are welcome. Selection depends on the match being arranged and your availability.</p>
     </div>
     <div class="box">
       <p>To apply, message the organizer by email or Discord (see <a href="#contact">Contact</a>) with:</p>
@@ -160,7 +176,7 @@
         <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span>your availability and time zone</span></li>
         <li><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><span>your published rating or approximate playing level, if any</span></li>
       </ul>
-      <p>A published rating isn't required for every match; suitability depends on the match being arranged. Applying doesn't guarantee selection. Selected players receive the match details, rules, setup instructions, and camera and recording conditions before confirming, and must complete the setup checks and get approval before playing.</p>
+      <p>A published rating isn't required for every match, and applying doesn't guarantee selection. Selected players receive the match details, rules, setup instructions, and camera and recording conditions before confirming. You must complete the setup checks and get approval before playing.</p>
     </div>
   </div>
 </section>
@@ -183,7 +199,7 @@
       <!-- Step a: Download -->
       <li class="step" id="step-download">
         <h3>Download the extension</h3>
-        <p>Click the button to download the WPulse extension (a .zip file).</p>
+        <p>Download the WPulse extension (a .zip file).</p>
         <a class="btn btn-big" href="downloads/wpulse-extension.zip" download><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Download extension</a>
         <!-- VERSION + DATE: change these two values here, in ONE place -->
         <p class="version-line">
@@ -293,59 +309,59 @@
     <div class="grid two">
       <div class="box acc-ok">
         <h3><svg class="ic" aria-hidden="true"><use href="#i-shield-check"/></svg>Standard competitive matches</h3>
-        <p>Standard competitive matches are engine-free. During a game, players must not use engines, word-finding or word-lookup tools, ask anyone for move assistance, or use a live broadcast or another account to obtain help. Players must not message or call anyone for assistance about the game. Do not watch or listen to the WPulse broadcast while playing. Do not use another device to look up words or analyse the position. Keep your full computer screen shared and your camera on throughout the game. No other person may assist you or be present in the playing area. Headphones and earbuds are not permitted under the standard setup rules.</p>
+        <p>Standard competitive matches are engine-free. The full list of prohibited behavior is under <a href="#not-allowed">What is not allowed</a>, below.</p>
       </div>
-      <div class="box acc-warn">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-cpu"/></svg>Engine-assisted demonstrations</h3>
-        <p>Engine-assisted demonstrations are separate from standard competitive matches. They must be clearly labelled, nonrated and announced in advance, must have the explicit agreement of both players, and must comply with Woogles.io's rules. Unrated does not mean engines are allowed. Unless a match is announced as an engine-assisted demonstration, the engine-free rules apply.</p>
+      <div class="box acc-info">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg>What the proctor does</h3>
+        <p>The proctor monitors the camera and screen feeds, checks that the announced rules are followed, and reports technical issues or possible violations to the organizer. The proctor and organizer are different people: only the organizer makes event decisions, including pauses and penalties.</p>
       </div>
     </div>
 
     <div class="grid two" style="margin-top:18px">
       <div class="box acc-info">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg>What the proctor does</h3>
-        <p>The proctor monitors the required camera and screen feeds, checks that players follow the announced rules, and reports technical issues or possible rule violations to the organizer. The proctor does not make the final ruling on penalties. The organizer is responsible for event decisions.</p>
-      </div>
-      <div class="box acc-info">
         <h3><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg>What players do</h3>
-        <p>Before the duel, share your full screen, and your camera with audio, using the links the organizer sends you. The proctor uses these to watch and listen during the game.</p>
-      </div>
-    </div>
-
-    <p class="callout" style="margin-top:18px"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>Your screen and camera links are sent to you personally by the organizer. They are not on this page.</p>
-
-    <div class="grid two" style="margin-top:24px">
-      <div class="box acc-bad">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-ban"/></svg>What is not allowed</h3>
-        <ul class="rules-list x-list">
-          <li>No tabs or programs on your PC related to Scrabble or word checking (other than the Woogles game itself).</li>
-          <li>No engines, word-finding or word-lookup tools, and no asking anyone for move assistance (unless it is an announced engine-assisted demonstration).</li>
-          <li>No watching or listening to the stream while you play.</li>
-          <li>No one may be seen next to you during a game.</li>
-          <li>No other device may be used to look up words or anything related to the game. A phone used as your camera is fine.</li>
-          <li>No messaging anyone about the game while it is in progress.</li>
-          <li>Turn off all notifications before the match. They can appear on your shared screen.</li>
-          <li>Keep your full screen shared and your camera on, with you in view, for the whole game.</li>
-          <li>No using the live broadcast or another account to get help.</li>
-          <li>No headphones or earbuds.</li>
-        </ul>
+        <p>Share your full screen, and your camera with audio, using the links the organizer sends you. See <a href="#your-setup">Match-day setup</a> for how.</p>
       </div>
       <div class="box acc-info">
         <h3><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>When to be ready before a duel</h3>
         <p>Players must complete the required technical checks at least 30 minutes before the scheduled stream start. If you expect to be late or experience a technical problem, contact the organizer immediately (by Discord or email, see <a href="#contact">Contact</a>). The organizer decides whether to delay, reschedule, or proceed.</p>
       </div>
-      <div class="box acc-warn">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg>Disconnections and technical problems</h3>
-        <p>If a player loses connection or experiences a technical problem, they must notify the proctor or organizer immediately. The proctor reports the issue, but only the organizer can authorize a pause. Players must wait for the organizer's instructions before resuming or taking further action. The organizer decides whether to resume, continue, restart, reschedule, or otherwise handle the match.</p>
-      </div>
-      <div class="box acc-warn">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-clipboard"/></svg>Incorrect game settings</h3>
-        <p>Check the game settings against the match announcement before play begins. Report any mismatch to the organizer immediately. The organizer decides how to proceed based on the circumstances.</p>
-      </div>
-      <div class="box acc-info">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg>Allegations and penalties</h3>
-        <p>If a fair-play concern is raised, the organizer reviews the available evidence, gives the player an opportunity to explain where appropriate, and documents the decision. Any action depends on the evidence, the seriousness of the issue and the circumstances. Possible outcomes include a warning, a game or match loss, rescheduling, or disqualification from the event, but none of these is automatic. An allegation alone is not proof of a violation. These are WPulse event decisions. Woogles.io retains authority over its own platform and may apply its own rules or penalties.</p>
-      </div>
+    </div>
+
+    <p class="callout" style="margin-top:18px"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>Your screen and camera links are sent to you personally by the organizer. They are not on this page.</p>
+
+    <div class="box acc-bad" id="not-allowed" style="margin-top:18px">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-ban"/></svg>What is not allowed</h3>
+      <ul class="rules-list x-list x-cols">
+        <li>No tabs or programs on your PC related to Scrabble or word checking (other than the Woogles game itself).</li>
+        <li>No engines, word-finding or word-lookup tools, and no asking anyone for move assistance (unless it is an announced engine-assisted demonstration).</li>
+        <li>No watching or listening to the stream while you play, and no using the live broadcast or another account to get help.</li>
+        <li>No one else may assist you, and no one may be seen next to you during a game.</li>
+        <li>No other device may be used to look up words, analyse the position, or anything else related to the game. A phone used as your camera is fine.</li>
+        <li>No messaging or calling anyone about the game while it is in progress.</li>
+        <li>Turn off all notifications before the match. They can appear on your shared screen.</li>
+        <li>Keep your full screen shared and your camera on, with you in view, for the whole game.</li>
+        <li>No headphones or earbuds.</li>
+      </ul>
+    </div>
+
+    <div class="rule-stack">
+      <details class="box acc-warn rule-details">
+        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-cpu"/></svg>Engine-assisted demonstrations</h3></summary>
+        <div class="rule-body"><p>Engine-assisted demonstrations are separate from standard competitive matches. They must be clearly labelled, nonrated and announced in advance, must have the explicit agreement of both players, and must comply with Woogles.io's rules. Unrated does not mean engines are allowed. Unless a match is announced as an engine-assisted demonstration, the engine-free rules apply.</p></div>
+      </details>
+      <details class="box acc-warn rule-details">
+        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg>Disconnections and technical problems</h3></summary>
+        <div class="rule-body"><p>Notify the proctor or organizer immediately. The proctor reports the issue, but only the organizer can authorize a pause. Wait for the organizer's instructions before resuming or taking further action. The organizer decides whether to resume, continue, restart, reschedule, or otherwise handle the match.</p></div>
+      </details>
+      <details class="box acc-warn rule-details">
+        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-clipboard"/></svg>Incorrect game settings</h3></summary>
+        <div class="rule-body"><p>Check the game settings against the match announcement before play begins. Report any mismatch to the organizer immediately. The organizer decides how to proceed based on the circumstances.</p></div>
+      </details>
+      <details class="box acc-info rule-details">
+        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg>Allegations and penalties</h3></summary>
+        <div class="rule-body"><p>If a fair-play concern is raised, the organizer reviews the available evidence, gives the player a chance to explain where appropriate, and documents the decision. An allegation alone is not proof of a violation. Any action depends on the evidence, the seriousness of the issue and the circumstances. Possible outcomes include a warning, a game or match loss, rescheduling, or disqualification, but none of these is automatic. These are WPulse event decisions; Woogles.io may apply its own rules or penalties independently.</p></div>
+      </details>
     </div>
 
     <p class="small" style="margin-top:18px"><em>The rules may be updated as the series develops. Players will be informed of the rules applicable to their match before they confirm participation.</em></p>
@@ -409,15 +425,9 @@
       </ul>
     </div>
 
-    <div class="grid two" style="margin-top:18px">
-      <div class="box acc-bad">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-headphones-off"/></svg>Headphones</h3>
-        <p>Headphones and earbuds are not allowed during a duel.</p>
-      </div>
-      <div class="box acc-warn">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-lightbulb"/></svg>Lighting and room</h3>
-        <p>Play in a well-lit room, so the proctor can see you clearly. No one else may be visible during a duel.</p>
-      </div>
+    <div class="box acc-warn" style="margin-top:18px">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-lightbulb"/></svg>Lighting and room</h3>
+      <p>Play in a well-lit room so the proctor can see you clearly. No one else may be visible, and headphones and earbuds are not allowed.</p>
     </div>
   </div>
 </section>
@@ -431,11 +441,11 @@
       <h2>Camera, screen sharing and recording</h2>
     </div>
     <div class="point"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><p>Standard competitive matches require a working player camera feed and agreement to the announced public camera and recording conditions before a player is scheduled. The organizer provides this information before asking a player to confirm. Players who refuse the public camera requirement cannot play the standard competitive format.</p></div>
-    <div class="point"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><p>The organizer will provide each player with the relevant camera and screen-sharing links. The proctor uses the required feeds to monitor the match. Match footage will be used for YouTube livestreams and replays, short clips and highlights, and player camera feeds during broadcasts. Screen feeds are used for proctoring only and are not shown in the public broadcast.</p></div>
-    <div class="point point-rec"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><p>Every WPulse match is recorded, and recordings may be reviewed when a technical issue, complaint or fair-play concern needs to be assessed. WPulse match recordings are retained indefinitely unless there is a reason to delete them. Access to raw recordings is restricted to the organizer unless another person is specifically authorized. Before confirming participation, players will be told how their feeds and recordings are intended to be used.</p></div>
+    <div class="point"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><p>The organizer sends each player their camera and screen-sharing links. The proctor uses these feeds to monitor the match. Match footage will be used for YouTube livestreams and replays, short clips and highlights, and player camera feeds during broadcasts. Screen feeds are used for proctoring only and are not shown in the public broadcast.</p></div>
+    <div class="point point-rec"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><p>Every WPulse match is recorded and may be reviewed if a technical issue, complaint or fair-play concern needs to be assessed. Recordings are retained indefinitely unless there is a reason to delete them, and access to raw recordings is restricted to the organizer unless another person is specifically authorized. Before confirming participation, players are told how their feeds and recordings will be used.</p></div>
     <div class="box acc-info">
       <h3><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Published footage and removal requests</h3>
-      <p>Published match footage is normally retained. Players may contact the organizer (by email or Discord) to request removal or restriction of specific footage. Requests are reviewed case by case, and removal is not guaranteed. The organizer may consider factors such as privacy, safety, legal requirements or a significant error. Raw recordings and published videos are treated separately. Removing a published video does not automatically delete raw recordings or other copies. By accepting a match invitation, players confirm that they understand and agree to the announced camera, broadcast and recording conditions. Contact the organizer before accepting if you have a question or concern.</p>
+      <p>Published match footage is normally retained. To request removal or restriction of specific footage, contact the organizer (by email or Discord). Requests are reviewed case by case and removal is not guaranteed; the organizer may consider factors such as privacy, safety, legal requirements or a significant error. Raw recordings and published videos are treated separately: removing a published video does not automatically delete raw recordings or other copies. By accepting a match invitation, you confirm that you agree to the announced camera, broadcast and recording conditions. Contact the organizer before accepting if you have a question or concern.</p>
     </div>
   </div>
 </section>
@@ -448,7 +458,7 @@
     <div class="section-head">
       <h2>About the stream</h2>
     </div>
-    <p>WPulse Gaming streams online Scrabble matches with live commentary, live game information and player cameras. Matches are played on Woogles.io under the rules announced for each event. Players must pass the technical checks and receive organizer approval before playing.</p>
+    <p>WPulse Gaming streams online Scrabble matches with live commentary, live game information and player cameras. Matches are played on Woogles.io under the rules announced for each event.</p>
     <div class="grid three">
       <div class="box">
         <h3><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>Where to watch</h3>
@@ -465,7 +475,7 @@
         <h3><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Rules</h3>
         <p><strong>Games:</strong> online Scrabble on Woogles.io, strictly CSW lexicon.</p>
         <p><strong>Players:</strong> from all over the world.</p>
-        <p><strong>Time zone:</strong> all times on this page are in WAT (West Africa Time, UTC+1). Please convert to your own time zone.</p>
+        <p><strong>Time zone:</strong> all times are in West Africa Time (WAT, UTC+1).</p>
       </div>
     </div>
   </div>
@@ -481,8 +491,19 @@
       <p>Here is what viewers see during a WPulse Duel. The overlay shows live game information supported by WPulse.</p>
     </div>
 
-    <!-- TODO: replace with screenshot (suggested filename: images/stream-full.png) -->
-    <div class="shot-ph shot-wide"><svg class="ic ph-ic" aria-hidden="true"><use href="#i-image"/></svg>Screenshot: the full stream scene during a game</div>
+    <!-- Dark / light preview: CSS-only tabs (radio inputs), no script needed. Replace the two images to update. -->
+    <div class="theme-tabs">
+      <input type="radio" name="stream-theme" id="theme-dark" checked>
+      <input type="radio" name="stream-theme" id="theme-light">
+      <div class="tab-labels">
+        <label for="theme-dark">Dark theme</label>
+        <label for="theme-light">Light theme</label>
+      </div>
+      <div class="tab-panels">
+        <img class="shot shot-wide tab-dark" src="images/dark-mode-full-stream.png" width="1919" height="1079" loading="lazy" alt="The WPulse stream overlay in the dark theme: the live board in the centre, move history and the engine's best moves along the top, each player's name, score, clock and rack at the sides, and the unseen tiles and evaluation bar under the board.">
+        <img class="shot shot-wide tab-light" src="images/light-mode-full-stream.png" width="1919" height="1079" loading="lazy" alt="The same WPulse stream overlay in the light theme, with the live board, move history, engine best moves, player panels, unseen tiles and evaluation bar.">
+      </div>
+    </div>
 
     <div class="grid three" style="margin-top:22px">
       <div class="box">
@@ -502,8 +523,8 @@
         <p>Recent moves shown as the game progresses.</p>
       </div>
       <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg>Engine analysis</h3>
-        <p>Win percentage and best moves from an analysis engine, when enabled for a broadcast.</p>
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg>Engine analysis and evaluation bar</h3>
+        <p>An evaluation bar, win percentages and the engine's best moves appear on stream when analysis is enabled for a broadcast.</p>
       </div>
       <div class="box">
         <h3><svg class="ic" aria-hidden="true"><use href="#i-message"/></svg>Live commentary</h3>
@@ -515,8 +536,8 @@
       </div>
     </div>
 
-    <!-- TODO: replace with screenshot (suggested filename: images/stream-gameover.png) -->
-    <div class="shot-ph"><svg class="ic ph-ic" aria-hidden="true"><use href="#i-image"/></svg>Screenshot: the game result banner</div>
+    <img class="shot shot-wide" src="images/game-banner.png" width="1652" height="929" loading="lazy" alt="The game result banner appearing over the stream when a game ends: 'Player A wins', with the final score of 441 to 383.">
+
 
     <p class="note" style="margin-top:22px">Because both racks are visible on the stream, players must not watch or listen to it during a game. See <a href="#proctor">Fair play and the proctor</a>.</p>
   </div>
@@ -538,7 +559,7 @@
     </details>
     <details>
       <summary>What do I need to take part?</summary>
-      <div class="answer"><p>A computer with Google Chrome for Woogles and the extension, a camera with a microphone (a phone works well), and a stable internet connection. Your screen and camera links are sent to you personally by the organizer.</p></div>
+      <div class="answer"><p>A computer with Google Chrome for Woogles and the extension, a camera with a microphone (a phone works well), and a stable internet connection. See <a href="#your-setup">Match-day setup</a>.</p></div>
     </details>
     <details>
       <summary>Why does Chrome show a "developer mode" notice?</summary>
@@ -558,15 +579,15 @@
     </details>
     <details>
       <summary>Can I use an engine or word checker?</summary>
-      <div class="answer"><p>Not in standard competitive matches, which are engine-free. Engine-assisted demonstrations are separate, clearly labelled, nonrated, announced in advance, and need both players' explicit agreement. Unrated does not mean engines are allowed. See <a href="#proctor">Fair play and the proctor</a>.</p></div>
+      <div class="answer"><p>Not in standard competitive matches, which are engine-free. Engine-assisted demonstrations are separate and need advance announcement, nonrated status and both players' explicit agreement. See <a href="#proctor">Fair play and the proctor</a>.</p></div>
     </details>
     <details>
       <summary>What time will duels be, and in which time zone?</summary>
-      <div class="answer"><p>All times on this page are in WAT (West Africa Time, UTC+1). Please convert to your own time zone. The Next duel &amp; schedule section above lists the next match.</p></div>
+      <div class="answer"><p>All times on this page are in West Africa Time (WAT, UTC+1). See <a href="#schedule">Next duel &amp; schedule</a>.</p></div>
     </details>
     <details>
       <summary>Who can see my screen and camera?</summary>
-      <div class="answer"><p>The proctor and organizer watch your camera and screen feeds during a duel. Your camera feed is used in the public broadcast, and match footage is used for replays, short clips and highlights. Your screen is used for proctoring only and is never shown in the public broadcast. See <a href="#recording">Camera, screen sharing and recording</a>.</p></div>
+      <div class="answer"><p>The proctor and organizer watch your camera and screen feeds. Your camera feed is used in the public broadcast, and match footage in replays, short clips and highlights. Your screen is used for proctoring only and is never shown in the public broadcast. See <a href="#recording">Camera, screen sharing and recording</a>.</p></div>
     </details>
     <details>
       <summary>Can I play if I do not have a published rating?</summary>
@@ -574,24 +595,24 @@
     </details>
     <details>
       <summary>Can I decline the public camera requirement?</summary>
-      <div class="answer"><p>The public camera requirement applies to standard competitive matches. If you refuse it, you cannot play that format. Contact the organizer by email or Discord before accepting an invitation if you have a question or concern.</p></div>
+      <div class="answer"><p>The public camera is required for standard competitive matches. If you refuse it, you cannot play that format. Contact the organizer by email or Discord before accepting an invitation if you have a question or concern.</p></div>
     </details>
     <details>
       <summary>Can I ask for a published video to be removed?</summary>
-      <div class="answer"><p>Yes. Contact the organizer by email or Discord and explain your concern. Published match footage is normally retained. Requests are reviewed case by case, and removal is not guaranteed.</p></div>
+      <div class="answer"><p>Yes. Contact the organizer by email or Discord. Published footage is normally retained; requests are reviewed case by case and removal is not guaranteed. See <a href="#recording">Camera, screen sharing and recording</a>.</p></div>
     </details>
 
     <details>
       <summary>Who can authorize a stop or restart if a player disconnects?</summary>
-      <div class="answer"><p>Only the organizer can authorize a pause. The proctor reports the issue. Notify the proctor or organizer immediately, and wait for the organizer's instructions before resuming or taking further action.</p></div>
+      <div class="answer"><p>Only the organizer can authorize a pause. Notify the proctor or organizer immediately and wait for the organizer's instructions. See <a href="#proctor">Fair play and the proctor</a>.</p></div>
     </details>
     <details>
       <summary>What if the Woogles settings are different from the match announcement?</summary>
-      <div class="answer"><p>Report the mismatch to the organizer immediately. The organizer decides how to proceed based on the circumstances. Do not assume the game is approved to continue until the organizer confirms it.</p></div>
+      <div class="answer"><p>Report the mismatch to the organizer immediately. The organizer decides how to proceed, so do not assume the game may continue until the organizer confirms it. See <a href="#proctor">Fair play and the proctor</a>.</p></div>
     </details>
     <details>
       <summary>What happens if someone is accused of cheating?</summary>
-      <div class="answer"><p>The organizer reviews the available evidence, hears the player's explanation where appropriate, and documents the decision. An allegation alone is not proof of a violation. Any action depends on the evidence, the seriousness of the issue and the circumstances. Woogles.io may also apply its own rules independently.</p></div>
+      <div class="answer"><p>The organizer reviews the available evidence, hears the player's explanation where appropriate, and documents the decision. See <a href="#proctor">Fair play and the proctor</a>.</p></div>
     </details>
 
     <p style="margin-top:20px">Still stuck? Contact the organizer using the details in the <a href="#contact">Contact</a> section.</p>

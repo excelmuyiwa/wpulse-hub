@@ -233,4 +233,74 @@ a.contact-card:hover, a.contact-card:focus-visible {
   .nav a { padding: 18px 7px; }
 }
 
+/* ---------- Phones: compact layout (below the 720px desktop breakpoint) ---------- */
+@media (max-width: 719px) {
+  html { scroll-padding-top: 56px; }
+  body { font-size: 0.9375rem; line-height: 1.55; }
+  h1 { font-size: clamp(2rem, 9vw, 2.4rem); }
+  h2 { font-size: 1.55rem; }
+  h3 { font-size: 1.15rem; }
+  p { margin-bottom: 0.8em; }
+
+  .wrap { padding: 0 14px; }
+  section { padding: 34px 0 14px; }
+  .hero { padding: 36px 0 24px; }
+  .eyebrow { font-size: 0.9rem; }
+  .hero p.lead { font-size: 1rem; }
+  .section-head { border-left-width: 3px; padding-left: 12px; margin-bottom: 14px; }
+
+  .topbar .wrap { gap: 8px; }
+  .brand { font-size: 1.15rem; padding: 9px 0; }
+  .nav { gap: 0; }
+  .nav a { padding: 12px 8px; font-size: 0.85rem; }
+
+  .btn { padding: 11px 20px; font-size: 1.1rem; }
+  .btn-big { padding: 14px 24px; font-size: 1.25rem; }
+
+  .card, .box, .step { padding: 14px; margin-bottom: 12px; }
+  .grid { gap: 12px; }
+  .step h3 { gap: 10px; }
+  .step h3::before { width: 1.7rem; height: 1.7rem; font-size: 1rem; }
+  .note { padding: 8px 12px; }
+  .rules-list li, .check-list li { margin-bottom: 0.4em; }
+
+  .next-duel .players { font-size: 1.6rem; }
+  .duel-details { gap: 8px 16px; margin: 8px 0 12px; }
+  .duel-details .duel-wide dd { font-size: 1.1rem; }
+  .duel-details dd { font-size: 0.9rem; }
+
+  .shot-ph, img.shot { margin-top: 10px; }
+  .shot-ph { padding: 8px; font-size: 0.85rem; }
+
+  .faq summary { padding: 12px 14px; }
+  .faq .answer { padding: 12px 14px 2px; }
+  .faq details { margin-bottom: 10px; }
+
+  .contact-cards { gap: 10px; }
+  .contact-card { padding: 12px 14px; gap: 12px; }
+  .contact-card .ci { width: 2.2rem; height: 2.2rem; }
+  .cc-name { font-size: 1rem; }
+  .cc-handle { font-size: 1rem; }
+  footer { margin-top: 32px; padding: 24px 0 28px; }
+  footer h2 { font-size: 1.5rem; }
+
+  /* Schedule table: each row becomes a compact card, so nothing scrolls sideways.
+     Column labels come from CSS; the header row stays available to screen readers. */
+  .table-scroll { overflow: visible; border: 0; border-radius: 0; }
+  table, tbody, tr, td { display: block; }
+  table { min-width: 0; background: none; }
+  thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  tr { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; margin-bottom: 12px; }
+  td, tr:last-child td { border-bottom: 0; padding: 6px 0; }
+  td::before {
+    display: block; font-family: var(--head-font); text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent); font-size: 0.85rem; line-height: 1.2;
+  }
+  td:nth-child(1)::before { content: "Date"; }
+  td:nth-child(2)::before { content: "Time (WAT, UTC+1)"; }
+  td:nth-child(3)::before { content: "Players"; }
+  td:nth-child(4)::before { content: "Format / rules"; }
+  td:nth-child(5)::before { content: "Stream"; }
+}
+
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

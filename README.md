@@ -20,8 +20,8 @@ A plain website made of simple files. No installing, no building. Edit the files
 
 Things you will change most often:
 
-- **Stream link**: search for `example.com/TODO-stream-url` and replace it (it appears in several places).
-- **Schedule**: in section 2, copy a `<tr>...</tr>` row to add a game, delete one to remove it.
+- **Stream link**: the page links to the YouTube channel. When a specific live stream URL is available, search `index.html` for `TODO: replace the channel link` and replace the channel link at each of those places.
+- **Next duel**: in section 2, edit the "Next duel" card (players, date and time, format). There is no schedule table for now because there is only one match.
 - **Version and date** of the extension: one line in step 1 of Player setup (search `Version:`).
 - **FAQ**: copy a `<details>...</details>` block to add a question.
 

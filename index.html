@@ -6,6 +6,8 @@
   <title>WPulse Gaming: live Scrabble duels on YouTube</title>
   <meta name="description" content="Competitive Scrabble on YouTube through organised online duels, live commentary and player cameras. Whether you're here to compete or simply follow the games, you're welcome. Includes the Player Hub for players.">
   <meta name="theme-color" content="#060b14">
+  <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
+  <link rel="icon" href="images/favicon.svg?v=2" type="image/svg+xml">
 
   <!-- Link previews (WhatsApp, Discord, X, Facebook, etc.). The flyer image must exist at images/next-duel-flyer.png. -->
   <meta property="og:type" content="website">
@@ -85,7 +87,6 @@
   <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
   <symbol id="i-at" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.5"/><path d="M15.5 12v1.5a2.5 2.5 0 0 0 5 0V12a8.5 8.5 0 1 0-3.5 6.9"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
-  <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19z"/><path d="M14.5 6.5l3 3"/></symbol>
 </svg>
 
 <!-- =====================================================================
@@ -93,14 +94,13 @@
      ===================================================================== -->
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="#top">W<span>Pulse</span></a>
+    <a class="brand" href="#top" aria-label="WPulse Gaming"><img src="images/wpulse-wordmark.svg" width="98" height="26" alt="WPulse Gaming"></a>
     <nav class="nav" aria-label="Page sections">
       <a href="#watch">Watch</a>
       <a href="#schedule">Next duel</a>
-      <a href="#about">About</a>
-      <a href="#stream-preview">Features</a>
       <a href="#commentary">Commentary</a>
-      <a href="#for-players">For players</a>
+      <a href="#about">The stream</a>
+      <a class="btn btn-sm nav-cta" href="#for-players">For players</a>
     </nav>
   </div>
 </header>
@@ -110,9 +110,9 @@
   <p class="toc-title">On this page</p>
   <a href="#watch">Watch</a>
   <a href="#schedule">Next duel</a>
+  <a href="#commentary">Commentary</a>
   <a href="#about">About the stream</a>
   <a href="#stream-preview">Stream preview</a>
-  <a href="#commentary">Commentary</a>
   <a href="#fair-teaser">Fair and proctored</a>
   <a href="#for-players">For players</a>
   <a href="#apply">Apply to play</a>
@@ -132,11 +132,12 @@
      ===================================================================== -->
 <section class="hero" id="watch">
   <div class="wrap">
-    <div class="eyebrow">PROCTORED SCRABBLE DUELS</div>
-    <h1>Live Scrabble duels on YouTube</h1>
-    <p class="spec-strip"><span>LIVE ON YOUTUBE</span><span>LIVE COMMENTARY</span><span>PROCTORED MATCHES</span></p>
-    <p class="lead">WPulse Gaming brings competitive Scrabble to YouTube through organised online duels, live commentary and player cameras. Whether you're here to compete or simply follow the games, you're welcome.</p>
-    <p class="lead">No Scrabble experience needed to follow along.</p>
+    <img class="hero-logo" src="images/wpulse-icon-animated.svg" width="240" height="240" alt="">
+    <h1><span>Competitive Online Scrabble</span> <span>Live on YouTube</span></h1>
+    <p class="spec-strip"><span>LIVE MATCHES</span><span>NEXT-LEVEL COMMENTARY</span><span>PROCTORED DUELS</span></p>
+    <p class="lead">Welcome to WPulse Gaming, where online Scrabble takes centre stage in live competitive broadcasts. Watch players go head-to-head, follow every move and hear expert commentary as the action unfolds.</p>
+    <p class="lead">With organised matchups, player cameras and proctored gameplay, we bring every aspect of the competition together for an engaging viewing experience.</p>
+    <p class="lead">Whether you're tuning in as a fan or joining the competition as a player, there's a place for you at WPulse.</p>
     <div class="hero-cta">
       <!-- TODO: replace the channel link with the specific live stream URL when one is available -->
       <a class="btn btn-big btn-primary" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>Watch on YouTube</a>
@@ -153,8 +154,7 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Next duel &amp; schedule</h2>
-      <p>All times in West Africa Time (WAT, UTC+1). Please convert to your own time zone.</p>
-      <p>These are the official match settings and override any general description on this page. Check your Woogles game settings against them before play begins.</p>
+      <p>The next live duel on YouTube. Everyone is welcome to watch.</p>
     </div>
 
     <!-- Layout: the match card(s) on the left, the schedule flyer on the right (desktop); stacked on phones.
@@ -179,6 +179,7 @@
       <!-- TODO: replace the channel link with the specific live stream URL when one is available -->
       <a class="btn btn-ghost" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>WPulse on YouTube</a>
     </div>
+    <p class="small duel-note">Times are in West Africa Time (WAT, UTC+1). Each match announcement confirms the full settings.</p>
     </div>
     <figure class="duel-flyer">
       <a href="images/next-duel-flyer.png" target="_blank" rel="noopener" aria-label="Open the next duel flyer full size (opens in a new tab)">
@@ -186,6 +187,68 @@
       </a>
       <figcaption>Click the flyer to open it full size.</figcaption>
     </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     COMMENTARY
+     Commentator photos: add the three .jpg files to images/. Until a file exists, the initials circle shows.
+     ===================================================================== -->
+<section id="commentary">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Commentary for this duel</h2>
+    </div>
+
+    <div class="commentators">
+      <div class="box commentator">
+        <div class="avatar" data-initials="EM"><img src="images/commentator-excel-muyiwa.jpg" width="240" height="240" loading="lazy" alt="Excel Muyiwa" onerror="this.remove()"></div>
+        <div class="commentator-text">
+          <h3>Excel Muyiwa</h3>
+          <p class="role">Main commentator</p>
+        </div>
+      </div>
+      <div class="box commentator">
+        <div class="avatar" data-initials="KJ"><img src="images/commentator-kareem-jamiu.jpg" width="240" height="240" loading="lazy" alt="Kareem Jamiu" onerror="this.remove()"></div>
+        <div class="commentator-text">
+          <h3>Kareem Jamiu</h3>
+          <p class="role">Joins for the first half of the stream</p>
+        </div>
+      </div>
+      <div class="box commentator">
+        <div class="avatar" data-initials="VL"><img src="images/commentator-victor-lawrence.jpg" width="240" height="240" loading="lazy" alt="Victor Lawrence" onerror="this.remove()"></div>
+        <div class="commentator-text">
+          <h3>Victor Lawrence</h3>
+          <p class="role">Joins for the second half of the stream</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- WPulse Telestrator image: add images/telestrator.png. If it is missing, the panel shows text only. -->
+    <div class="telestrator ts-panel" id="telestrator">
+      <div class="telestrator-text">
+        <span class="eyebrow">BUILT FOR WPULSE</span>
+        <h3 class="ts-title">The WPulse Telestrator</h3>
+        <p>A new way to bring Scrabble commentary to life. The WPulse Telestrator lets commentators interact with the live board, turning their analysis into visuals that viewers can follow in real time.</p>
+      </div>
+      <figure class="telestrator-shot">
+        <img src="images/telestrator.png" loading="lazy" alt="The WPulse Telestrator drawing on the live board" onerror="var b=this.closest('.telestrator');this.closest('figure').remove();b.classList.add('no-img')">
+      </figure>
+      <ul class="ts-features">
+        <li class="ts-feature">
+          <h4>Arrows and highlights</h4>
+          <p>Draw attention to threats, key squares and tactical opportunities with arrows and highlights right on the board.</p>
+        </li>
+        <li class="ts-feature">
+          <h4>Words on the board</h4>
+          <p>Type in a word and watch it appear letter by letter, showing viewers exactly how a potential play would look.</p>
+        </li>
+        <li class="ts-feature">
+          <h4>Engine moves, one tap away</h4>
+          <p>Found an interesting move in the engine analysis? Send it straight to the board with a single tap, so everyone can see the play being discussed.</p>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
@@ -312,61 +375,6 @@
 </section>
 
 <!-- =====================================================================
-     COMMENTARY
-     Commentator photos: add the three .jpg files to images/. Until a file exists, the initials circle shows.
-     ===================================================================== -->
-<section id="commentary">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Commentary</h2>
-      <p>Meet the commentators.</p>
-    </div>
-
-    <div class="commentators">
-      <div class="box commentator">
-        <div class="avatar" data-initials="EM"><img src="images/commentator-excel-muyiwa.jpg" width="240" height="240" loading="lazy" alt="Excel Muyiwa" onerror="this.remove()"></div>
-        <div class="commentator-text">
-          <h3>Excel Muyiwa</h3>
-          <p class="role">Main commentator</p>
-        </div>
-      </div>
-      <div class="box commentator">
-        <div class="avatar" data-initials="KJ"><img src="images/commentator-kareem-jamiu.jpg" width="240" height="240" loading="lazy" alt="Kareem Jamiu" onerror="this.remove()"></div>
-        <div class="commentator-text">
-          <h3>Kareem Jamiu</h3>
-          <p class="role">Joins for the first half of the stream</p>
-        </div>
-      </div>
-      <div class="box commentator">
-        <div class="avatar" data-initials="VL"><img src="images/commentator-victor-lawrence.jpg" width="240" height="240" loading="lazy" alt="Victor Lawrence" onerror="this.remove()"></div>
-        <div class="commentator-text">
-          <h3>Victor Lawrence</h3>
-          <p class="role">Joins for the second half of the stream</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Telestrator image: add images/telestrator.png. If it is missing, the block shows text only. -->
-    <div class="box acc-info telestrator" id="telestrator">
-      <div class="telestrator-text">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg>The telestrator</h3>
-        <p>A custom tool designed for this stream. It lets the commentators explain a position right on the board:</p>
-        <ul class="rules-list">
-          <li>Draw arrows and highlights on the board</li>
-          <li>Type words onto the board</li>
-          <li>Show the engine's top moves</li>
-          <li>Use a pen and a laser pointer</li>
-        </ul>
-        <p>Drawings can stay on the board across moves.</p>
-      </div>
-      <figure class="telestrator-shot">
-        <img src="images/telestrator.png" loading="lazy" alt="The commentary telestrator drawing on the live board" onerror="var b=this.closest('.telestrator');this.closest('figure').remove();b.classList.add('no-img')">
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- =====================================================================
      FAIR AND PROCTORED (teaser; full rules are under For players)
      ===================================================================== -->
 <section id="fair-teaser">
@@ -382,13 +390,17 @@
   </div>
 </section>
 
+<div class="wrap play-line">
+  <p>Want to play in a duel? <a href="#apply">See how to apply.</a></p>
+</div>
+
 <!-- =====================================================================
      FOR PLAYERS (everything below is player material; "Player Hub" label lives here)
      ===================================================================== -->
 <section id="for-players" class="players-divider">
   <div class="wrap">
     <div class="eyebrow">WPULSE PLAYER HUB</div>
-    <h2>For players</h2>
+    <h2>For players: apply, rules and setup</h2>
     <p>Everything below is for players taking part in WPulse duels: how to apply, the fair-play rules, camera and recording conditions, installing the extension, match-day setup, and answers to common questions.</p>
   </div>
 </section>
@@ -668,12 +680,23 @@
     </div>
 
     <div class="box acc-ok" style="margin-top:18px">
-      <h3><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Test before your duel</h3>
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-clipboard"/></svg>Test before your duel</h3>
       <ul class="check-list">
         <li>Your hands and screen are clearly visible on the phone camera.</li>
         <li>Your entire screen is being shared.</li>
         <li>Notifications are off.</li>
+        <li>Your Woogles game settings match the match announcement. Check this before play begins.</li>
         <li>You have done this at least 30 minutes before the scheduled stream start.</li>
+      </ul>
+    </div>
+
+    <div class="box acc-info" style="margin-top:18px">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-message"/></svg>Match-day communication</h3>
+      <p>On match day, all communication with players goes through the chat box in your VDO.Ninja screen share window. Keep that window open so you can see messages.</p>
+      <ul class="rules-list">
+        <li><strong>Starting your match:</strong> The organizer or a commentator will confirm in the chat when you can begin. Wait for this go-ahead before you start.</li>
+        <li><strong>Setup help:</strong> The proctor may message you in the same chat if there is any issue with your camera, screen share or setup. You can reply there too.</li>
+        <li><strong>One channel:</strong> Before match day, use the <a href="#contact">contact details</a> at the bottom of this page. On match day, the chat box is the only channel.</li>
       </ul>
     </div>
 
@@ -782,7 +805,8 @@
         <span class="cc-text"><span class="cc-name">YouTube</span><span class="cc-handle">@WPulseGaming</span></span>
       </a>
     </div>
-    <p class="small">&copy; 2026 &middot; WPulse. Not affiliated with Woogles.</p>
+    <p class="small footer-line"><img src="images/wpulse-icon-nobg.svg" width="24" height="24" alt="">&copy; 2026 &middot; WPulse. Not affiliated with Woogles.</p>
+    <p class="small">Best-move analysis on the WPulse stream is powered by <a href="https://github.com/jvc56/MAGPIE" target="_blank" rel="noopener">MAGPIE</a>, an open-source crossword game engine by Josh Castellano and contributors (github.com/jvc56/MAGPIE).</p>
   </div>
 </footer>
 

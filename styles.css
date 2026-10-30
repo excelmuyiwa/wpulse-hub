@@ -622,7 +622,7 @@ img.shot.shot-wide { max-width: 960px; }
   display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin: 10px 0 18px;
   font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: #94a3b8; opacity: 0.85;
 }
-.spec-strip span:not(:last-child)::after { content: "\2022"; margin-left: 12px; color: rgba(6, 182, 212, 0.7); }
+.spec-strip span:not(:last-child)::after { content: "\00B7"; margin-left: 12px; color: rgba(6, 182, 212, 0.7); }
 .hero p.lead { color: #94a3b8; line-height: 1.6; max-width: 620px; }
 .hero p.lead:first-of-type { color: #cbd5e1; }
 .hero-cta { margin-top: 20px; }
@@ -765,12 +765,73 @@ img.shot.shot-wide { max-width: 960px; }
 }
 
 /* For players divider */
-.players-divider { margin-top: 24px; padding-bottom: 8px; background: linear-gradient(180deg, rgba(6, 182, 212, 0.08), transparent); }
+.players-divider {
+  margin-top: 40px; padding: 40px 0 32px;
+  background: linear-gradient(180deg, rgba(25, 211, 197, 0.12), rgba(25, 211, 197, 0.04));
+  border-top: 2px solid var(--accent); border-bottom: 1px solid var(--line);
+}
 .players-divider h2 { margin-bottom: 0.3em; }
 .players-divider p { max-width: 40em; margin: 0; color: var(--muted); }
 
+/* Top nav: "For players" as an accent pill (reuses .btn / .btn-sm; resets the plain nav-link styling) */
+.nav a.nav-cta {
+  align-self: center; margin-left: 6px; padding: 5px 14px; border-bottom: 0;
+  font-size: 0.95rem; color: #04121a;
+}
+.nav a.nav-cta::after { display: none; }
+.nav a.nav-cta:hover, .nav a.nav-cta:focus-visible, .nav a.nav-cta.is-active { color: #04121a; }
+
+/* Brand logos: the header brand is the "WPulse Gaming" wordmark (vector paths, as on the stream); hero emblem (wide screens only); small icon in the footer line */
+.brand { display: inline-flex; align-items: center; min-height: 58px; } /* min-height keeps the header height the same as before */
+.brand img { display: block; flex: none; height: 26px; width: auto; }
+/* Hero emblem: animated icon (its own soft glow layer is inside the SVG). A small one sits above the headline
+   on phones; from 900px it is the larger emblem beside the text. */
+.hero-logo { display: block; width: 80px; height: 80px; margin: 0 0 6px; pointer-events: none; }
+/* Each sentence of the headline stays whole; the line breaks between the two sentences */
+.hero h1 span { white-space: nowrap; }
+@media (min-width: 900px) {
+  .hero { --emb-w: clamp(160px, 18vw, 240px); --emb-r: clamp(-80px, calc(504px - 50vw), 24px); }
+  /* Decorative emblem, centred against the hero text block; no tile (the soft teal glow is drawn inside the SVG).
+     --emb-r is 24px up to a 960px viewport, then eases into the side margin (max 80px). */
+  .hero-logo {
+    position: absolute; right: var(--emb-r); top: 50%; transform: translateY(-50%);
+    width: var(--emb-w); height: auto; margin: 0; pointer-events: none;
+  }
+  /* The headline wraps before it reaches the emblem (its right edge stays 40px clear of the emblem's box) */
+  .hero h1 { max-width: calc(100% - 16px - var(--emb-r) - var(--emb-w)); }
+}
+.footer-line { display: flex; align-items: center; gap: 8px; }
+.footer-line img { display: block; flex: none; width: 24px; height: 24px; }
+@media (max-width: 719px) {
+  .brand { min-height: 44px; }
+  .brand img { height: 15px; }
+  .footer-line img { width: 22px; height: 22px; }
+}
+/* Commentary directly follows the Next duel block: no divider line and a tight gap, so the two read as one block */
+#schedule { padding-bottom: 0; }
+#commentary { padding-top: 4px; }
+#commentary::before { display: none; }
+
+/* Next duel footnote and the "want to play" line after Commentary */
+.duel-note { margin: 0 0 18px; color: var(--muted); }
+.play-line { padding-top: 28px; padding-bottom: 4px; }
+.play-line p { margin: 0; color: var(--muted); }
+
+/* Very narrow phones (about 360px): squeeze the nav a little more so the pill stays whole */
+@media (max-width: 379px) {
+  .nav a { font-size: 0.72rem; padding-left: 3px; padding-right: 3px; }
+  .nav a.nav-cta { font-size: 0.7rem; padding: 3px 8px; }
+}
+
 /* Phones: compact commentator rows (extra rules only; the phone block above is untouched) */
 @media (max-width: 719px) {
+  .topbar .wrap { gap: 6px; }
+  .nav { padding-right: 14px; }
+  .nav a { padding-left: 4px; padding-right: 4px; }
+  .nav a.nav-cta { font-size: 0.75rem; padding: 3px 9px; margin-left: 2px; }
+  .players-divider { margin-top: 24px; padding: 26px 0 20px; }
+  .duel-note { margin-bottom: 10px; }
+  .play-line { padding-top: 18px; }
   .commentator { flex-direction: row; text-align: left; gap: 12px; }
   .avatar { width: 64px; height: 64px; }
   .avatar::before { font-size: 1.4rem; }
@@ -778,4 +839,34 @@ img.shot.shot-wide { max-width: 960px; }
   .duel-flyer { margin-bottom: 10px; }
   .commentators { gap: 10px; margin-bottom: 10px; }
   .how-it-works { margin-top: 10px; }
+}
+
+/* Very narrow phones: a slightly smaller wordmark so it fits beside the nav links (placed last so it wins over the 719px rule) */
+@media (max-width: 379px) {
+  .brand img { height: 13px; }
+}
+
+/* The WPulse Telestrator: featured panel (existing colours only) */
+.ts-panel {
+  padding: 30px 26px; border-radius: 12px; border: 2px solid var(--accent); align-items: start;
+  background-color: var(--card);
+  background-image: radial-gradient(ellipse 60% 90% at 0% 0%, rgba(25, 211, 197, 0.16), transparent 70%), linear-gradient(var(--info-bg), var(--info-bg));
+  box-shadow: 0 0 0 1px rgba(25, 211, 197, 0.25), 0 10px 40px rgba(25, 211, 197, 0.14);
+}
+.ts-panel .eyebrow { margin-bottom: 10px; }
+.ts-title { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.02; margin: 0 0 0.3em; color: #fff; }
+.ts-tagline { color: var(--accent); font-weight: 600; font-size: 1.1rem; line-height: 1.45; }
+.ts-panel .telestrator-text > :last-child { margin-bottom: 0; }
+.ts-features { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+.ts-feature { background: var(--bg-2); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 8px; padding: 14px 16px; }
+.ts-feature h4 { font-family: var(--head-font); text-transform: uppercase; letter-spacing: 0.03em; font-size: 1.3rem; line-height: 1.1; color: var(--accent); margin: 0 0 0.35em; }
+.ts-feature p { margin: 0; }
+@media (min-width: 720px) {
+  .ts-features { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 719px) {
+  .ts-panel { padding: 16px 14px; gap: 14px; }
+  .ts-tagline { font-size: 0.95rem; }
+  .ts-feature { padding: 10px 12px; }
+  .ts-feature h4 { font-size: 1.1rem; }
 }

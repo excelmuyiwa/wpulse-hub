@@ -8,103 +8,57 @@
   var root = doc.documentElement;
   var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 
-  /* ---------- 1. Next duel countdown ---------- */
-  function setupCountdown() {
-    var card = doc.querySelector('.next-duel[data-start]');
-    if (!card) return;
-    var start = new Date(card.getAttribute('data-start')).getTime();
-    if (isNaN(start)) return;
-
-    // Visitor's local time next to the WAT time (skipped when they are already on UTC+1).
-    try {
-      var when = new Date(start);
-      var tz = card.querySelector('.duel-tz');
-      if (tz && when.getTimezoneOffset() !== -60) {
-        var fmt = new Intl.DateTimeFormat(undefined, { weekday: 'short', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
-        var local = doc.createElement('span');
-        local.className = 'duel-local';
-        local.textContent = 'Your local time: ' + fmt.format(when);
-        tz.parentNode.appendChild(local);
-      }
-    } catch (e) { /* no local time line */ }
-
-    var line = doc.createElement('p');
-    line.className = 'countdown';
-    var timer = null;
-
-    function text(ms) {
-      var mins = Math.floor(ms / 60000);
-      var d = Math.floor(mins / 1440);
-      var h = Math.floor((mins % 1440) / 60);
-      var m = mins % 60;
-      if (d > 0) return 'Starts in ' + d + 'd ' + h + 'h ' + m + 'm';
-      if (h > 0) return 'Starts in ' + h + 'h ' + m + 'm';
-      if (m > 0) return 'Starts in ' + m + 'm';
-      return 'Starts in less than 1m';
-    }
-
-    function tick() {
-      var left = start - Date.now();
-      if (left <= 0) {
-        if (timer) clearInterval(timer);
-        if (line.parentNode) line.parentNode.removeChild(line);
-        return;
-      }
-      line.textContent = text(left);
-    }
-
-    if (start - Date.now() <= 0) return;
-    var anchor = card.querySelector('.duel-details');
-    card.insertBefore(line, anchor || null);
-    tick();
-    timer = setInterval(tick, 60000);
-  }
-
-  /* ---------- 2. Copy buttons in Contact ---------- */
+  /* ---------- 1. Contact cards: the whole card copies (Email, Discord) ---------- */
+  // Without this script the Email card is a plain mailto link and Discord is static text.
   function setupCopy() {
-    if (!(navigator.clipboard && typeof navigator.clipboard.writeText === 'function')) return;
-    var cards = doc.querySelectorAll('.contact-cards .contact-card');
-    var labels = { Email: 'Copy email address', Discord: 'Copy Discord username' };
-
+    var cards = doc.querySelectorAll('.contact-card[data-copy]');
     Array.prototype.forEach.call(cards, function (card) {
-      var nameEl = card.querySelector('.cc-name');
-      var handleEl = card.querySelector('.cc-handle');
-      if (!nameEl || !handleEl) return;
-      var name = nameEl.textContent.trim();
-      if (!labels[name]) return;
-      var value = handleEl.textContent.trim();
+      var value = card.getAttribute('data-copy');
+      var label = card.querySelector('.cc-action-label');
+      var shown = card.querySelector('.cc-value');
+      var action = card.querySelector('.cc-action');
+      if (!label || !shown || !action) return;
+      var idle = label.textContent;
+      var timer = null;
 
-      var wrap = doc.createElement('div');
-      wrap.className = 'contact-item has-copy';
-      card.parentNode.insertBefore(wrap, card);
-      wrap.appendChild(card);
+      card.setAttribute('role', 'button');
+      if (card.tagName !== 'A') card.tabIndex = 0;
+      card.classList.add('copy-ready');
+      action.classList.add('cc-action-on');
 
-      var btn = doc.createElement('button');
-      btn.type = 'button';
-      btn.className = 'copy-btn';
-      btn.setAttribute('aria-label', labels[name]);
-      btn.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg>';
-
-      var msg = doc.createElement('span');
-      msg.className = 'copy-msg';
-      msg.setAttribute('role', 'status');
-      msg.setAttribute('aria-live', 'polite');
-
-      var hideTimer = null;
-      btn.addEventListener('click', function () {
-        navigator.clipboard.writeText(value).then(function () {
-          msg.textContent = 'Copied';
-          if (hideTimer) clearTimeout(hideTimer);
-          hideTimer = setTimeout(function () { msg.textContent = ''; }, 1600);
-        }, function () { /* copy refused: stay silent */ });
+      function say(text) {
+        label.textContent = text;
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(function () { label.textContent = idle; }, 1500);
+      }
+      // Clipboard API unavailable or refused: select the text (and try the old copy command) so it can be copied by hand.
+      function manual() {
+        var ok = false;
+        try {
+          var range = doc.createRange();
+          range.selectNodeContents(shown);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          ok = doc.execCommand('copy');
+        } catch (e) { /* leave the text selected */ }
+        say(ok ? 'Copied' : 'Press Ctrl+C');
+      }
+      function run(e) {
+        e.preventDefault();
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          navigator.clipboard.writeText(value).then(function () { say('Copied'); }, manual);
+        } else {
+          manual();
+        }
+      }
+      card.addEventListener('click', run);
+      card.addEventListener('keydown', function (e) {
+        if (e.key === ' ' || (e.key === 'Enter' && card.tagName !== 'A')) run(e);
       });
-
-      wrap.appendChild(msg);
-      wrap.appendChild(btn);
     });
   }
-
-  /* ---------- 3. Scroll reveal ---------- */
+  /* ---------- 2. Scroll reveal ---------- */
   function setupReveal() {
     if (reduceMotion || !('IntersectionObserver' in window)) return;
     var sel = '.section-head, .box, .card, .step, .point, .callout, .note, .faq details, .contact-cards > *, .shot-ph, img.shot, .apply-grid li, .theme-tabs';
@@ -140,7 +94,7 @@
     }
   }
 
-  /* ---------- 4. Nav scroll-spy ---------- */
+  /* ---------- 3. Nav scroll-spy ---------- */
   function setupSpy() {
     if (!('IntersectionObserver' in window)) return;
     var links = Array.prototype.slice.call(doc.querySelectorAll('.nav a[href^="#"], .toc a[href^="#"]'));
@@ -190,12 +144,20 @@
     var footVisible = false;
     function keyOf(s) { return s.id || 'hero'; }
 
+    // Menu targets that are not top-level sections (an accordion inside a section, e.g. #recording):
+    // while one is in the band it wins over its parent section.
+    var sectionIds = {};
+    sections.forEach(function (s) { sectionIds[keyOf(s)] = true; });
+    var extras = Object.keys(byId).map(function (id) { return doc.getElementById(id); })
+      .filter(function (el) { return el && !sectionIds[el.id] && el.closest('main'); });
+
     function update() {
       if (footVisible) { setActive('contact'); return; }
       var pick = null;
       sections.forEach(function (s) {
         if (inBand[keyOf(s)]) pick = s.classList.contains('hero') ? null : s.id;
       });
+      extras.forEach(function (el) { if (inBand[el.id]) pick = el.id; });
       setActive(pick);
     }
 
@@ -207,6 +169,7 @@
       update();
     }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
     sections.forEach(function (s) { spy.observe(s); });
+    extras.forEach(function (el) { spy.observe(el); });
 
     var foot = doc.getElementById('contact');
     if (foot && byId.contact) {
@@ -217,11 +180,59 @@
     }
   }
 
+  /* ---------- 4. Open the accordion(s) a link points into ---------- */
+  function setupHashOpen() {
+    function targetOf(hash) {
+      if (!hash || hash.length < 2) return null;
+      var id = hash.slice(1);
+      try { id = decodeURIComponent(id); } catch (e) { /* use as is */ }
+      return doc.getElementById(id);
+    }
+    // Opens the target (if it is a <details>) and every <details> around it. True if anything was opened.
+    function openAround(el) {
+      var opened = false;
+      for (var n = el; n; n = n.parentElement) {
+        if (n.tagName === 'DETAILS' && !n.open) { n.open = true; opened = true; }
+      }
+      return opened;
+    }
+    function go(hash) {
+      var el = targetOf(hash);
+      if (!el) return;
+      openAround(el);
+      el.scrollIntoView();
+    }
+    // Clicks: open first, so the browser's own jump lands on the final layout (also works for a repeated hash).
+    doc.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      var el = a && targetOf(a.getAttribute('href'));
+      if (el) openAround(el);
+    });
+    // Every accordion starts closed, and stays closed after a reload or back/forward (browsers can restore
+    // the old open/closed state). Only a URL hash that targets an accordion (or something inside one) opens it.
+    function syncOpenState(scroll) {
+      var el = targetOf(location.hash);
+      // The hash target's accordion (and its ancestors) are left alone, so reopening never shifts the page.
+      var keep = [];
+      for (var n = el; n; n = n.parentElement) if (n.tagName === 'DETAILS') keep.push(n);
+      Array.prototype.forEach.call(doc.querySelectorAll('details'), function (d) { d.open = keep.indexOf(d) > -1; });
+      if (el && scroll) el.scrollIntoView();
+    }
+    doc.addEventListener('DOMContentLoaded', function () { syncOpenState(false); });
+    // pageshow also fires when a page comes back from the back/forward cache (persisted); the browser restores
+    // its own scroll position there, so do not scroll again.
+    window.addEventListener('pageshow', function () { syncOpenState(false); });
+    window.addEventListener('hashchange', function () { go(location.hash); });
+    syncOpenState(true);
+    // Images load after the first jump and can move the target: settle once more.
+    window.addEventListener('load', function () { if (targetOf(location.hash)) go(location.hash); });
+  }
+
   function init() {
-    setupCountdown();
     setupCopy();
     setupReveal();
     setupSpy();
+    setupHashOpen();
   }
 
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', init);

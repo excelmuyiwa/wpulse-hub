@@ -3,9 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WPulse Player Hub</title>
-  <meta name="description" content="Schedule, setup guide and help for WPulse players.">
+  <title>WPulse Gaming: live Scrabble duels on YouTube</title>
+  <meta name="description" content="Competitive Scrabble duels streamed live on YouTube, with a broadcast built for this stream: live racks, a win-percentage bar, engine top moves and expert commentary. Includes the Player Hub for players.">
   <meta name="theme-color" content="#060b14">
+
+  <!-- Link previews (WhatsApp, Discord, X, Facebook, etc.). The flyer image must exist at images/next-duel-flyer.png. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="WPulse Gaming">
+  <meta property="og:title" content="WPulse Gaming: live Scrabble duels on YouTube">
+  <meta property="og:description" content="Competitive Scrabble duels streamed live, with a broadcast built for this stream. No Scrabble experience needed to enjoy it.">
+  <meta property="og:url" content="https://excelmuyiwa.github.io/wpulse-hub/">
+  <meta property="og:image" content="https://excelmuyiwa.github.io/wpulse-hub/images/next-duel-flyer.png">
+  <meta property="og:image:alt" content="WPulse Gaming flyer for the next Scrabble duel">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WPulse Gaming: live Scrabble duels on YouTube">
+  <meta name="twitter:description" content="Competitive Scrabble duels streamed live, with a broadcast built for this stream.">
+  <meta name="twitter:image" content="https://excelmuyiwa.github.io/wpulse-hub/images/next-duel-flyer.png">
 
   <!-- Fonts only (no scripts, no tracking). Falls back to system fonts if blocked. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,6 +85,7 @@
   <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
   <symbol id="i-at" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.5"/><path d="M15.5 12v1.5a2.5 2.5 0 0 0 5 0V12a8.5 8.5 0 1 0-3.5 6.9"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19z"/><path d="M14.5 6.5l3 3"/></symbol>
 </svg>
 
 <!-- =====================================================================
@@ -81,16 +95,12 @@
   <div class="wrap">
     <a class="brand" href="#top">W<span>Pulse</span></a>
     <nav class="nav" aria-label="Page sections">
-      <a href="#schedule">Schedule</a>
-      <a href="#apply">Apply to play</a>
-      <a href="#setup">Install the extension</a>
-      <a href="#update">Update</a>
-      <a href="#proctor">Proctor</a>
-      <a href="#your-setup">Match-day setup</a>
+      <a href="#watch">Watch</a>
+      <a href="#schedule">Next duel</a>
       <a href="#about">About</a>
-      <a href="#stream-preview">Stream preview</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
+      <a href="#features">Features</a>
+      <a href="#commentary">Commentary</a>
+      <a href="#for-players">For players</a>
     </nav>
   </div>
 </header>
@@ -98,15 +108,20 @@
 <!-- Table of contents: shown as a sticky sidebar on wide desktop screens only. Keep its links in step with the sections. -->
 <nav class="toc" aria-label="On this page">
   <p class="toc-title">On this page</p>
-  <a href="#schedule">Schedule</a>
+  <a href="#watch">Watch</a>
+  <a href="#schedule">Next duel</a>
+  <a href="#about">About the stream</a>
+  <a href="#stream-preview">Stream preview</a>
+  <a href="#features">What's new</a>
+  <a href="#commentary">Commentary</a>
+  <a href="#fair-teaser">Fair and proctored</a>
+  <a href="#for-players">For players</a>
   <a href="#apply">Apply to play</a>
+  <a href="#proctor">Fair play</a>
+  <a href="#recording">Camera &amp; recording</a>
   <a href="#setup">Install the extension</a>
   <a href="#update">Update</a>
-  <a href="#proctor">Fair play</a>
   <a href="#your-setup">Match-day setup</a>
-  <a href="#recording">Camera &amp; recording</a>
-  <a href="#about">About</a>
-  <a href="#stream-preview">Stream preview</a>
   <a href="#faq">FAQ</a>
   <a href="#contact">Contact</a>
 </nav>
@@ -114,19 +129,19 @@
 <main id="top">
 
 <!-- =====================================================================
-     SECTION 1: HEADER / HERO
+     HERO (viewer-facing intro)
      ===================================================================== -->
-<section class="hero">
+<section class="hero" id="watch">
   <div class="wrap">
     <div class="eyebrow">PROCTORED SCRABBLE DUELS</div>
-    <h1>WPulse Player Hub</h1>
-    <p class="spec-strip"><span>WOOGLES.IO LIVE SYNC</span><span>PROCTORED MATCHES</span><span>BROADCAST-READY</span></p>
-    <p class="lead">WPulse Gaming broadcasts proctored Scrabble duels played on Woogles.io, with live commentary, real-time game information and player cameras.</p>
-    <p class="lead">This is where players apply to play, install the WPulse extension, set up for match day, and find the schedule, fair-play rules and contacts.</p>
+    <h1>Live Scrabble duels on YouTube</h1>
+    <p class="spec-strip"><span>LIVE ON YOUTUBE</span><span>LIVE COMMENTARY</span><span>PROCTORED MATCHES</span></p>
+    <p class="lead">WPulse Gaming streams competitive Scrabble duels live on YouTube, with a broadcast built specifically for this stream: both players' racks, a live win-percentage bar and the engine's top moves appear on screen as the game unfolds.</p>
+    <p class="lead">No Scrabble experience needed to enjoy it. You're welcome to just come and watch.</p>
     <div class="hero-cta">
-      <a class="btn btn-big btn-primary" href="#setup"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Install Extension</a>
       <!-- TODO: replace the channel link with the specific live stream URL when one is available -->
-      <a class="btn btn-big btn-ghost btn-outline" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>WPulse on YouTube</a>
+      <a class="btn btn-big btn-primary" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>Watch on YouTube</a>
+      <a class="btn btn-big btn-ghost btn-outline" href="#schedule"><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg>Next duel</a>
     </div>
   </div>
 </section>
@@ -143,6 +158,12 @@
       <p>These are the official match settings and override any general description on this page. Check your Woogles game settings against them before play begins.</p>
     </div>
 
+    <!-- Layout: the match card(s) on the left, the schedule flyer on the right (desktop); stacked on phones.
+         To add another match later, copy the whole <div class="card next-duel"> block below inside .duel-list.
+         script.js only runs the countdown on the first .next-duel[data-start]. If images/next-duel-flyer.png
+         is missing, the flyer drops out and the card goes full width. -->
+    <div class="duel-layout">
+    <div class="duel-list">
     <!-- Next duel highlight. The countdown reads data-start on the next line's div: update data-start whenever the next duel changes. -->
     <div class="card next-duel" data-start="2026-11-07T16:00:00+01:00">
       <div class="label">Next duel</div>
@@ -159,6 +180,263 @@
       <!-- TODO: replace the channel link with the specific live stream URL when one is available -->
       <a class="btn btn-ghost" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>WPulse on YouTube</a>
     </div>
+    </div>
+    <figure class="duel-flyer">
+      <a href="images/next-duel-flyer.png" target="_blank" rel="noopener" aria-label="Open the next duel flyer full size (opens in a new tab)">
+        <img src="images/next-duel-flyer.png" loading="lazy" alt="Schedule flyer for the next WPulse duel" onerror="var l=this.closest('.duel-layout');this.closest('figure').remove();l.classList.add('no-flyer')">
+      </a>
+      <figcaption>Click the flyer to open it full size.</figcaption>
+    </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 5: ABOUT THE STREAM
+     ===================================================================== -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About the stream</h2>
+      <p>WPulse Gaming streams online Scrabble matches with live commentary, live game information and player cameras. Matches are played on Woogles.io under the rules announced for each event.</p>
+    </div>
+    <div class="grid three about-cards">
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>Where to watch</h3>
+        <!-- TODO: replace the channel link with the specific live stream URL when one is available -->
+        <dl class="facts">
+          <div><dt>Channel</dt><dd>WPulse Gaming on YouTube.</dd></div>
+        </dl>
+        <a class="btn btn-ghost" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>WPulse on YouTube</a>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-layout"/></svg>Format</h3>
+        <dl class="facts">
+          <div><dt>Format</dt><dd>Matches are Best of 7, 9, 11 or 15 games (first to 4, 5, 6 or 8 wins).</dd></div>
+          <div><dt>Time controls</dt><dd>Rapid and blitz, between 5 and 10 minutes.</dd></div>
+        </dl>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Rules</h3>
+        <dl class="facts">
+          <div><dt>Games</dt><dd>Online Scrabble on Woogles.io, strictly CSW lexicon.</dd></div>
+          <div><dt>Players</dt><dd>From all over the world.</dd></div>
+          <div><dt>Time zone</dt><dd>All times are in West Africa Time (WAT, UTC+1).</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="box acc-info how-it-works">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>How a match works</h3>
+      <ul class="rules-list">
+        <li>A match is a series of games: best of 7, 9, 11 or 15. The first player to win 4, 5, 6 or 8 games takes it.</li>
+        <li>Each game is played against a clock, with rapid or blitz time controls between 5 and 10 minutes.</li>
+        <li>If a player goes into overtime, the clock keeps counting below zero. The next duel, for example, gives 10 minutes per player plus 1 minute of overtime.</li>
+        <li>Players can challenge each other's plays. The next duel uses a 10-point challenge.</li>
+      </ul>
+    </div>
+    <p class="small about-note"><em>These are general descriptions. The specific match announcement is the source of truth.</em></p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 5b: WHAT THE STREAM LOOKS LIKE
+     ===================================================================== -->
+<section id="stream-preview">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What the stream looks like</h2>
+      <p>Here is what viewers see during a WPulse Duel. The overlay shows live game information supported by WPulse.</p>
+    </div>
+
+    <!-- Dark / light preview: CSS-only tabs (radio inputs), no script needed. Replace the two images to update. -->
+    <div class="theme-tabs">
+      <input type="radio" name="stream-theme" id="theme-dark" checked>
+      <input type="radio" name="stream-theme" id="theme-light">
+      <div class="tab-labels">
+        <label for="theme-dark">Dark theme</label>
+        <label for="theme-light">Light theme</label>
+      </div>
+      <div class="tab-panels">
+        <img class="shot shot-wide tab-dark" src="images/dark-mode-full-stream.png" width="1919" height="1079" loading="lazy" alt="The WPulse stream overlay in the dark theme: the live board in the centre, move history and the engine's best moves along the top, each player's name, score, clock and rack at the sides, and the unseen tiles and evaluation bar under the board.">
+        <img class="shot shot-wide tab-light" src="images/light-mode-full-stream.png" width="1919" height="1079" loading="lazy" alt="The same WPulse stream overlay in the light theme, with the live board, move history, engine best moves, player panels, unseen tiles and evaluation bar.">
+      </div>
+    </div>
+
+    <div class="grid three" style="margin-top:22px">
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-board"/></svg>Live board</h3>
+        <p>The board updates move by move, with the latest move highlighted.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-tiles"/></svg>Racks and unseen tiles</h3>
+        <p>Both players' racks and the unseen tiles are shown to viewers.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>Scores and clocks</h3>
+        <p>Live scores and clocks. If a player goes into overtime, the clock keeps counting below zero and pulses amber.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>Move history</h3>
+        <p>Recent moves shown as the game progresses.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg>Engine analysis and evaluation bar</h3>
+        <p>An evaluation bar, win percentages and the engine's best moves appear on stream when analysis is enabled for a broadcast.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-message"/></svg>Live commentary</h3>
+        <p>Commentators draw arrows and highlights on the board to explain moves.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg>Game result banner</h3>
+        <p>When a game ends, a banner shows the result right away: win, resignation, overtime forfeit and more.</p>
+      </div>
+    </div>
+
+    <!-- Game result banner, dark / light: CSS-only tabs (same pattern as above). -->
+    <div class="theme-tabs cards-gap">
+      <input type="radio" name="banner-theme" id="banner-dark" checked>
+      <input type="radio" name="banner-theme" id="banner-light">
+      <div class="tab-labels">
+        <label for="banner-dark">Dark theme</label>
+        <label for="banner-light">Light theme</label>
+      </div>
+      <div class="tab-panels">
+        <img class="shot shot-wide" src="images/game-banner-dark-mode.png" width="1919" height="1079" loading="lazy" alt="The game result banner in the dark theme, shown over the stream when a game ends: 'Game tied', with the final scores.">
+        <img class="shot shot-wide" src="images/game-banner.png" width="1652" height="929" loading="lazy" alt="The game result banner in the light theme: 'Player A wins', with the final score of 441 to 383.">
+      </div>
+    </div>
+
+
+    <p class="note" style="margin-top:22px">Because both racks are visible on the stream, players must not watch or listen to it during a game. See <a href="#proctor">Fair play and the proctor</a>.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     WHAT'S NEW ON THIS STREAM
+     ===================================================================== -->
+<section id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What's new on this stream</h2>
+      <p>On-screen extras built for this stream, in plain terms.</p>
+    </div>
+    <div class="grid three feature-grid">
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-tiles"/></svg>Both racks, live</h3>
+        <p>See both players' tile racks on screen while they play.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg>Win-percentage bar</h3>
+        <p>A live bar from an engine (CSW24) estimating who is ahead. It works from the on-turn player's view, without seeing the opponent's tiles.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-cpu"/></svg>Top 5 engine moves</h3>
+        <p>The engine's five best moves, with positions and scores, for the commentators.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>Move history you notice</h3>
+        <p>The move history animates challenges (+10), plays challenged off, passes and exchanges, so viewers don't miss them.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg>Unseen tiles</h3>
+        <p>A tracker of the tiles that have not been seen yet.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg>Game-over banner</h3>
+        <p>A banner shows the result as soon as a game ends: a win, a resignation or an overtime forfeit.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>Overtime clocks</h3>
+        <p>Clocks keep counting into negative time when a player goes into overtime.</p>
+      </div>
+      <div class="box">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg>Commentary telestrator</h3>
+        <p>A drawing tool built for this stream, so commentators can mark up the board. <a href="#telestrator">More below.</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     COMMENTARY
+     Commentator photos: add the three .jpg files to images/. Until a file exists, the initials circle shows.
+     ===================================================================== -->
+<section id="commentary">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Commentary</h2>
+      <p>Meet the commentators.</p>
+    </div>
+
+    <div class="commentators">
+      <div class="box commentator">
+        <div class="avatar" data-initials="EM"><img src="images/commentator-excel-muyiwa.jpg" width="240" height="240" loading="lazy" alt="Excel Muyiwa" onerror="this.remove()"></div>
+        <div class="commentator-text">
+          <h3>Excel Muyiwa</h3>
+          <p class="role">Main commentator</p>
+        </div>
+      </div>
+      <div class="box commentator">
+        <div class="avatar" data-initials="KJ"><img src="images/commentator-kareem-jamiu.jpg" width="240" height="240" loading="lazy" alt="Kareem Jamiu" onerror="this.remove()"></div>
+        <div class="commentator-text">
+          <h3>Kareem Jamiu</h3>
+          <p class="role">Joins for the first half of the stream</p>
+        </div>
+      </div>
+      <div class="box commentator">
+        <div class="avatar" data-initials="VL"><img src="images/commentator-victor-lawrence.jpg" width="240" height="240" loading="lazy" alt="Victor Lawrence" onerror="this.remove()"></div>
+        <div class="commentator-text">
+          <h3>Victor Lawrence</h3>
+          <p class="role">Joins for the second half of the stream</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Telestrator image: add images/telestrator.png. If it is missing, the block shows text only. -->
+    <div class="box acc-info telestrator" id="telestrator">
+      <div class="telestrator-text">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg>The telestrator</h3>
+        <p>A custom tool designed for this stream. It lets the commentators explain a position right on the board:</p>
+        <ul class="rules-list">
+          <li>Draw arrows and highlights on the board</li>
+          <li>Type words onto the board</li>
+          <li>Show the engine's top moves</li>
+          <li>Use a pen and a laser pointer</li>
+        </ul>
+        <p>Drawings can stay on the board across moves.</p>
+      </div>
+      <figure class="telestrator-shot">
+        <img src="images/telestrator.png" loading="lazy" alt="The commentary telestrator drawing on the live board" onerror="var b=this.closest('.telestrator');this.closest('figure').remove();b.classList.add('no-img')">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     FAIR AND PROCTORED (teaser; full rules are under For players)
+     ===================================================================== -->
+<section id="fair-teaser">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Fair and proctored</h2>
+    </div>
+    <div class="box acc-ok">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-shield-check"/></svg>Played fairly, on the record</h3>
+      <p>Every WPulse match is proctored and recorded, and standard competitive duels are engine-free. Because both racks are visible on the stream, players must not watch or listen to it while they play.</p>
+      <p><a href="#proctor">Read the full rules in the For players section.</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     FOR PLAYERS (everything below is player material; "Player Hub" label lives here)
+     ===================================================================== -->
+<section id="for-players" class="players-divider">
+  <div class="wrap">
+    <div class="eyebrow">WPULSE PLAYER HUB</div>
+    <h2>For players</h2>
+    <p>Everything below is for players taking part in WPulse duels: how to apply, the fair-play rules, camera and recording conditions, installing the extension, match-day setup, and answers to common questions.</p>
   </div>
 </section>
 
@@ -180,6 +458,96 @@
         <li><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><span>your published rating or approximate playing level, if any</span></li>
       </ul>
       <p>A published rating isn't required for every match, and applying doesn't guarantee selection. Selected players receive the match details, rules, setup instructions, and camera and recording conditions before confirming. You must complete the setup checks and get approval before playing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 4: PROCTOR
+     ===================================================================== -->
+<section id="proctor">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Fair play and the proctor</h2>
+      <p>WPulse Duels are monitored to help maintain fair competition. Players must follow these rules, the conditions announced for their match, and the <a href="https://woogles.io/terms" target="_blank" rel="noopener">Woogles.io Terms of Service</a> and fair-play rules.</p>
+    </div>
+
+    <div class="grid two">
+      <div class="box acc-ok">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-shield-check"/></svg>Standard competitive matches</h3>
+        <p>Standard competitive matches are engine-free. The full list of prohibited behavior is under <a href="#not-allowed">What is not allowed</a>, below.</p>
+      </div>
+      <div class="box acc-info">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg>What the proctor does</h3>
+        <p>The proctor monitors the camera and screen feeds, checks that the announced rules are followed, and reports technical issues or possible violations to the organizer. The proctor and organizer are different people: only the organizer makes event decisions, including pauses and penalties.</p>
+      </div>
+    </div>
+
+    <div class="grid two" style="margin-top:18px">
+      <div class="box acc-info">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg>What players do</h3>
+        <p>Share your full screen, and your camera with audio, using the links the organizer sends you. See <a href="#your-setup">Match-day setup</a> for how.</p>
+      </div>
+      <div class="box acc-info">
+        <h3><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>When to be ready before a duel</h3>
+        <p>Players must complete the required technical checks at least 30 minutes before the scheduled stream start. If you expect to be late or experience a technical problem, contact the organizer immediately (by Discord or email, see <a href="#contact">Contact</a>). The organizer decides whether to delay, reschedule, or proceed.</p>
+      </div>
+    </div>
+
+    <p class="callout" style="margin-top:18px"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>Your screen and camera links are sent to you personally by the organizer. They are not on this page.</p>
+
+    <div class="box acc-bad" id="not-allowed" style="margin-top:18px">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-ban"/></svg>What is not allowed</h3>
+      <ul class="rules-list x-list x-cols">
+        <li>No tabs or programs on your PC related to Scrabble or word checking (other than the Woogles game itself).</li>
+        <li>No engines, word-finding or word-lookup tools, and no asking anyone for move assistance (unless it is an announced engine-assisted demonstration).</li>
+        <li>No watching or listening to the stream while you play, and no using the live broadcast or another account to get help.</li>
+        <li>No one else may assist you, and no one may be seen next to you during a game.</li>
+        <li>No other device may be used to look up words, analyse the position, or anything else related to the game. A phone used as your camera is fine.</li>
+        <li>No messaging or calling anyone about the game while it is in progress.</li>
+        <li>Turn off all notifications before the match. They can appear on your shared screen.</li>
+        <li>Keep your full screen shared and your camera on, with you in view, for the whole game.</li>
+        <li>No headphones or earbuds.</li>
+      </ul>
+    </div>
+
+    <div class="rule-stack">
+      <details class="box acc-warn rule-details">
+        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-cpu"/></svg>Engine-assisted demonstrations</h3></summary>
+        <div class="rule-body"><p>Engine-assisted demonstrations are separate from standard competitive matches. They must be clearly labelled, nonrated and announced in advance, must have the explicit agreement of both players, and must comply with Woogles.io's rules. Unrated does not mean engines are allowed. Unless a match is announced as an engine-assisted demonstration, the engine-free rules apply.</p></div>
+      </details>
+      <details class="box acc-warn rule-details">
+        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg>Disconnections and technical problems</h3></summary>
+        <div class="rule-body"><p>Notify the proctor or organizer immediately. The proctor reports the issue, but only the organizer can authorize a pause. Wait for the organizer's instructions before resuming or taking further action. The organizer decides whether to resume, continue, restart, reschedule, or otherwise handle the match.</p></div>
+      </details>
+      <details class="box acc-warn rule-details">
+        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-clipboard"/></svg>Incorrect game settings</h3></summary>
+        <div class="rule-body"><p>Check the game settings against the match announcement before play begins. Report any mismatch to the organizer immediately. The organizer decides how to proceed based on the circumstances.</p></div>
+      </details>
+      <details class="box acc-info rule-details">
+        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg>Allegations and penalties</h3></summary>
+        <div class="rule-body"><p>If a fair-play concern is raised, the organizer reviews the available evidence, gives the player a chance to explain where appropriate, and documents the decision. An allegation alone is not proof of a violation. Any action depends on the evidence, the seriousness of the issue and the circumstances. Possible outcomes include a warning, a game or match loss, rescheduling, or disqualification, but none of these is automatic. These are WPulse event decisions; Woogles.io may apply its own rules or penalties independently.</p></div>
+      </details>
+    </div>
+
+    <p class="small" style="margin-top:18px"><em>The rules may be updated as the series develops. Players will be informed of the rules applicable to their match before they confirm participation.</em></p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     SECTION 4c: CAMERA, SCREEN SHARING AND RECORDING
+     ===================================================================== -->
+<section id="recording">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Camera, screen sharing and recording</h2>
+    </div>
+    <div class="point"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><p>Standard competitive matches require a working player camera feed and agreement to the announced public camera and recording conditions before a player is scheduled. The organizer provides this information before asking a player to confirm. Players who refuse the public camera requirement cannot play the standard competitive format.</p></div>
+    <div class="point"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><p>The organizer sends each player their camera and screen-sharing links. The proctor uses these feeds to monitor the match. Match footage will be used for YouTube livestreams and replays, short clips and highlights, and player camera feeds during broadcasts. Screen feeds are used for proctoring only and are not shown in the public broadcast.</p></div>
+    <div class="point point-rec"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><p>Every WPulse match is recorded and may be reviewed if a technical issue, complaint or fair-play concern needs to be assessed. Recordings are retained indefinitely unless there is a reason to delete them, and access to raw recordings is restricted to the organizer unless another person is specifically authorized. Before confirming participation, players are told how their feeds and recordings will be used.</p></div>
+    <div class="box acc-info">
+      <h3><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Published footage and removal requests</h3>
+      <p>Published match footage is normally retained. To request removal or restriction of specific footage, contact the organizer (by email or Discord). Requests are reviewed case by case and removal is not guaranteed; the organizer may consider factors such as privacy, safety, legal requirements or a significant error. Raw recordings and published videos are treated separately: removing a published video does not automatically delete raw recordings or other copies. By accepting a match invitation, you confirm that you agree to the announced camera, broadcast and recording conditions. Contact the organizer before accepting if you have a question or concern.</p>
     </div>
   </div>
 </section>
@@ -300,78 +668,6 @@
 </section>
 
 <!-- =====================================================================
-     SECTION 4: PROCTOR
-     ===================================================================== -->
-<section id="proctor">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Fair play and the proctor</h2>
-      <p>WPulse Duels are monitored to help maintain fair competition. Players must follow these rules, the conditions announced for their match, and the <a href="https://woogles.io/terms" target="_blank" rel="noopener">Woogles.io Terms of Service</a> and fair-play rules.</p>
-    </div>
-
-    <div class="grid two">
-      <div class="box acc-ok">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-shield-check"/></svg>Standard competitive matches</h3>
-        <p>Standard competitive matches are engine-free. The full list of prohibited behavior is under <a href="#not-allowed">What is not allowed</a>, below.</p>
-      </div>
-      <div class="box acc-info">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg>What the proctor does</h3>
-        <p>The proctor monitors the camera and screen feeds, checks that the announced rules are followed, and reports technical issues or possible violations to the organizer. The proctor and organizer are different people: only the organizer makes event decisions, including pauses and penalties.</p>
-      </div>
-    </div>
-
-    <div class="grid two" style="margin-top:18px">
-      <div class="box acc-info">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg>What players do</h3>
-        <p>Share your full screen, and your camera with audio, using the links the organizer sends you. See <a href="#your-setup">Match-day setup</a> for how.</p>
-      </div>
-      <div class="box acc-info">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>When to be ready before a duel</h3>
-        <p>Players must complete the required technical checks at least 30 minutes before the scheduled stream start. If you expect to be late or experience a technical problem, contact the organizer immediately (by Discord or email, see <a href="#contact">Contact</a>). The organizer decides whether to delay, reschedule, or proceed.</p>
-      </div>
-    </div>
-
-    <p class="callout" style="margin-top:18px"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg>Your screen and camera links are sent to you personally by the organizer. They are not on this page.</p>
-
-    <div class="box acc-bad" id="not-allowed" style="margin-top:18px">
-      <h3><svg class="ic" aria-hidden="true"><use href="#i-ban"/></svg>What is not allowed</h3>
-      <ul class="rules-list x-list x-cols">
-        <li>No tabs or programs on your PC related to Scrabble or word checking (other than the Woogles game itself).</li>
-        <li>No engines, word-finding or word-lookup tools, and no asking anyone for move assistance (unless it is an announced engine-assisted demonstration).</li>
-        <li>No watching or listening to the stream while you play, and no using the live broadcast or another account to get help.</li>
-        <li>No one else may assist you, and no one may be seen next to you during a game.</li>
-        <li>No other device may be used to look up words, analyse the position, or anything else related to the game. A phone used as your camera is fine.</li>
-        <li>No messaging or calling anyone about the game while it is in progress.</li>
-        <li>Turn off all notifications before the match. They can appear on your shared screen.</li>
-        <li>Keep your full screen shared and your camera on, with you in view, for the whole game.</li>
-        <li>No headphones or earbuds.</li>
-      </ul>
-    </div>
-
-    <div class="rule-stack">
-      <details class="box acc-warn rule-details">
-        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-cpu"/></svg>Engine-assisted demonstrations</h3></summary>
-        <div class="rule-body"><p>Engine-assisted demonstrations are separate from standard competitive matches. They must be clearly labelled, nonrated and announced in advance, must have the explicit agreement of both players, and must comply with Woogles.io's rules. Unrated does not mean engines are allowed. Unless a match is announced as an engine-assisted demonstration, the engine-free rules apply.</p></div>
-      </details>
-      <details class="box acc-warn rule-details">
-        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-wifi"/></svg>Disconnections and technical problems</h3></summary>
-        <div class="rule-body"><p>Notify the proctor or organizer immediately. The proctor reports the issue, but only the organizer can authorize a pause. Wait for the organizer's instructions before resuming or taking further action. The organizer decides whether to resume, continue, restart, reschedule, or otherwise handle the match.</p></div>
-      </details>
-      <details class="box acc-warn rule-details">
-        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-clipboard"/></svg>Incorrect game settings</h3></summary>
-        <div class="rule-body"><p>Check the game settings against the match announcement before play begins. Report any mismatch to the organizer immediately. The organizer decides how to proceed based on the circumstances.</p></div>
-      </details>
-      <details class="box acc-info rule-details">
-        <summary><h3><svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg>Allegations and penalties</h3></summary>
-        <div class="rule-body"><p>If a fair-play concern is raised, the organizer reviews the available evidence, gives the player a chance to explain where appropriate, and documents the decision. An allegation alone is not proof of a violation. Any action depends on the evidence, the seriousness of the issue and the circumstances. Possible outcomes include a warning, a game or match loss, rescheduling, or disqualification, but none of these is automatic. These are WPulse event decisions; Woogles.io may apply its own rules or penalties independently.</p></div>
-      </details>
-    </div>
-
-    <p class="small" style="margin-top:18px"><em>The rules may be updated as the series develops. Players will be informed of the rules applicable to their match before they confirm participation.</em></p>
-  </div>
-</section>
-
-<!-- =====================================================================
      SECTION 4b: YOUR SETUP
      TODO: verify the phone and screen share steps against our real VDO links before the first duel
      ===================================================================== -->
@@ -432,136 +728,6 @@
       <h3><svg class="ic" aria-hidden="true"><use href="#i-lightbulb"/></svg>Lighting and room</h3>
       <p>Play in a well-lit room so the proctor can see you clearly. No one else may be visible, and headphones and earbuds are not allowed.</p>
     </div>
-  </div>
-</section>
-
-<!-- =====================================================================
-     SECTION 4c: CAMERA, SCREEN SHARING AND RECORDING
-     ===================================================================== -->
-<section id="recording">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Camera, screen sharing and recording</h2>
-    </div>
-    <div class="point"><svg class="ic" aria-hidden="true"><use href="#i-camera"/></svg><p>Standard competitive matches require a working player camera feed and agreement to the announced public camera and recording conditions before a player is scheduled. The organizer provides this information before asking a player to confirm. Players who refuse the public camera requirement cannot play the standard competitive format.</p></div>
-    <div class="point"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg><p>The organizer sends each player their camera and screen-sharing links. The proctor uses these feeds to monitor the match. Match footage will be used for YouTube livestreams and replays, short clips and highlights, and player camera feeds during broadcasts. Screen feeds are used for proctoring only and are not shown in the public broadcast.</p></div>
-    <div class="point point-rec"><svg class="ic" aria-hidden="true"><use href="#i-file"/></svg><p>Every WPulse match is recorded and may be reviewed if a technical issue, complaint or fair-play concern needs to be assessed. Recordings are retained indefinitely unless there is a reason to delete them, and access to raw recordings is restricted to the organizer unless another person is specifically authorized. Before confirming participation, players are told how their feeds and recordings will be used.</p></div>
-    <div class="box acc-info">
-      <h3><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Published footage and removal requests</h3>
-      <p>Published match footage is normally retained. To request removal or restriction of specific footage, contact the organizer (by email or Discord). Requests are reviewed case by case and removal is not guaranteed; the organizer may consider factors such as privacy, safety, legal requirements or a significant error. Raw recordings and published videos are treated separately: removing a published video does not automatically delete raw recordings or other copies. By accepting a match invitation, you confirm that you agree to the announced camera, broadcast and recording conditions. Contact the organizer before accepting if you have a question or concern.</p>
-    </div>
-  </div>
-</section>
-
-<!-- =====================================================================
-     SECTION 5: ABOUT THE STREAM
-     ===================================================================== -->
-<section id="about">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>About the stream</h2>
-      <p>WPulse Gaming streams online Scrabble matches with live commentary, live game information and player cameras. Matches are played on Woogles.io under the rules announced for each event.</p>
-    </div>
-    <div class="grid three about-cards">
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>Where to watch</h3>
-        <!-- TODO: replace the channel link with the specific live stream URL when one is available -->
-        <dl class="facts">
-          <div><dt>Channel</dt><dd>WPulse Gaming on YouTube.</dd></div>
-        </dl>
-        <a class="btn btn-ghost" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>WPulse on YouTube</a>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-layout"/></svg>Format</h3>
-        <dl class="facts">
-          <div><dt>Format</dt><dd>Matches are Best of 7, 9, 11 or 15 games (first to 4, 5, 6 or 8 wins).</dd></div>
-          <div><dt>Time controls</dt><dd>Rapid and blitz, between 5 and 10 minutes.</dd></div>
-        </dl>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg>Rules</h3>
-        <dl class="facts">
-          <div><dt>Games</dt><dd>Online Scrabble on Woogles.io, strictly CSW lexicon.</dd></div>
-          <div><dt>Players</dt><dd>From all over the world.</dd></div>
-          <div><dt>Time zone</dt><dd>All times are in West Africa Time (WAT, UTC+1).</dd></div>
-        </dl>
-      </div>
-    </div>
-    <p class="small about-note"><em>These are general descriptions. The specific match announcement is the source of truth.</em></p>
-  </div>
-</section>
-
-<!-- =====================================================================
-     SECTION 5b: WHAT THE STREAM LOOKS LIKE
-     ===================================================================== -->
-<section id="stream-preview">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>What the stream looks like</h2>
-      <p>Here is what viewers see during a WPulse Duel. The overlay shows live game information supported by WPulse.</p>
-    </div>
-
-    <!-- Dark / light preview: CSS-only tabs (radio inputs), no script needed. Replace the two images to update. -->
-    <div class="theme-tabs">
-      <input type="radio" name="stream-theme" id="theme-dark" checked>
-      <input type="radio" name="stream-theme" id="theme-light">
-      <div class="tab-labels">
-        <label for="theme-dark">Dark theme</label>
-        <label for="theme-light">Light theme</label>
-      </div>
-      <div class="tab-panels">
-        <img class="shot shot-wide tab-dark" src="images/dark-mode-full-stream.png" width="1919" height="1079" loading="lazy" alt="The WPulse stream overlay in the dark theme: the live board in the centre, move history and the engine's best moves along the top, each player's name, score, clock and rack at the sides, and the unseen tiles and evaluation bar under the board.">
-        <img class="shot shot-wide tab-light" src="images/light-mode-full-stream.png" width="1919" height="1079" loading="lazy" alt="The same WPulse stream overlay in the light theme, with the live board, move history, engine best moves, player panels, unseen tiles and evaluation bar.">
-      </div>
-    </div>
-
-    <div class="grid three" style="margin-top:22px">
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-board"/></svg>Live board</h3>
-        <p>The board updates move by move, with the latest move highlighted.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-tiles"/></svg>Racks and unseen tiles</h3>
-        <p>Both players' racks and the unseen tiles are shown to viewers.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>Scores and clocks</h3>
-        <p>Live scores and clocks. If a player goes into overtime, the clock keeps counting below zero and pulses amber.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>Move history</h3>
-        <p>Recent moves shown as the game progresses.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg>Engine analysis and evaluation bar</h3>
-        <p>An evaluation bar, win percentages and the engine's best moves appear on stream when analysis is enabled for a broadcast.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-message"/></svg>Live commentary</h3>
-        <p>Commentators draw arrows and highlights on the board to explain moves.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg>Game result banner</h3>
-        <p>When a game ends, a banner shows the result right away: win, resignation, overtime forfeit and more.</p>
-      </div>
-    </div>
-
-    <!-- Game result banner, dark / light: CSS-only tabs (same pattern as above). -->
-    <div class="theme-tabs cards-gap">
-      <input type="radio" name="banner-theme" id="banner-dark" checked>
-      <input type="radio" name="banner-theme" id="banner-light">
-      <div class="tab-labels">
-        <label for="banner-dark">Dark theme</label>
-        <label for="banner-light">Light theme</label>
-      </div>
-      <div class="tab-panels">
-        <img class="shot shot-wide" src="images/game-banner-dark-mode.png" width="1919" height="1079" loading="lazy" alt="The game result banner in the dark theme, shown over the stream when a game ends: 'Game tied', with the final scores.">
-        <img class="shot shot-wide" src="images/game-banner.png" width="1652" height="929" loading="lazy" alt="The game result banner in the light theme: 'Player A wins', with the final score of 441 to 383.">
-      </div>
-    </div>
-
-
-    <p class="note" style="margin-top:22px">Because both racks are visible on the stream, players must not watch or listen to it during a game. See <a href="#proctor">Fair play and the proctor</a>.</p>
   </div>
 </section>
 

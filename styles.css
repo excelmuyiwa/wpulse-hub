@@ -523,6 +523,51 @@ img.shot.shot-wide { max-width: 960px; }
   td:nth-child(3)::before { content: "Players"; }
   td:nth-child(4)::before { content: "Format / rules"; }
   td:nth-child(5)::before { content: "Stream"; }
+
+  /* Phone tweaks (selectors start with "body" so they beat the later desktop-first rules of equal weight) */
+  /* Apply to play: compact "What to send" rows */
+  body .apply-grid { gap: 4px; margin-top: 2px; }
+  body .apply-grid li { gap: 8px; padding: 4px 8px; font-size: 0.78rem; line-height: 1.3; }
+  body .apply-grid .ap-tile { width: 24px; height: 24px; border-width: 1px; border-radius: 6px; box-shadow: 0 2px 0 rgba(25, 211, 197, 0.25); }
+  body .apply-grid .ap-tile .ic { width: 0.95rem; height: 0.95rem; }
+
+  /* Where to watch: compact follow rows (the link keeps its 44px tap area through negative margins) */
+  body .follow-steps { gap: 5px; }
+  body .follow-steps li { gap: 8px; min-height: 0; padding: 3px 8px; font-size: 0.78rem; line-height: 1.3; }
+  body .follow-steps .fs-ic { width: 22px; height: 22px; border-radius: 6px; }
+  body .follow-steps .fs-ic .ic { width: 0.9rem; height: 0.9rem; }
+  body .follow-steps .fs-text a { margin: -14px 0; font-size: 0.75rem; }
+
+  /* Vertical step connectors (How a match works, What happens next): one geometry for both lists.
+     Line runs from 6px under this tile to the arrowhead; the 7px arrowhead tip stops 6px above the next tile.
+     Anchored with top/bottom (not 100% minus a guess), so it never collapses when a step is only as tall as its tile. */
+  @media (max-width: 600px) {
+    body .match-flow:not(.ext-flow) { --gap: 30px; }
+    body .match-flow:not(.ext-flow) .flow-step:not(:last-child)::after {
+      top: calc(var(--tile) + 6px); bottom: calc(13px - var(--gap)); height: auto;
+      left: calc(var(--tile) / 2 - 1px); width: 2px;
+    }
+    body .match-flow:not(.ext-flow) .flow-step:not(:last-child)::before {
+      top: auto; bottom: calc(6px - var(--gap)); left: calc(var(--tile) / 2 - 5px);
+      border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 7px solid rgba(25, 211, 197, 0.8);
+    }
+  }
+
+  /* Hero: compact. The .wrap becomes a flex column so "order" can lift the buttons up under the first paragraph
+     (visual order only; the HTML order is unchanged). */
+  body .hero { padding: 18px 0 16px; }
+  body .hero .wrap { display: flex; flex-direction: column; }
+  body .hero-logo { width: 48px; height: 48px; margin: 0 0 2px; }
+  body .hero h1 { line-height: 1.12; margin: 2px 0 8px; }
+  body .spec-strip { gap: 5px; margin: 0 0 10px; font-size: 0.65rem; letter-spacing: 0.05em; line-height: 1.2; opacity: 1; }
+  body .spec-strip span { padding: 3px 8px; border: 1px solid rgba(6, 182, 212, 0.35); border-radius: 999px; background: rgba(6, 182, 212, 0.08); }
+  body .spec-strip span:not(:last-child)::after { content: none; }
+  body .hero p.lead { order: 6; margin: 0 0 6px; font-size: 0.9rem; line-height: 1.5; color: #8294ab; }
+  body .hero .spec-strip + p.lead { order: 4; margin: 0 0 4px; font-size: 1rem; line-height: 1.45; color: #e2e8f0; }
+  body .hero .spec-strip + p.lead + p.lead { margin-top: 14px; }
+  body .hero-cta { order: 5; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+  body .hero-cta .btn { display: flex; align-items: center; justify-content: center; padding: 8px 10px; font-size: 0.85rem; letter-spacing: 0.04em; line-height: 1.2; white-space: nowrap; }
+  body .hero-cta .btn-subscribe { grid-column: 1 / -1; padding: 10px 14px; font-size: 0.95rem; }
 }
 
 /* Phones: sizes for the design-upgrade elements (after the compact block above) */

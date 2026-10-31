@@ -211,7 +211,6 @@ img.shot { object-fit: contain; border: 1px solid var(--line); background: var(-
 
 /* ---------- Footer ---------- */
 footer { margin-top: 56px; border-top: 1px solid var(--line); background: var(--bg-2); padding: 32px 0 40px; color: var(--muted); }
-footer h2 { font-size: 1.8rem; }
 footer p { margin-bottom: 0.5em; }
 .small { font-size: 0.85rem; }
 
@@ -511,7 +510,6 @@ img.shot.shot-wide { max-width: 960px; }
   .faq details { margin-bottom: 8px; }
 
   footer { margin-top: 26px; padding: 20px 0 24px; }
-  footer h2 { font-size: 1.3rem; }
 
   /* Schedule table: each row becomes a compact card, so nothing scrolls sideways.
      Column labels come from CSS; the header row stays available to screen readers. */
@@ -1422,97 +1420,9 @@ img.shot.shot-wide { max-width: 960px; }
 @media (max-width: 600px) { .nav a.nav-sub { display: none; } }
 @media (max-width: 379px) { .brand img { height: 14.5px; } .nav a.nav-pill { font-size: 0.7rem; padding: 3px 8px; } }
 
-/* ===== Footer: thanks line, contact cards, legal row ===== */
+/* Visually hidden text (still read by screen readers) */
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-.footer-rule { height: 1px; margin: 26px 0; border: 0; background: var(--line); opacity: 0.6; }
-.footer-thanks { text-align: center; }
-.ft-label { margin: 0 0 4px; font-family: var(--head-font); font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
-.ft-line { margin: 0 0 6px; font-size: 0.85rem; color: var(--muted); }
-.ft-names { list-style: none; margin: 0; padding: 0; font-size: 0.85rem; line-height: 1.7; color: var(--muted); }
-.ft-names li { display: inline; white-space: nowrap; }
-.ft-names li:not(:last-child)::after { content: "\00B7"; margin: 0 0.7em; opacity: 0.55; }
 
-.contact-cards { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; }
-.contact-card {
-  position: relative; display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 16px 18px; border-radius: 10px;
-  background: var(--card); border: 1px solid var(--line); color: var(--text); text-decoration: none;
-  transition: border-color 0.15s, transform 0.15s;
-}
-.contact-card.is-static { cursor: default; }
-.contact-card.copy-ready { cursor: pointer; }
-.contact-card:hover, .contact-card:focus-visible { border-color: var(--accent); color: var(--text); transform: translateY(-2px); }
-.contact-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.cc-top { display: flex; align-items: center; gap: 10px; }
-.contact-card .ci { flex: none; width: 1.8rem; height: 1.8rem; color: var(--accent); }
-.cc-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-.cc-handle { font-weight: 600; font-size: 1rem; color: #fff; overflow-wrap: anywhere; }
-.cc-action { display: none; align-items: center; gap: 6px; min-height: 28px; margin-top: auto; padding-top: 6px; font-size: 0.85rem; font-weight: 600; color: var(--accent); }
-.cc-action.cc-action-on { display: inline-flex; }
-.cc-action .ic { flex: none; width: 1rem; height: 1rem; margin: 0; vertical-align: 0; }
-
-.legal-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 20px; align-items: center; }
-.legal-left { display: flex; align-items: center; gap: 12px; }
-.legal-left img { display: block; flex: none; width: 40px; height: 40px; }
-.legal-text p { margin: 0; }
-.legal-copy { color: var(--text); font-weight: 600; font-size: 0.95rem; }
-.legal-note { margin-top: 2px !important; font-size: 0.85rem; }
-.credit-box { padding: 12px 14px; border-radius: 8px; border: 1px solid var(--line); background: rgba(25, 211, 197, 0.04); }
-.credit-label { display: inline-block; margin-bottom: 4px; padding: 1px 8px; border-radius: 4px; border: 1px solid rgba(25, 211, 197, 0.45); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
-.credit-text { margin: 0; font-size: 0.8rem; line-height: 1.5; color: var(--muted); }
-.credit-text a { color: var(--accent); }
-.credit-text a::after { content: "\2197"; margin-left: 0.2em; font-size: 0.85em; }
-
-@media (max-width: 719px) {
-  .contact-cards { grid-template-columns: minmax(0, 1fr); gap: 10px; }
-  .contact-card { min-height: 44px; padding: 14px; }
-  .cc-action { min-height: 44px; margin-top: 0; }
-  .legal-row { grid-template-columns: minmax(0, 1fr); gap: 14px; justify-items: center; text-align: center; }
-  .legal-left { flex-direction: column; gap: 8px; }
-  .credit-box { text-align: center; }
-  .footer-rule { margin: 20px 0; }
-}
-@media (prefers-reduced-motion: reduce) { .contact-card:hover, .contact-card:focus-visible { transform: none; } }
-/* ===== Footer: compact pass (sizes, spacing and layout only) ===== */
-footer { margin-top: 28px; padding: 14px 0 16px; }
-footer h2 { margin: 0 0 6px; font-size: 1.08rem; line-height: 1.2; }
-.footer-rule { margin: 12px 0; }
-.ft-label { margin: 0 0 2px; font-size: 0.72rem; }
-.ft-line { margin: 0 0 3px; font-size: 13px; line-height: 1.4; }
-.ft-names { font-size: 13px; line-height: 1.45; }
-.ft-names li:not(:last-child)::after { margin: 0 0.55em; }
-
-/* contact cards: one compact row each (icon | label over handle | action) */
-.contact-cards { gap: 12px; grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 960px) { .contact-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.contact-card {
-  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: auto auto; align-items: center; column-gap: 7px; row-gap: 0;
-  min-height: 62px; padding: 12px 10px 12px 12px;
-}
-.cc-top { display: contents; }
-.contact-card .ci { grid-column: 1; grid-row: 1 / span 2; width: 1.3rem; height: 1.3rem; }
-.cc-label { grid-column: 2; grid-row: 1; align-self: end; font-size: 0.65rem; line-height: 1.2; }
-.cc-handle { grid-column: 2; grid-row: 2; align-self: start; font-size: 15px; font-weight: 500; line-height: 1.3; overflow-wrap: normal; }
-.cc-action { grid-column: 3; grid-row: 1 / span 2; align-self: center; margin: 0; padding: 0; min-height: 0; font-size: 0.72rem; gap: 3px; white-space: nowrap; }
-
-/* legal row */
-.legal-row { gap: 16px; }
-.legal-left { gap: 10px; }
-.legal-left img { width: 28px; height: 28px; }
-.legal-copy { font-size: 13px; line-height: 1.35; }
-.legal-note { margin-top: 0 !important; font-size: 13px; line-height: 1.35; }
-.credit-box { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; }
-.credit-label { flex: none; margin: 1px 0 0; padding: 0 7px; font-size: 0.65rem; line-height: 1.6; }
-.credit-text { font-size: 12.5px; line-height: 1.4; }
-
-@media (max-width: 719px) {
-  footer { margin-top: 22px; padding: 14px 0 16px; }
-  .footer-rule { margin: 12px 0; }
-  .contact-cards { gap: 8px; }
-  .contact-card { min-height: 56px; padding: 10px 14px; }
-  .legal-row { gap: 10px; }
-  .legal-left { flex-direction: row; gap: 10px; text-align: left; }
-  .credit-box { text-align: left; }
-}
 /* ===== Install area: "What the extension does" explainer ===== */
 .ext-explainer { margin-bottom: 22px; }
 .ext-intro { margin: 0 0 4px; font-size: 0.95rem; line-height: 1.55; color: var(--text); }
@@ -1563,67 +1473,66 @@ footer h2 { margin: 0 0 6px; font-size: 1.08rem; line-height: 1.2; }
   .apply-actions .btn { min-height: 44px; }
 }
 
-/* ===== Minimal footer and Home blocks =====
-   Kept last in the file on purpose: it overrides the earlier footer passes (same selectors, later wins). Shared by all three pages. */
-footer { margin-top: 24px; padding: 12px 0 14px; }
-footer p { margin-bottom: 0; }
-footer h2 { margin: 0 0 2px; font-size: 0.9rem; letter-spacing: 0.14em; line-height: 1.2; text-transform: uppercase; opacity: 0.85; }
-.footer-rule { margin: 10px 0; opacity: 0.35; }
+/* ===== Compact footer (same markup on all three pages) and simple Home blocks ===== */
+footer { margin-top: 20px; padding: 0; }
+footer p { margin: 0; }
+.ft-strip { display: flex; align-items: center; justify-content: space-between; gap: 4px 24px; min-height: 56px; font-size: 12px; line-height: 1.4; color: #70849b; }
+.ft-left { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.ft-left img { display: block; flex: none; width: 22px; height: 22px; }
+.ft-mid { position: relative; display: flex; align-items: center; gap: 4px 12px; }
+.ft-engine::after { content: "\00B7"; margin-left: 12px; opacity: 0.55; }
+.ft-engine a, .credit-text a { color: var(--accent); text-underline-offset: 2px; }
+.credit-text a::after { content: "\2197"; margin-left: 0.2em; font-size: 0.85em; }
 
-/* Contributors: one quiet line */
-.footer-thanks { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; text-align: left; }
-.ft-label { margin: 0; font-size: 0.65rem; letter-spacing: 0.2em; color: #70849b; }
-.ft-names { flex: 1 1 260px; font-size: 12px; line-height: 1.5; color: #70849b; }
-.ft-names li:not(:last-child)::after { margin: 0 0.5em; }
+/* Credits: native <details>; on desktop it opens upward as a small popover so the strip never moves */
+.ft-credits summary { display: inline-flex; align-items: center; cursor: pointer; list-style: none; color: #70849b; text-decoration: underline dotted; text-underline-offset: 3px; }
+.ft-credits summary::-webkit-details-marker { display: none; }
+.ft-credits summary:hover, .ft-credits[open] summary { color: var(--accent); }
+.ft-credits summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.ft-credits-body { position: absolute; bottom: calc(100% + 10px); left: 50%; z-index: 30; width: min(440px, 92vw); padding: 10px 12px; transform: translateX(-50%); border: 1px solid var(--line); border-radius: 8px; background: var(--card); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); }
+.ft-label { margin: 0 0 3px; font-family: var(--head-font); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #70849b; }
+.ft-names { list-style: none; margin: 0 0 8px; padding: 0; line-height: 1.6; }
+.ft-names li { display: inline; white-space: nowrap; }
+.ft-names li:not(:last-child)::after { content: "\00B7"; margin: 0 0.5em; opacity: 0.55; }
+.credit-text { margin: 0; line-height: 1.5; }
 
-/* Contact: a slim row (icon, tiny label, value, small action); no card */
-.contact-cards { display: flex; flex-wrap: wrap; gap: 2px 20px; margin: 0; }
-.contact-card { display: flex; flex-direction: row; align-items: center; gap: 8px; min-height: 0; padding: 4px 0; border: 0; border-radius: 0; background: none; color: var(--text); }
-.contact-card:hover, .contact-card:focus-visible { transform: none; border-color: var(--line); color: #fff; }
-.cc-top { display: flex; align-items: center; gap: 6px; }
-.contact-card .ci { width: 1rem; height: 1rem; }
-.cc-label { align-self: center; font-size: 0.62rem; letter-spacing: 0.12em; line-height: 1.2; color: #70849b; }
-.cc-handle { align-self: center; font-size: 13px; font-weight: 500; line-height: 1.3; color: #c3cfdd; }
-.cc-action { align-self: center; margin: 0 0 0 2px; padding: 0; min-height: 0; font-size: 0.72rem; font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
-.cc-action .ic { width: 0.8rem; height: 0.8rem; }
+/* Contact: three small icon + label links */
+.contact-cards { display: flex; align-items: center; gap: 2px 16px; margin: 0; }
+.contact-card { display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; color: #8da2bb; font-size: 12px; text-decoration: none; }
+.contact-card:hover, .contact-card:focus-visible { color: var(--accent); }
+.contact-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.contact-card.is-static { cursor: default; }
+.contact-card.copy-ready { cursor: pointer; }
+.contact-card .ci { flex: none; width: 1rem; height: 1rem; }
+.cc-action { display: none; font-size: 11px; opacity: 0.75; }
+.cc-action.cc-action-on { display: inline; }
+
 @media (max-width: 719px) {
-  .contact-cards { flex-direction: column; flex-wrap: nowrap; gap: 0; }
-  .contact-card { min-height: 44px; padding: 0; }
-  .contact-card + .contact-card { border-top: 1px solid var(--line); }
-  .cc-label { min-width: 5.4rem; }
-  .cc-action { margin-left: auto; }
+  .ft-strip { flex-wrap: wrap; padding-top: 2px; padding-bottom: 2px; }
+  .ft-left { flex: 1 1 auto; min-height: 44px; }
+  .contact-cards { order: 2; gap: 0 14px; }
+  .contact-card { min-height: 44px; }
+  .ft-mid { order: 3; flex: 1 1 100%; flex-wrap: wrap; min-height: 44px; border-top: 1px solid var(--line); }
+  .ft-engine a { padding: 14px 0; }
+  .ft-credits summary { min-height: 44px; }
+  .ft-credits[open] { flex: 1 1 100%; }
+  .ft-mid:has(.ft-credits[open]) .ft-engine::after { content: none; }
+  .ft-credits-body { position: static; width: auto; margin: 0 0 8px; transform: none; box-shadow: none; }
 }
 
-/* Legal and engine credit: plain rows, no box */
-.legal-row { grid-template-columns: minmax(0, 1fr); gap: 6px; align-items: start; justify-items: start; text-align: left; }
-.legal-left { flex-direction: row; gap: 8px; }
-.legal-left img { width: 22px; height: 22px; }
-.legal-text { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 10px; }
-.legal-copy { font-size: 12px; font-weight: 500; line-height: 1.4; color: #9fb0c3; }
-.legal-note { margin-top: 0 !important; font-size: 12px; line-height: 1.4; color: #70849b; }
-.credit-box { display: flex; align-items: baseline; gap: 8px; padding: 0; border: 0; border-radius: 0; background: none; text-align: left; }
-.credit-label { flex: none; margin: 0; padding: 0; border: 0; border-radius: 0; font-size: 0.6rem; letter-spacing: 0.16em; line-height: 1.5; color: #70849b; }
-.credit-text { font-size: 12px; line-height: 1.5; color: #70849b; }
-.credit-text a { padding: 14px 0; }
-
-/* Home: stream call-to-action as one slim line with a text link (vertical padding on the inline link only widens its tap area) */
-.stream-cta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 10px; padding-top: 12px; }
+/* Home: three short muted lines (stream call-to-action, fair-play note, "want to play") that read as one compact notice.
+   Vertical padding on the inline links only widens their tap area. */
+.play-line { padding-top: 4px; padding-bottom: 0; }
+.play-line.stream-cta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 6px; padding-top: 16px; }
+.play-line p { margin: 0; font-size: 0.8rem; line-height: 1.4; color: #70849b; }
 .stream-cta .peek-cta { margin: 0; }
-.stream-cta .btn { display: inline; padding: 14px 0; border: 0; border-radius: 0; background: none; font-family: var(--body-font); font-size: 0.9rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
-.stream-cta .btn::after { content: "\2192"; margin-left: 0.35em; }
+.stream-cta .btn { display: inline; padding: 6px 0; border: 0; border-radius: 0; background: none; font-family: var(--body-font); font-size: 0.8rem; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.stream-cta .btn::after { content: "\2192"; margin-left: 0.3em; }
 .stream-cta .btn:hover, .stream-cta .btn:focus-visible { background: none; color: #fff; filter: none; transform: none; }
-
-/* Home: fair-teaser as a slim block with a thin accent line */
-#fair-teaser { padding: 14px 0 4px; }
-#fair-teaser .section-head { margin-bottom: 4px; padding-left: 0; border-left: 0; }
-#fair-teaser h2 { margin: 0; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; }
-#fair-teaser .box { padding: 2px 0 2px 12px; border: 0; border-left: 2px solid var(--acc); border-radius: 0; background: none; }
-#fair-teaser .box h3 { margin: 0 0 2px; font-size: 0.95rem; }
-#fair-teaser .box p { margin: 0; font-size: 0.9rem; line-height: 1.45; color: var(--muted); }
-#fair-teaser .box p + p { margin-top: 2px; }
-#fair-teaser a { padding: 14px 0; }
-
-/* Home: "Want to play" line */
-.play-line { padding-top: 12px; padding-bottom: 0; }
-.play-line p { font-size: 0.9rem; }
-.play-line a { padding: 14px 0; }
+.play-line a { padding: 6px 0; }
+#fair-teaser { padding: 4px 0 0; }
+#fair-teaser::before { display: none; }
+#fair-teaser .section-head, #fair-teaser .box h3 { display: none; }
+#fair-teaser .box { padding: 0 0 0 10px; border: 0; border-left: 2px solid var(--acc); border-radius: 0; background: none; }
+#fair-teaser .box p { display: inline; margin: 0; font-size: 0.8rem; line-height: 1.4; color: #70849b; }
+#fair-teaser a { padding: 6px 0; }

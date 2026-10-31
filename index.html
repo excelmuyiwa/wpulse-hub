@@ -7,8 +7,9 @@
     // Old single-page links to sections that moved: forward them to their new page with the same hash.
     (function () {
       var h = location.hash;
-      if (/^#(for-players|apply|proctor|recording|setup|update|your-setup|faq|step-download|required|not-allowed|checkin)$/.test(h)) location.replace('players.html' + h);
+      if (/^#(for-players|apply|proctor|recording|setup|update|your-setup|step-download|required|not-allowed|checkin)$/.test(h)) location.replace('players.html' + h);
       else if (/^#(about|stream-preview|telestrator)$/.test(h)) location.replace('stream.html' + h);
+      else if (h === '#faq') location.replace('faq.html#faq');
     })();
   </script>
   <title>WPulse Gaming: live Scrabble duels on YouTube</title>
@@ -116,6 +117,7 @@
       <a href="#schedule">Next duel</a>
       <a href="#commentary">Commentary</a>
       <a href="stream.html">The stream</a>
+      <a href="faq.html">FAQ</a>
       <a class="nav-sub" href="https://www.youtube.com/@WPulseGaming?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Subscribe</a>
       <a class="nav-pill nav-cta" href="players.html">For players</a>
     </nav>
@@ -130,6 +132,7 @@
   <a href="#commentary">Commentary</a>
   <a href="#fair-teaser">Fair and proctored</a>
   <a href="stream.html">The stream</a>
+  <a href="faq.html">FAQ</a>
   <a href="players.html">For players</a>
   <a href="#contact">Contact</a>
 </nav>

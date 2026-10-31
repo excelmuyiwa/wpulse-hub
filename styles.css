@@ -278,7 +278,8 @@ main > section:not(.hero)::before {
 .hero .wrap { position: relative; z-index: 1; }
 /* players.html and stream.html only: the first section sits right under the header, so no divider line above it */
 body.page-players main > section:first-child::before,
-body.page-stream main > section:first-child::before { display: none; }
+body.page-stream main > section:first-child::before,
+body.page-faq main > section:first-child::before { display: none; }
 /* Home hero: phone-only extras (shown inside the phone media query; hidden everywhere else) */
 .hero-cards, .hero-next { display: none; }
 /* Home: button in the "See the stream" call-to-action line */
@@ -587,6 +588,22 @@ img.shot.shot-wide { max-width: 960px; }
   /* Hero (phones): the feature cards and the "Next duel in..." line stay in the HTML but are not shown */
   body .hero-cards, body .hero-next { display: none; }
   body .hero-cta .btn { min-height: 44px; }
+
+  /* Next duel card (phones): shorter and better arranged, all content kept. Nothing here depends on the player text (it will be replaced by names). */
+  body .next-duel { padding: 12px; gap: 8px; }
+  body .next-duel .label { font-size: 0.72rem; }
+  body .next-duel .players-teaser { --h: 132px; --t: 58px; }
+  body .next-duel .teaser-line { font-size: 0.95rem; letter-spacing: 0.12em; }
+  body .next-duel > .countdown { margin-top: -4px; padding: 3px 11px; font-size: 0.82rem; }
+  body .next-duel .duel-details { gap: 6px; padding: 8px 10px; }
+  body .next-duel .duel-details .duel-wide dd { font-size: 0.88rem; }
+  body .next-duel .duel-details .duel-tz, body .next-duel .duel-details dd .duel-local { margin-top: 0; font-size: 0.72rem; }
+  body .next-duel .duel-details > div:not(.duel-wide) { gap: 2px 10px; padding-top: 6px; }
+  body .next-duel .duel-pills { gap: 6px; }
+  body .next-duel .pill { padding: 2px 9px; font-size: 0.72rem; }
+  body .next-duel > a.btn { flex: 1 1 100%; }
+  body .duel-cal > .btn { flex: 1 1 calc(50% - 4px); }
+  body .next-duel > a.btn, body .duel-cal > .btn { display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 6px 8px; font-size: 0.8rem; letter-spacing: 0.03em; white-space: nowrap; }
 }
 
 /* Phones: sizes for the design-upgrade elements (after the compact block above) */
@@ -1511,15 +1528,19 @@ footer p { margin: 0; }
 .js footer .contact-card.reveal { opacity: 1; transform: none; }
 
 @media (max-width: 719px) {
-  .ft-strip { flex-wrap: wrap; padding-top: 2px; padding-bottom: 2px; }
-  .ft-left { flex: 1 1 auto; min-height: 44px; }
-  .contact-cards { order: 2; gap: 0 14px; }
-  .contact-card { min-height: 44px; }
-  .ft-mid { order: 3; flex: 1 1 100%; flex-wrap: wrap; min-height: 44px; border-top: 1px solid var(--line); }
-  .ft-engine a { padding: 14px 0; }
-  .ft-credits summary { min-height: 44px; }
-  .ft-credits[open] { flex: 1 1 100%; }
-  .ft-mid:has(.ft-credits[open]) .ft-engine::after { content: none; }
+  /* Footer (phones): exactly two rows. Row 1: logo + copyright. Row 2: Email, Discord, YouTube, Credits (7).
+     .ft-mid and .contact-cards dissolve (display: contents) so their children line up as items of the strip. */
+  .ft-strip { position: relative; flex-wrap: wrap; align-content: flex-start; gap: 0; min-height: 0; padding-top: 0; padding-bottom: 0; }
+  .ft-left { order: 1; flex: 1 1 100%; min-height: 44px; border-bottom: 1px solid var(--line); }
+  .ft-copy { white-space: nowrap; font-size: 11.5px; }
+  body .ft-mid, body .contact-cards { display: contents; }
+  body .ft-engine { display: none; }
+  .contact-card { order: 2; flex: 0 0 auto; min-height: 44px; padding: 0; }
+  .contact-card:last-child { margin-right: 5.5rem; }
+  body .cc-action, body .cc-action.cc-action-on { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  /* Credits: a zero-height row under row 2 whose summary is pinned into row 2's right end; opened, the panel pushes the footer down in place. */
+  .ft-credits { order: 4; flex: 1 1 100%; position: relative; }
+  .ft-credits summary { position: absolute; top: -44px; right: 0; display: flex; align-items: center; justify-content: flex-end; width: 5.5rem; height: 44px; min-height: 44px; }
   .ft-credits-body { position: static; width: auto; margin: 0 0 8px; transform: none; box-shadow: none; }
 }
 

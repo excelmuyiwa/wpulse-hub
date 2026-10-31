@@ -3,8 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    // The FAQ moved to faq.html: forward old #faq links with the same hash.
+    (function () { if (location.hash === '#faq') location.replace('faq.html#faq'); })();
+  </script>
   <title>WPulse Gaming: for players (apply, rules and setup)</title>
-  <meta name="description" content="For players taking part in WPulse Gaming Scrabble duels: how to apply, the fair-play rules, camera and recording conditions, installing the WPulse extension, match-day setup, and answers to common questions.">
+  <meta name="description" content="For players taking part in WPulse Gaming Scrabble duels: how to apply, the fair-play rules, camera and recording conditions, installing the WPulse extension, and match-day setup.">
   <meta name="theme-color" content="#060b14">
   <link rel="icon" href="favicon.ico?v=2" sizes="32x32">
   <link rel="icon" href="images/favicon.svg?v=2" type="image/svg+xml">
@@ -13,7 +17,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="WPulse Gaming">
   <meta property="og:title" content="WPulse Gaming: for players (apply, rules and setup)">
-  <meta property="og:description" content="How to apply to play in WPulse duels, the fair-play rules, camera and recording conditions, installing the extension, match-day setup and common questions.">
+  <meta property="og:description" content="How to apply to play in WPulse duels, the fair-play rules, camera and recording conditions, installing the extension and match-day setup.">
   <meta property="og:url" content="https://wpulsegaming.runs-at.dev/players.html">
   <meta property="og:image" content="https://wpulsegaming.runs-at.dev/images/next-duel-flyer.png">
   <meta property="og:image:alt" content="WPulse Gaming flyer for the next Scrabble duel">
@@ -109,6 +113,7 @@
       <a href="index.html#schedule">Next duel</a>
       <a href="index.html#commentary">Commentary</a>
       <a href="stream.html">The stream</a>
+      <a href="faq.html">FAQ</a>
       <a class="nav-sub" href="https://www.youtube.com/@WPulseGaming?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Subscribe</a>
       <a class="nav-pill nav-cta" href="players.html" aria-current="page">For players</a>
     </nav>
@@ -125,7 +130,7 @@
   <a href="#setup">Install the extension</a>
   <a href="#update">Update</a>
   <a href="#your-setup">Match-day setup</a>
-  <a href="#faq">FAQ</a>
+  <a href="faq.html">FAQ</a>
   <a href="#contact">Contact</a>
 </nav>
 <main id="top">
@@ -137,7 +142,7 @@
   <div class="wrap">
     <div class="eyebrow">WPULSE PLAYER HUB</div>
     <h2>For players: apply, rules and setup</h2>
-    <p>Everything below is for players taking part in WPulse duels: how to apply, the fair-play rules, camera and recording conditions, installing the extension, match-day setup, and answers to common questions.</p>
+    <p>Everything below is for players taking part in WPulse duels: how to apply, the fair-play rules, camera and recording conditions, installing the extension, and match-day setup.</p>
   </div>
 </section>
 
@@ -457,82 +462,6 @@
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- =====================================================================
-     SECTION 6: FAQ / TROUBLESHOOTING
-     To add a question: copy one <details>...</details> block.
-     ===================================================================== -->
-<section id="faq">
-  <div class="wrap faq">
-    <div class="section-head">
-      <h2>FAQ &amp; troubleshooting</h2>
-    </div>
-
-    <details>
-      <summary>What does the WPulse extension do?</summary>
-      <div class="answer"><p>It reads the game information that the Woogles page already shows (board, scores, clocks, moves and your own rack) plus your Woogles username, and sends it to the live stream overlay. It does not play or change your game, and it never asks for your Woogles password.</p></div>
-    </details>
-    <details>
-      <summary>What do I need to take part?</summary>
-      <div class="answer"><p>A computer with Google Chrome for Woogles and the extension, a camera with a microphone (a phone works well), and a stable internet connection. See <a href="#your-setup">Match-day setup</a>.</p></div>
-    </details>
-    <details>
-      <summary>Why does Chrome show a "developer mode" notice?</summary>
-      <div class="answer"><p>The extension is installed from a file instead of the Chrome Web Store, so Chrome shows a notice when it starts. Dismiss it. Do not remove the extension.</p></div>
-    </details>
-    <details>
-      <summary>The extension says "WPulse isn't connected to a Woogles game." What do I do?</summary>
-      <div class="answer"><p>Make sure you are on a game page at woogles.io, then reload the tab. If it still does not connect, message the organizer by email or Discord.</p></div>
-    </details>
-    <details>
-      <summary>Do I need to be approved? How long does it take?</summary>
-      <div class="answer"><p>Yes. Send your install ID, your name and your Woogles username(s) to the organizer. Until you are approved, nothing from your install reaches the stream.</p></div>
-    </details>
-    <details>
-      <summary>Do I need to be approved again after an update?</summary>
-      <div class="answer"><p>No. Your install ID stays the same when you update. See <a href="#update">How to update WPulse</a>.</p></div>
-    </details>
-    <details>
-      <summary>Can I use an engine or word checker?</summary>
-      <div class="answer"><p>Not in standard competitive matches, which are engine-free. Engine-assisted demonstrations are separate and need advance announcement, nonrated status and both players' explicit agreement. See <a href="#proctor">Fair play and the proctor</a>.</p></div>
-    </details>
-    <details>
-      <summary>What time will duels be, and in which time zone?</summary>
-      <div class="answer"><p>All times on this site are in West Africa Time (WAT, UTC+1). See <a href="index.html#schedule">Next duel &amp; schedule</a>.</p></div>
-    </details>
-    <details>
-      <summary>Who can see my screen and camera?</summary>
-      <div class="answer"><p>The proctor and organizer watch your camera and screen feeds. Your camera feed is used in the public broadcast, and match footage in replays, short clips and highlights. Your screen is used for proctoring only and is never shown in the public broadcast. See <a href="#recording">Camera, screen sharing and recording</a>.</p></div>
-    </details>
-    <details>
-      <summary>Can I play if I do not have a published rating?</summary>
-      <div class="answer"><p>Possibly. It depends on the match being arranged. Include your approximate playing level and experience when applying if you do not have a published rating.</p></div>
-    </details>
-    <details>
-      <summary>Can I decline the public camera requirement?</summary>
-      <div class="answer"><p>The public camera is required for standard competitive matches. If you refuse it, you cannot play that format. Contact the organizer by email or Discord before accepting an invitation if you have a question or concern.</p></div>
-    </details>
-    <details>
-      <summary>Can I ask for a published video to be removed?</summary>
-      <div class="answer"><p>Yes. Contact the organizer by email or Discord. Published footage is normally retained; requests are reviewed case by case and removal is not guaranteed. See <a href="#recording">Camera, screen sharing and recording</a>.</p></div>
-    </details>
-
-    <details>
-      <summary>Who can authorize a stop or restart if a player disconnects?</summary>
-      <div class="answer"><p>Only the organizer can authorize a pause. Notify the proctor or organizer immediately and wait for the organizer's instructions. See <a href="#proctor">Fair play and the proctor</a>.</p></div>
-    </details>
-    <details>
-      <summary>What if the Woogles settings are different from the match announcement?</summary>
-      <div class="answer"><p>Report the mismatch to the organizer immediately. The organizer decides how to proceed, so do not assume the game may continue until the organizer confirms it. See <a href="#proctor">Fair play and the proctor</a>.</p></div>
-    </details>
-    <details>
-      <summary>What happens if someone is accused of cheating?</summary>
-      <div class="answer"><p>The organizer reviews the available evidence, hears the player's explanation where appropriate, and documents the decision. See <a href="#proctor">Fair play and the proctor</a>.</p></div>
-    </details>
-
-    <p style="margin-top:20px">Still stuck? Contact the organizer using the details in the <a href="#contact">Contact</a> section.</p>
   </div>
 </section>
 

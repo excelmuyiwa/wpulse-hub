@@ -283,7 +283,7 @@ body.page-stream main > section:first-child::before,
 body.page-faq main > section:first-child::before { display: none; }
 /* Home hero: phone-only extras (shown inside the phone media query; hidden everywhere else) */
 .hero-cards, .hero-next { display: none; }
-/* Home: button in the "See the stream" call-to-action line */
+/* Home: button in the "See the broadcast" call-to-action line */
 .play-line .peek-cta { margin: 12px 0 0; }
 
 
@@ -385,7 +385,7 @@ footer::before { content: ""; position: absolute; top: -1px; left: 0; right: 0; 
 .facts dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
 .facts dd { margin: 2px 0 0; }
 
-/* Stream preview: wide images and CSS-only dark/light tabs */
+/* "On screen" section (#stream-preview): wide images and CSS-only dark/light tabs */
 img.shot.shot-wide { max-width: 960px; }
 .theme-tabs { position: relative; }
 .theme-tabs > input { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
@@ -562,8 +562,9 @@ img.shot.shot-wide { max-width: 960px; }
 
   /* Hero (phones): the desktop hero scaled down. Same order and styles: logo, headline, tagline, four paragraphs, three buttons. */
   body .hero { padding: 18px 0 16px; }
-  body .hero-logo { width: 48px; height: 48px; margin: 0 0 2px; }
-  body .hero h1 { margin-bottom: calc(0.5em + 4px); }
+  /* The W logo moves to the top right, beside the headline (absolute inside .wrap; the HTML order is unchanged); the headline keeps clear of it. */
+  body .hero-logo { position: absolute; top: 4px; right: 12px; width: 48px; height: 48px; margin: 0; }
+  body .hero h1 { margin-bottom: calc(0.5em + 4px); padding-right: 60px; }
   body .spec-strip { gap: 4px 10px; margin: 8px 0 14px; font-size: 0.62rem; letter-spacing: 0.04em; color: #7fd9d0; opacity: 1; }
   body .spec-strip span { white-space: nowrap; }
   body .spec-strip span:not(:last-child)::after { margin-left: 10px; }
@@ -612,9 +613,9 @@ img.shot.shot-wide { max-width: 960px; }
   body .hero-cta .btn .ic, body .next-duel > a.btn .ic, body .duel-cal > .btn .ic { width: 1em; height: 1em; margin-right: 0.4em; }
 
   /* Hero background (phones): slightly stronger grid lines. The animation itself is defined once, for all widths, near the end of this file. */
-  body .hero { --hero-grid: 0.1; }
+  body .hero { --hero-grid: 0.135; }
 
-  /* Stream page, phones: "About the stream", "How a match works" and "Where to watch", compact.
+  /* Broadcast page (stream.html), phones: "About the stream", "How a match works" and "Where to watch", compact.
      How a match works becomes a 2x2 grid of cards; the connector lines/arrows are hidden only in that list (.ext-flow and the Players flow are untouched). */
   body #about { padding-top: 12px; padding-bottom: 6px; }
   body #about .section-head { margin-bottom: 8px; }
@@ -699,6 +700,24 @@ img.shot.shot-wide { max-width: 960px; }
     body .apply-flow.match-flow:not(.ext-flow) .flow-step:not(:last-child)::after { top: calc(var(--tile) + 4px); bottom: calc(9px - var(--gap)); height: auto; left: calc(var(--tile) / 2 - 1px); width: 2px; }
     body .apply-flow.match-flow:not(.ext-flow) .flow-step:not(:last-child)::before { top: auto; bottom: calc(3px - var(--gap)); left: calc(var(--tile) / 2 - 4px); border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 6px solid rgba(25, 211, 197, 0.8); }
   }
+
+  /* Next duel card (phones): one four-step type scale. Font properties and icon size only; no layout or spacing.
+     L1 key info 0.95rem/600 | L2 body 0.78rem | L3 labels 0.66rem uppercase teal, 0.1em | L4 buttons 0.78rem/700, 0.06em. Icons 15px. */
+  body .next-duel .duel-details .duel-wide dd,
+  body .next-duel .duel-details > div:not(.duel-wide) dd,
+  body .next-duel > .countdown { font-size: 0.95rem; font-weight: 600; }
+  body .next-duel .teaser-line { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.12em; }
+  body .next-duel .duel-details dd .duel-tz,
+  body .next-duel .duel-details dd .duel-local,
+  body .next-duel .pill,
+  body .duel-note { font-size: 0.78rem; font-weight: 400; }
+  body .next-duel .pill, body .next-duel .duel-details dd .duel-local { font-weight: 500; }
+  body .next-duel .duel-details dd .duel-tz, body .duel-note { color: var(--muted); }
+  body .next-duel .label,
+  body .next-duel .duel-details dt,
+  body .next-duel .duel-details > div:not(.duel-wide) dt { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+  body .next-duel > a.btn, body .duel-cal > .btn { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  body .next-duel .duel-details dt .ic, body .next-duel > a.btn .ic, body .next-duel .duel-cal > .btn .ic { width: 15px; height: 15px; }
 }
 
 /* Phones: sizes for the design-upgrade elements (after the compact block above) */
@@ -1679,21 +1698,21 @@ body .hero::after {
     radial-gradient(ellipse 50% 60% at 92% 10%, rgba(34, 184, 238, 0.10), transparent 70%);
 }
 @media (prefers-reduced-motion: no-preference) {
-  /* grid lines a little stronger while it moves (0.09; phones set --hero-grid to 0.10) */
+  /* grid lines stronger while it moves (0.125; phones set --hero-grid to 0.135); the still frame stays at 0.06 */
   body .hero::before {
     background-image:
-      linear-gradient(rgba(25, 211, 197, var(--hero-grid, 0.09)) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(25, 211, 197, var(--hero-grid, 0.09)) 1px, transparent 1px);
-    will-change: transform; animation: hero-grid-drift 18s linear infinite;
+      linear-gradient(rgba(25, 211, 197, var(--hero-grid, 0.125)) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25, 211, 197, var(--hero-grid, 0.125)) 1px, transparent 1px);
+    will-change: transform; animation: hero-grid-drift 11s linear infinite;
   }
-  body .hero::after { animation: hero-glow-breathe 7s ease-in-out infinite alternate; }
+  body .hero::after { animation: hero-glow-breathe 6s ease-in-out infinite alternate; }
   /* the highlight sits in the upper band (logo, headline, tagline), not behind the paragraphs */
   body .hero .wrap::before {
     content: ""; position: absolute; z-index: -1; pointer-events: none; top: -60px; left: 50%; width: 56vw; height: 220px; margin-left: -28vw;
-    background: radial-gradient(ellipse closest-side, rgba(25, 211, 197, 0.12), transparent);
-    will-change: transform; animation: hero-highlight-drift 15s ease-in-out infinite alternate;
+    background: radial-gradient(ellipse closest-side, rgba(25, 211, 197, 0.18), transparent);
+    will-change: transform; animation: hero-highlight-drift 13s ease-in-out infinite alternate;
   }
   @keyframes hero-grid-drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(34px, 34px, 0); } }
-  @keyframes hero-glow-breathe { from { opacity: 1; } to { opacity: 0.5; } }
-  @keyframes hero-highlight-drift { from { transform: translate3d(-32vw, 0, 0); } to { transform: translate3d(32vw, 0, 0); } }
+  @keyframes hero-glow-breathe { from { opacity: 1; } to { opacity: 0.4; } }
+  @keyframes hero-highlight-drift { from { transform: translate3d(-40vw, 0, 0); } to { transform: translate3d(40vw, 0, 0); } }
 }

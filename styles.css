@@ -604,6 +604,19 @@ img.shot.shot-wide { max-width: 960px; }
   body .duel-cal > .btn { flex: 1 1 calc(50% - 4px); }
   body .next-duel > a.btn, body .duel-cal > .btn { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 6px 8px; border-radius: 10px; font-size: 0.8rem; letter-spacing: 0.02em; white-space: nowrap; }
   body .hero-cta .btn .ic, body .next-duel > a.btn .ic, body .duel-cal > .btn .ic { width: 1em; height: 1em; margin-right: 0.4em; }
+
+  /* Hero background (phones): the same 34px teal grid and the same three teal glows, now gently alive. All motion is decorative, behind the text,
+     and only transform / opacity. The grid layer (::before) is one 34px cell larger on every side and drifts exactly one cell diagonally, so the loop is seamless
+     (its fade mask is re-expressed for the larger box so the still frame looks the same). The glow moves from the hero's own background to ::after so only its opacity animates. */
+  body .hero { background: none; }
+  body .hero::before { inset: -34px; z-index: 1; -webkit-mask-image: linear-gradient(#000 calc((100% - 68px) * 0.25 + 34px), transparent calc(100% - 34px)); mask-image: linear-gradient(#000 calc((100% - 68px) * 0.25 + 34px), transparent calc(100% - 34px)); }
+  body .hero::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(6, 182, 212, 0.12), transparent 75%), radial-gradient(ellipse 60% 70% at 15% 0%, rgba(25, 211, 197, 0.16), transparent 70%), radial-gradient(ellipse 50% 60% at 92% 10%, rgba(34, 184, 238, 0.10), transparent 70%); }
+  @media (prefers-reduced-motion: no-preference) {
+    body .hero::before { will-change: transform; animation: hero-grid-drift 50s linear infinite; }
+    body .hero::after { animation: hero-glow-breathe 9s ease-in-out infinite alternate; }
+    @keyframes hero-grid-drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(34px, 34px, 0); } }
+    @keyframes hero-glow-breathe { from { opacity: 1; } to { opacity: 0.7; } }
+  }
 }
 
 /* Phones: sizes for the design-upgrade elements (after the compact block above) */

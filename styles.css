@@ -568,6 +568,21 @@ img.shot.shot-wide { max-width: 960px; }
   body .hero-cta { order: 5; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
   body .hero-cta .btn { display: flex; align-items: center; justify-content: center; padding: 8px 10px; font-size: 0.85rem; letter-spacing: 0.04em; line-height: 1.2; white-space: nowrap; }
   body .hero-cta .btn-subscribe { grid-column: 1 / -1; padding: 10px 14px; font-size: 0.95rem; }
+
+  /* How a match works: compact vertical steps (the horizontal 601-719px layout is left alone).
+     --tile and --gap feed the shared connector rule above, so the line and arrowhead stay centred on the smaller tiles. */
+  @media (max-width: 600px) {
+    body .how-it-works { padding: 8px 10px; }
+    body .how-it-works .match-flow:not(.ext-flow) { --tile: 54px; --gap: 17px; margin-top: 6px; }
+    body .how-it-works .flow-step { column-gap: 12px; }
+    body .how-it-works .flow-tile { border-radius: 10px; box-shadow: 0 4px 0 rgba(25, 211, 197, 0.28), 0 0 16px rgba(25, 211, 197, 0.2), inset 0 0 10px rgba(25, 211, 197, 0.12); }
+    body .how-it-works .flow-tile .ic { width: 1.45rem; height: 1.45rem; }
+    body .how-it-works .flow-num { right: 5px; bottom: 3px; font-size: 0.75rem; }
+    body .how-it-works .flow-step h4 { margin: 0 0 2px; font-size: 1.15rem; line-height: 1.2; }
+    body .how-it-works .flow-art { height: 40px; margin-bottom: 2px; }
+    body .how-it-works .flow-art > * { transform: scale(0.82); transform-origin: left center; }
+    body .how-it-works .flow-step p { font-size: 0.875rem; line-height: 1.4; }
+  }
 }
 
 /* Phones: sizes for the design-upgrade elements (after the compact block above) */

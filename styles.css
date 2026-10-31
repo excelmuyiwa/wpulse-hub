@@ -566,9 +566,9 @@ img.shot.shot-wide { max-width: 960px; }
   body .spec-strip span { white-space: nowrap; }
   body .spec-strip span:not(:last-child)::after { margin-left: 10px; }
   body .hero p.lead { font-size: 0.875rem; line-height: 1.5; }
-  body .hero-cta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
-  body .hero-cta .btn { display: flex; align-items: center; justify-content: center; padding: 8px 10px; font-size: 0.85rem; letter-spacing: 0.04em; line-height: 1.2; white-space: nowrap; }
-  body .hero-cta .btn-subscribe { grid-column: 1 / -1; padding: 10px 14px; font-size: 0.95rem; }
+  body .hero-cta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+  body .hero-cta .btn { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 6px 10px; border-radius: 10px; font-size: 0.8rem; letter-spacing: 0.02em; line-height: 1.2; white-space: nowrap; }
+  body .hero-cta .btn-subscribe { grid-column: 1 / -1; }
 
   /* How a match works: compact vertical steps (the horizontal 601-719px layout is left alone).
      --tile and --gap feed the shared connector rule above, so the line and arrowhead stay centred on the smaller tiles. */
@@ -587,7 +587,6 @@ img.shot.shot-wide { max-width: 960px; }
 
   /* Hero (phones): the feature cards and the "Next duel in..." line stay in the HTML but are not shown */
   body .hero-cards, body .hero-next { display: none; }
-  body .hero-cta .btn { min-height: 44px; }
 
   /* Next duel card (phones): shorter and better arranged, all content kept. Nothing here depends on the player text (it will be replaced by names). */
   body .next-duel { padding: 12px; gap: 8px; }
@@ -603,7 +602,8 @@ img.shot.shot-wide { max-width: 960px; }
   body .next-duel .pill { padding: 2px 9px; font-size: 0.72rem; }
   body .next-duel > a.btn { flex: 1 1 100%; }
   body .duel-cal > .btn { flex: 1 1 calc(50% - 4px); }
-  body .next-duel > a.btn, body .duel-cal > .btn { display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 6px 8px; font-size: 0.8rem; letter-spacing: 0.03em; white-space: nowrap; }
+  body .next-duel > a.btn, body .duel-cal > .btn { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 6px 8px; border-radius: 10px; font-size: 0.8rem; letter-spacing: 0.02em; white-space: nowrap; }
+  body .hero-cta .btn .ic, body .next-duel > a.btn .ic, body .duel-cal > .btn .ic { width: 1em; height: 1em; margin-right: 0.4em; }
 }
 
 /* Phones: sizes for the design-upgrade elements (after the compact block above) */
@@ -1541,7 +1541,8 @@ footer p { margin: 0; }
   /* Credits: a zero-height row under row 2 whose summary is pinned into row 2's right end; opened, the panel pushes the footer down in place. */
   .ft-credits { order: 4; flex: 1 1 100%; position: relative; }
   .ft-credits summary { position: absolute; top: -44px; right: 0; display: flex; align-items: center; justify-content: flex-end; width: 5.5rem; height: 44px; min-height: 44px; }
-  .ft-credits-body { position: static; width: auto; margin: 0 0 8px; transform: none; box-shadow: none; }
+  /* The opened panel floats upward from the zero-height Credits row: its bottom sits 6px above row 2 (44px row + 6px), so it opens into the visible screen. */
+  body .ft-credits-body { position: absolute; bottom: calc(100% + 50px); left: 0; right: 0; z-index: 40; width: auto; max-height: 60vh; margin: 0; padding: 12px; overflow-y: auto; transform: none; border: 1px solid rgba(25, 211, 197, 0.45); border-radius: 10px; background: var(--card); box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.55); }
 }
 
 /* Home: three short muted lines (stream call-to-action, fair-play note, "want to play") that read as one compact notice.

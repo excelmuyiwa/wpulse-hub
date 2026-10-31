@@ -617,6 +617,40 @@ img.shot.shot-wide { max-width: 960px; }
     @keyframes hero-grid-drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(34px, 34px, 0); } }
     @keyframes hero-glow-breathe { from { opacity: 1; } to { opacity: 0.7; } }
   }
+
+  /* Stream page, phones: "About the stream", "How a match works" and "Where to watch", compact.
+     How a match works becomes a 2x2 grid of cards; the connector lines/arrows are hidden only in that list (.ext-flow and the Players flow are untouched). */
+  body #about { padding-top: 12px; padding-bottom: 6px; }
+  body #about .section-head { margin-bottom: 8px; }
+  body #about .section-head h2 { margin: 0 0 4px; }
+  body #about .section-head p { font-size: 0.85rem; line-height: 1.4; }
+  body #about .how-it-works { margin: 0 0 12px; padding: 6px 8px; }
+  body #about .how-it-works h3 { margin: 0 0 4px; font-size: 0.9rem; }
+  body .how-it-works .match-flow:not(.ext-flow) { --tile: 32px; --gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0; }
+  body .how-it-works .match-flow .flow-step { display: grid; grid-template-columns: 32px minmax(0, 1fr); align-items: center; column-gap: 8px; row-gap: 2px; padding: 6px 8px; text-align: left; border: 1px solid rgba(25, 211, 197, 0.3); border-radius: 10px; background: rgba(6, 11, 20, 0.35); }
+  body .how-it-works .match-flow .flow-step::before, body .how-it-works .match-flow .flow-step::after { content: none; display: none; }
+  body .how-it-works .match-flow .flow-tile { grid-column: 1; grid-row: 1; margin: 0; border-width: 1px; border-radius: 8px; box-shadow: 0 2px 0 rgba(25, 211, 197, 0.28); }
+  body .how-it-works .match-flow .flow-tile .ic { width: 1rem; height: 1rem; }
+  body .how-it-works .match-flow .flow-num { right: 2px; bottom: 1px; font-size: 0.55rem; }
+  body .how-it-works .match-flow .flow-step h4 { grid-column: 2; grid-row: 1; margin: 0; font-size: 0.95rem; line-height: 1.1; letter-spacing: 0.04em; }
+  body .how-it-works .match-flow .flow-art { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; height: 30px; margin: 0; }
+  body .how-it-works .match-flow .flow-art > * { transform: scale(0.58); transform-origin: left center; }
+  body .how-it-works .match-flow .flow-step p { grid-column: 1 / -1; grid-row: 3; font-size: 0.72rem; line-height: 1.3; }
+  body #about .follow-panel { margin: 0 0 8px; padding: 8px; }
+  body #about .follow-panel h3 { margin: 0 0 4px; font-size: 0.9rem; }
+  body #about .follow-grid { gap: 6px; margin-top: 2px; }
+  body #about .channel-card { grid-template-columns: auto minmax(0, 1fr) auto; gap: 4px 10px; padding: 6px 8px; }
+  body #about .channel-logo { width: 36px; height: 36px; border-radius: 8px; }
+  body #about .channel-name { font-size: 1.05rem; }
+  body #about .channel-handle { font-size: 0.78rem; }
+  body #about .channel-sub { grid-column: 1 / -1; grid-row: 2; justify-self: stretch; justify-content: center; min-height: 48px; margin: 0; padding: 0 12px; border-radius: 10px; font-size: 0.8rem; letter-spacing: 0.02em; }
+  body #about .channel-sub .ic { width: 1em; height: 1em; margin-right: 0.4em; }
+  body #about .channel-open { grid-column: 3; grid-row: 1; margin: 0; font-size: 0.75rem; }
+  body #about .follow-steps { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 6px; }
+  body #about .follow-steps li { gap: 6px; padding: 3px 9px; border-radius: 10px; background: transparent; font-size: 0.75rem; }
+  body #about .follow-steps .fs-ic { width: 18px; height: 18px; border-radius: 5px; }
+  body #about .follow-steps .fs-ic .ic { width: 0.7rem; height: 0.7rem; }
+  body #about .about-note { margin: 0; font-size: 0.72rem; }
 }
 
 /* Phones: sizes for the design-upgrade elements (after the compact block above) */

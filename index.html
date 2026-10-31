@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
-    // Old single-page links to the player sections now live on players.html: forward them with the same hash.
+    // Old single-page links to sections that moved: forward them to their new page with the same hash.
     (function () {
       var h = location.hash;
       if (/^#(for-players|apply|proctor|recording|setup|update|your-setup|faq|step-download|required|not-allowed|checkin)$/.test(h)) location.replace('players.html' + h);
+      else if (/^#(about|stream-preview|telestrator)$/.test(h)) location.replace('stream.html' + h);
     })();
   </script>
   <title>WPulse Gaming: live Scrabble duels on YouTube</title>
@@ -113,7 +114,7 @@
     <nav class="nav" aria-label="Page sections">
       <a href="#schedule">Next duel</a>
       <a href="#commentary">Commentary</a>
-      <a href="#about">The stream</a>
+      <a href="stream.html">The stream</a>
       <a class="nav-sub" href="https://www.youtube.com/@WPulseGaming?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Subscribe</a>
       <a class="nav-pill nav-cta" href="players.html">For players</a>
     </nav>
@@ -126,9 +127,9 @@
   <a href="#watch">Home</a>
   <a href="#schedule">Next duel</a>
   <a href="#commentary">Commentary</a>
-  <a href="#about">About the stream</a>
-  <a href="#stream-preview">Stream preview</a>
+  <a href="#stream-peek">Stream preview</a>
   <a href="#fair-teaser">Fair and proctored</a>
+  <a href="stream.html">The stream</a>
   <a href="players.html">For players</a>
   <a href="#contact">Contact</a>
 </nav>
@@ -244,160 +245,20 @@
         <a class="social-icon" href="https://www.instagram.com/thor__lawrence/" target="_blank" rel="noopener noreferrer" aria-label="Victor Lawrence on Instagram (opens in a new tab)" title="Victor Lawrence on Instagram"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></a>
       </div>
     </div>
-
-    <div class="telestrator ts-panel" id="telestrator">
-      <div class="telestrator-text">
-        <span class="eyebrow"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg>BUILT FOR WPULSE</span>
-        <h3 class="ts-title">The WPulse Telestrator</h3>
-        <p>Don't just hear the analysis. See it! The WPulse Telestrator lets commentators bring their ideas directly onto the live board, illustrating moves and strategies with clear, interactive visuals.</p>
-      </div>
-      <figure class="telestrator-shot">
-        <img src="images/telestrator-v2.png" loading="lazy" alt="The WPulse Telestrator drawing on the live board" onerror="var b=this.closest('.telestrator');this.closest('figure').remove();b.classList.add('no-img')">
-      </figure>
-      <ul class="ts-features">
-        <li class="ts-feature">
-          <h4><svg class="ic" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>Arrows and highlights</h4>
-          <p>Draw attention to threats, key squares and tactical opportunities with arrows and highlights right on the board.</p>
-        </li>
-        <li class="ts-feature">
-          <h4><svg class="ic" aria-hidden="true"><use href="#i-type"/></svg>Words on the board</h4>
-          <p>Type in a word and watch it appear letter by letter, showing viewers exactly how a potential play would look.</p>
-        </li>
-        <li class="ts-feature">
-          <h4><svg class="ic" aria-hidden="true"><use href="#i-cursor"/></svg>Engine moves, one tap away</h4>
-          <p>Found an interesting move in the engine analysis? Send it straight to the board with a single tap.</p>
-        </li>
-      </ul>
-    </div>
   </div>
 </section>
 
 <!-- =====================================================================
-     SECTION 5: ABOUT THE STREAM
+     STREAM PREVIEW (short version; the full look, theme tabs and glossary are on stream.html)
      ===================================================================== -->
-<section id="about">
-  <div class="wrap">
-    <div class="tile-wms" aria-hidden="true">
-      <span class="tile-wm tile-wm-q"><b>Q</b><i>10</i></span>
-      <span class="tile-wm tile-wm-z"><b>Z</b><i>10</i></span>
-      <span class="tile-wm tile-wm-w"><b>W</b><i>4</i></span>
-      <span class="tile-wm tile-wm-p"><b>P</b><i>3</i></span>
-    </div>
-    <div class="section-head">
-      <h2>About the stream</h2>
-      <p>WPulse Gaming brings Scrabble players from all over the world together for organised online matches on Woogles.io. Each duel follows its announced format and match rules, with the games broadcast live for viewers.</p>
-    </div>
-    <div class="box acc-info how-it-works">
-      <h3><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>How a match works</h3>
-      <ol class="match-flow">
-        <li class="flow-step"><span class="flow-tile" aria-hidden="true"><svg class="ic"><use href="#i-board"/></svg><span class="flow-num">1</span></span><h4>The board</h4><span class="flow-art" aria-hidden="true"><span class="mini-tiles"><span class="mt">P<sub>3</sub></span><span class="mt">U<sub>1</sub></span><span class="mt">L<sub>1</sub></span><span class="mt">S<sub>1</sub></span><span class="mt">E<sub>1</sub></span></span></span><p>Played on Woogles.io using CSW24 lexicon</p></li>
-        <li class="flow-step"><span class="flow-tile" aria-hidden="true"><svg class="ic"><use href="#i-clock"/></svg><span class="flow-num">2</span></span><h4>The clock</h4><span class="flow-art" aria-hidden="true"><span class="mini-clock"><b>09:42</b><em>-00:08</em></span></span><p>5–10 minutes per player, with overtime continuing below zero.</p></li>
-        <li class="flow-step"><span class="flow-tile" aria-hidden="true"><svg class="ic"><use href="#i-question"/></svg><span class="flow-num">3</span></span><h4>The call</h4><span class="flow-art" aria-hidden="true"><span class="mini-tiles mini-call"><span class="mt">W<sub>4</sub></span><span class="mt">O<sub>1</sub></span><span class="mt">R<sub>1</sub></span><span class="mt">D<sub>2</sub></span><span class="mini-q">?</span></span></span><p>Players can challenge plays according to the match settings.</p></li>
-        <li class="flow-step"><span class="flow-tile" aria-hidden="true"><svg class="ic"><use href="#i-trophy"/></svg><span class="flow-num">4</span></span><h4>The finish</h4><span class="flow-art" aria-hidden="true"><span class="mini-pips"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></span><p>Best of 7, 11 or 15. First to 4, 6 or 8 wins takes the match.</p></li>
-      </ol>
-    </div>
-    <div class="box follow-panel">
-      <h3><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>Where to watch</h3>
-      <div class="follow-grid">
-        <div class="channel-card">
-          <img class="channel-logo" src="images/wpulse-icon.svg" width="64" height="64" alt="">
-          <div class="channel-meta">
-            <span class="channel-name">WPulse Gaming</span>
-            <span class="channel-handle">@WPulseGaming</span>
-          </div>
-          <a class="btn btn-primary channel-sub" href="https://www.youtube.com/@WPulseGaming?sub_confirmation=1" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#icon-youtube"/></svg>Subscribe on YouTube</a>
-          <a class="channel-open" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener noreferrer">Open the channel</a>
-        </div>
-        <ol class="follow-steps">
-          <li><span class="fs-ic" aria-hidden="true"><svg class="ic"><use href="#icon-youtube"/></svg></span><span class="fs-text">Subscribe</span></li>
-          <li><span class="fs-ic" aria-hidden="true"><svg class="ic"><use href="#i-bell"/></svg></span><span class="fs-text">Turn on the bell for notifications</span></li>
-          <li><span class="fs-ic" aria-hidden="true"><svg class="ic"><use href="#i-calendar"/></svg></span><span class="fs-text">Add the duel to your calendar<a href="#schedule">Use the buttons in Next duel</a></span></li>
-        </ol>
-      </div>
-    </div>    <p class="small about-note"><em>These are general descriptions. The specific match announcement is the source of truth.</em></p>
-  </div>
-</section>
-
-<!-- =====================================================================
-     SECTION 5b: WHAT THE STREAM LOOKS LIKE
-     ===================================================================== -->
-<section id="stream-preview">
+<section id="stream-peek">
   <div class="wrap">
     <div class="section-head">
       <h2>What the stream looks like</h2>
       <p>Here's a look at what appears on screen during a WPulse Duel.</p>
     </div>
-
-    <!-- Dark / light preview: CSS-only tabs (radio inputs), no script needed. Replace the two images to update. -->
-    <div class="theme-tabs">
-      <input type="radio" name="stream-theme" id="theme-dark" checked>
-      <input type="radio" name="stream-theme" id="theme-light">
-      <div class="tab-labels">
-        <label for="theme-dark">Dark theme</label>
-        <label for="theme-light">Light theme</label>
-      </div>
-      <div class="tab-panels">
-        <img class="shot shot-wide tab-dark" src="images/dark-mode-full-stream.png" width="1919" height="1079" loading="lazy" alt="The WPulse stream overlay in the dark theme: the live board in the centre, move history and the engine's best moves along the top, each player's name, score, clock and rack at the sides, and the unseen tiles and evaluation bar under the board.">
-        <img class="shot shot-wide tab-light" src="images/light-mode-full-stream.png" width="1919" height="1079" loading="lazy" alt="The same WPulse stream overlay in the light theme, with the live board, move history, engine best moves, player panels, unseen tiles and evaluation bar.">
-      </div>
-    </div>
-
-    <div class="grid three" style="margin-top:22px">
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-board"/></svg>Live board</h3>
-        <p>The board updates with every play, highlighting the latest move.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-tiles"/></svg>Player tiles</h3>
-        <p>Live tracking of tile shuffles and each player's uncommitted tiles on board during their turn.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>Scores and clocks</h3>
-        <p>Follow each player's score and remaining time, including overtime.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-list"/></svg>Move history</h3>
-        <p>Follow every play as the game unfolds, including challenges, exchanges and other key moves.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-bars"/></svg>Engine analysis and evaluation bar</h3>
-        <p>See the engine's win-percentage estimate and recommended moves.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-message"/></svg>Live commentary</h3>
-        <p>Commentators use arrows and highlights to explain positions and key plays.</p>
-      </div>
-      <div class="box">
-        <h3><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg>Game result banner</h3>
-        <p>Game results appear on screen as soon as a game ends.</p>
-      </div>
-    </div>
-
-    <!-- Game result banner, dark / light: CSS-only tabs (same pattern as above). -->
-    <div class="theme-tabs cards-gap">
-      <input type="radio" name="banner-theme" id="banner-dark" checked>
-      <input type="radio" name="banner-theme" id="banner-light">
-      <div class="tab-labels">
-        <label for="banner-dark">Dark theme</label>
-        <label for="banner-light">Light theme</label>
-      </div>
-      <div class="tab-panels">
-        <img class="shot shot-wide" src="images/game-banner-dark-mode.png" width="1919" height="1079" loading="lazy" alt="The game result banner in the dark theme, shown over the stream when a game ends: 'Game tied', with the final scores.">
-        <img class="shot shot-wide" src="images/game-banner.png" width="1652" height="929" loading="lazy" alt="The game result banner in the light theme: 'Player A wins', with the final score of 441 to 383.">
-      </div>
-    </div>
-
-
-    <div class="box acc-info glossary" style="margin-top:22px">
-      <h3><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg>New to Scrabble?</h3>
-      <dl class="facts">
-        <div><dt>CSW24</dt><dd>Collins Scrabble Words 2024, the official word list used for these duels.</dd></div>
-        <div><dt>10-point challenge</dt><dd>If a challenged word is valid, the player who played it gets a 10-point bonus. If it's not valid, the word comes off the board.</dd></div>
-        <div><dt>Evaluation bar</dt><dd>A live estimate of the on-turn player's chance of winning, calculated by the MAGPIE engine without knowing the opponent's tiles.</dd></div>
-      </dl>
-    </div>
-
-    <p class="note" style="margin-top:22px">Because both racks are visible on the stream, players must not watch or listen to it during a game. See <a href="players.html#proctor">Fair play and the proctor</a>.</p>
+    <img class="shot shot-wide" src="images/dark-mode-full-stream.png" width="1919" height="1079" loading="lazy" alt="The WPulse stream overlay in the dark theme: the live board in the centre, move history and the engine's best moves along the top, each player's name, score, clock and rack at the sides, and the unseen tiles and evaluation bar under the board.">
+    <p class="peek-cta"><a class="btn btn-ghost" href="stream.html#stream-preview">See the full stream look</a></p>
   </div>
 </section>
 

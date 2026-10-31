@@ -277,8 +277,11 @@ main > section:not(.hero)::before {
   mask-image: linear-gradient(#000 25%, transparent);
 }
 .hero .wrap { position: relative; z-index: 1; }
-/* players.html only: its first section sits right under the header, so no divider line above it */
-body.page-players main > section:first-child::before { display: none; }
+/* players.html and stream.html only: the first section sits right under the header, so no divider line above it */
+body.page-players main > section:first-child::before,
+body.page-stream main > section:first-child::before { display: none; }
+/* Home: button under the short stream preview */
+.peek-cta { margin: 16px 0 0; }
 
 
 /* Button sheen */

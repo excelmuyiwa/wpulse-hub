@@ -560,19 +560,14 @@ img.shot.shot-wide { max-width: 960px; }
     }
   }
 
-  /* Hero: compact. The .wrap becomes a flex column so "order" can lift the buttons up under the first paragraph
-     (visual order only; the HTML order is unchanged). */
+  /* Hero (phones): the desktop hero scaled down. Same order and styles: logo, headline, tagline, four paragraphs, three buttons. */
   body .hero { padding: 18px 0 16px; }
-  body .hero .wrap { display: flex; flex-direction: column; }
   body .hero-logo { width: 48px; height: 48px; margin: 0 0 2px; }
-  body .hero h1 { line-height: 1.12; margin: 2px 0 8px; }
-  body .spec-strip { gap: 5px; margin: 0 0 10px; font-size: 0.65rem; letter-spacing: 0.05em; line-height: 1.2; opacity: 1; }
-  body .spec-strip span { padding: 3px 8px; border: 1px solid rgba(6, 182, 212, 0.35); border-radius: 999px; background: rgba(6, 182, 212, 0.08); }
-  body .spec-strip span:not(:last-child)::after { content: none; }
-  body .hero p.lead { order: 6; margin: 0 0 6px; font-size: 0.9rem; line-height: 1.5; color: #8294ab; }
-  body .hero .spec-strip + p.lead { order: 4; margin: 0 0 4px; font-size: 1rem; line-height: 1.45; color: #e2e8f0; }
-  body .hero .spec-strip + p.lead + p.lead { margin-top: 14px; }
-  body .hero-cta { order: 5; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+  body .spec-strip { gap: 4px 10px; margin: 8px 0 14px; font-size: 0.7rem; letter-spacing: 0.06em; }
+  body .spec-strip span { white-space: nowrap; }
+  body .spec-strip span:not(:last-child)::after { margin-left: 10px; }
+  body .hero p.lead { font-size: 0.875rem; line-height: 1.5; }
+  body .hero-cta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
   body .hero-cta .btn { display: flex; align-items: center; justify-content: center; padding: 8px 10px; font-size: 0.85rem; letter-spacing: 0.04em; line-height: 1.2; white-space: nowrap; }
   body .hero-cta .btn-subscribe { grid-column: 1 / -1; padding: 10px 14px; font-size: 0.95rem; }
 
@@ -591,15 +586,9 @@ img.shot.shot-wide { max-width: 960px; }
     body .how-it-works .flow-step p { font-size: 0.875rem; line-height: 1.4; }
   }
 
-  /* Hero (phones): feature cards replace the 2nd to 4th paragraphs (still in the HTML, just hidden here) */
-  body .hero .spec-strip + p.lead ~ p.lead { display: none; }
+  /* Hero (phones): the feature cards and the "Next duel in..." line stay in the HTML but are not shown */
+  body .hero-cards, body .hero-next { display: none; }
   body .hero-cta .btn { min-height: 44px; }
-  body .hero-next:not([hidden]) { display: block; order: 5; margin: 8px 0 0; font-size: 0.78rem; line-height: 1.3; text-align: center; color: var(--muted); }
-  body .hero-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; order: 6; list-style: none; margin: 14px 0 0; padding: 0; }
-  body .hero-card { min-width: 0; padding: 10px; border: 1px solid rgba(25, 211, 197, 0.35); border-radius: 10px; background: linear-gradient(145deg, #162640, #0a1424 85%); }
-  body .hero-card .ic { display: block; width: 1.25rem; height: 1.25rem; margin: 0 0 6px; color: var(--accent); }
-  body .hero-card .hc-title { display: block; margin-bottom: 2px; font-family: var(--head-font); font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1.15; text-transform: uppercase; color: #fff; }
-  body .hero-card p { margin: 0; font-size: 0.8rem; line-height: 1.35; color: #9fb2c8; }
 }
 
 /* Phones: sizes for the design-upgrade elements (after the compact block above) */
@@ -1573,3 +1562,68 @@ footer h2 { margin: 0 0 6px; font-size: 1.08rem; line-height: 1.2; }
   .apply-flow .flow-step h4 { font-size: 1.15rem; }
   .apply-actions .btn { min-height: 44px; }
 }
+
+/* ===== Minimal footer and Home blocks =====
+   Kept last in the file on purpose: it overrides the earlier footer passes (same selectors, later wins). Shared by all three pages. */
+footer { margin-top: 24px; padding: 12px 0 14px; }
+footer p { margin-bottom: 0; }
+footer h2 { margin: 0 0 2px; font-size: 0.9rem; letter-spacing: 0.14em; line-height: 1.2; text-transform: uppercase; opacity: 0.85; }
+.footer-rule { margin: 10px 0; opacity: 0.35; }
+
+/* Contributors: one quiet line */
+.footer-thanks { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 12px; text-align: left; }
+.ft-label { margin: 0; font-size: 0.65rem; letter-spacing: 0.2em; color: #70849b; }
+.ft-names { flex: 1 1 260px; font-size: 12px; line-height: 1.5; color: #70849b; }
+.ft-names li:not(:last-child)::after { margin: 0 0.5em; }
+
+/* Contact: a slim row (icon, tiny label, value, small action); no card */
+.contact-cards { display: flex; flex-wrap: wrap; gap: 2px 20px; margin: 0; }
+.contact-card { display: flex; flex-direction: row; align-items: center; gap: 8px; min-height: 0; padding: 4px 0; border: 0; border-radius: 0; background: none; color: var(--text); }
+.contact-card:hover, .contact-card:focus-visible { transform: none; border-color: var(--line); color: #fff; }
+.cc-top { display: flex; align-items: center; gap: 6px; }
+.contact-card .ci { width: 1rem; height: 1rem; }
+.cc-label { align-self: center; font-size: 0.62rem; letter-spacing: 0.12em; line-height: 1.2; color: #70849b; }
+.cc-handle { align-self: center; font-size: 13px; font-weight: 500; line-height: 1.3; color: #c3cfdd; }
+.cc-action { align-self: center; margin: 0 0 0 2px; padding: 0; min-height: 0; font-size: 0.72rem; font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+.cc-action .ic { width: 0.8rem; height: 0.8rem; }
+@media (max-width: 719px) {
+  .contact-cards { flex-direction: column; flex-wrap: nowrap; gap: 0; }
+  .contact-card { min-height: 44px; padding: 0; }
+  .contact-card + .contact-card { border-top: 1px solid var(--line); }
+  .cc-label { min-width: 5.4rem; }
+  .cc-action { margin-left: auto; }
+}
+
+/* Legal and engine credit: plain rows, no box */
+.legal-row { grid-template-columns: minmax(0, 1fr); gap: 6px; align-items: start; justify-items: start; text-align: left; }
+.legal-left { flex-direction: row; gap: 8px; }
+.legal-left img { width: 22px; height: 22px; }
+.legal-text { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 10px; }
+.legal-copy { font-size: 12px; font-weight: 500; line-height: 1.4; color: #9fb0c3; }
+.legal-note { margin-top: 0 !important; font-size: 12px; line-height: 1.4; color: #70849b; }
+.credit-box { display: flex; align-items: baseline; gap: 8px; padding: 0; border: 0; border-radius: 0; background: none; text-align: left; }
+.credit-label { flex: none; margin: 0; padding: 0; border: 0; border-radius: 0; font-size: 0.6rem; letter-spacing: 0.16em; line-height: 1.5; color: #70849b; }
+.credit-text { font-size: 12px; line-height: 1.5; color: #70849b; }
+.credit-text a { padding: 14px 0; }
+
+/* Home: stream call-to-action as one slim line with a text link (vertical padding on the inline link only widens its tap area) */
+.stream-cta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 10px; padding-top: 12px; }
+.stream-cta .peek-cta { margin: 0; }
+.stream-cta .btn { display: inline; padding: 14px 0; border: 0; border-radius: 0; background: none; font-family: var(--body-font); font-size: 0.9rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.stream-cta .btn::after { content: "\2192"; margin-left: 0.35em; }
+.stream-cta .btn:hover, .stream-cta .btn:focus-visible { background: none; color: #fff; filter: none; transform: none; }
+
+/* Home: fair-teaser as a slim block with a thin accent line */
+#fair-teaser { padding: 14px 0 4px; }
+#fair-teaser .section-head { margin-bottom: 4px; padding-left: 0; border-left: 0; }
+#fair-teaser h2 { margin: 0; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; }
+#fair-teaser .box { padding: 2px 0 2px 12px; border: 0; border-left: 2px solid var(--acc); border-radius: 0; background: none; }
+#fair-teaser .box h3 { margin: 0 0 2px; font-size: 0.95rem; }
+#fair-teaser .box p { margin: 0; font-size: 0.9rem; line-height: 1.45; color: var(--muted); }
+#fair-teaser .box p + p { margin-top: 2px; }
+#fair-teaser a { padding: 14px 0; }
+
+/* Home: "Want to play" line */
+.play-line { padding-top: 12px; padding-bottom: 0; }
+.play-line p { font-size: 0.9rem; }
+.play-line a { padding: 14px 0; }

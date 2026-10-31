@@ -228,11 +228,44 @@
     window.addEventListener('load', function () { if (targetOf(location.hash)) go(location.hash); });
   }
 
+  /* ---------- 5. Phone menu (hamburger) ---------- */
+  // Adds .js-nav to <html> only when it can run, so without script the old scrolling nav stays visible.
+  function setupMenu() {
+    var header = doc.querySelector('.topbar');
+    var btn = header && header.querySelector('.nav-toggle');
+    var nav = header && header.querySelector('.nav');
+    if (!header || !btn || !nav) return;
+    root.classList.add('js-nav');
+    function isOpen() { return header.classList.contains('is-open'); }
+    function setOpen(open) {
+      header.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function () { setOpen(!isOpen()); });
+    // Tapping a link closes the menu (the link itself still navigates).
+    nav.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('a')) setOpen(false); });
+    doc.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen()) { setOpen(false); btn.focus(); }
+    });
+    // Tapping anywhere outside the header closes it.
+    doc.addEventListener('click', function (e) { if (isOpen() && !header.contains(e.target)) setOpen(false); });
+    // Back to a wide window: close it so the desktop header starts clean.
+    var wide = window.matchMedia ? window.matchMedia('(min-width: 720px)') : null;
+    if (wide) {
+      var onWide = function (m) { if (m.matches) setOpen(false); };
+      if (wide.addEventListener) wide.addEventListener('change', onWide); else if (wide.addListener) wide.addListener(onWide);
+    }
+    window.addEventListener('resize', function () {
+      if (isOpen() && (wide ? wide.matches : window.innerWidth > 719)) setOpen(false);
+    });
+  }
+
   function init() {
     setupCopy();
     setupReveal();
     setupSpy();
     setupHashOpen();
+    setupMenu();
   }
 
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', init);

@@ -86,6 +86,7 @@ section { padding: 56px 0 24px; }
 }
 .nav a:hover, .nav a:focus-visible { color: #fff; }
 .nav a:hover::after, .nav a:focus-visible::after { transform: scaleX(1); }
+.nav-toggle { display: none; } /* the hamburger only exists on phones (see the phone block) */
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -562,13 +563,18 @@ img.shot.shot-wide { max-width: 960px; }
   /* Hero (phones): the desktop hero scaled down. Same order and styles: logo, headline, tagline, four paragraphs, three buttons. */
   body .hero { padding: 18px 0 16px; }
   body .hero-logo { width: 48px; height: 48px; margin: 0 0 2px; }
-  body .spec-strip { gap: 4px 10px; margin: 8px 0 14px; font-size: 0.7rem; letter-spacing: 0.06em; }
+  body .hero h1 { margin-bottom: calc(0.5em + 4px); }
+  body .spec-strip { gap: 4px 10px; margin: 8px 0 14px; font-size: 0.62rem; letter-spacing: 0.04em; color: #7fd9d0; opacity: 1; }
   body .spec-strip span { white-space: nowrap; }
   body .spec-strip span:not(:last-child)::after { margin-left: 10px; }
   body .hero p.lead { font-size: 0.875rem; line-height: 1.5; }
+  /* hierarchy: bright lead line, quiet call-out for the last two paragraphs */
+  body .hero .spec-strip + p.lead { margin-bottom: 0.9em; font-size: 1.05rem; font-weight: 500; color: #e8eef5; }
+  body .hero .spec-strip + p.lead + p.lead + p.lead { margin-bottom: 0; padding: 0 0 6px 10px; border-left: 2px solid rgba(25, 211, 197, 0.6); }
+  body .hero .spec-strip + p.lead + p.lead + p.lead + p.lead { padding-left: 10px; border-left: 2px solid rgba(25, 211, 197, 0.6); }
   body .hero-cta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
   body .hero-cta .btn { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 6px 10px; border-radius: 10px; font-size: 0.8rem; letter-spacing: 0.02em; line-height: 1.2; white-space: nowrap; }
-  body .hero-cta .btn-subscribe { grid-column: 1 / -1; }
+  body .hero-cta .btn-subscribe { grid-column: 1 / -1; box-shadow: 0 0 22px rgba(6, 182, 212, 0.35); }
 
   /* How a match works: compact vertical steps (the horizontal 601-719px layout is left alone).
      --tile and --gap feed the shared connector rule above, so the line and arrowhead stay centred on the smaller tiles. */
@@ -605,25 +611,15 @@ img.shot.shot-wide { max-width: 960px; }
   body .next-duel > a.btn, body .duel-cal > .btn { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 6px 8px; border-radius: 10px; font-size: 0.8rem; letter-spacing: 0.02em; white-space: nowrap; }
   body .hero-cta .btn .ic, body .next-duel > a.btn .ic, body .duel-cal > .btn .ic { width: 1em; height: 1em; margin-right: 0.4em; }
 
-  /* Hero background (phones): the same 34px teal grid and the same three teal glows, now gently alive. All motion is decorative, behind the text,
-     and only transform / opacity. The grid layer (::before) is one 34px cell larger on every side and drifts exactly one cell diagonally, so the loop is seamless
-     (its fade mask is re-expressed for the larger box so the still frame looks the same). The glow moves from the hero's own background to ::after so only its opacity animates. */
-  body .hero { background: none; }
-  body .hero::before { inset: -34px; z-index: 1; -webkit-mask-image: linear-gradient(#000 calc((100% - 68px) * 0.25 + 34px), transparent calc(100% - 34px)); mask-image: linear-gradient(#000 calc((100% - 68px) * 0.25 + 34px), transparent calc(100% - 34px)); }
-  body .hero::after { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(6, 182, 212, 0.12), transparent 75%), radial-gradient(ellipse 60% 70% at 15% 0%, rgba(25, 211, 197, 0.16), transparent 70%), radial-gradient(ellipse 50% 60% at 92% 10%, rgba(34, 184, 238, 0.10), transparent 70%); }
-  @media (prefers-reduced-motion: no-preference) {
-    body .hero::before { will-change: transform; animation: hero-grid-drift 50s linear infinite; }
-    body .hero::after { animation: hero-glow-breathe 9s ease-in-out infinite alternate; }
-    @keyframes hero-grid-drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(34px, 34px, 0); } }
-    @keyframes hero-glow-breathe { from { opacity: 1; } to { opacity: 0.7; } }
-  }
+  /* Hero background (phones): slightly stronger grid lines. The animation itself is defined once, for all widths, near the end of this file. */
+  body .hero { --hero-grid: 0.1; }
 
   /* Stream page, phones: "About the stream", "How a match works" and "Where to watch", compact.
      How a match works becomes a 2x2 grid of cards; the connector lines/arrows are hidden only in that list (.ext-flow and the Players flow are untouched). */
   body #about { padding-top: 12px; padding-bottom: 6px; }
   body #about .section-head { margin-bottom: 8px; }
   body #about .section-head h2 { margin: 0 0 4px; }
-  body #about .section-head p { font-size: 0.85rem; line-height: 1.4; }
+  body #about .section-head p { font-size: 0.8125rem; line-height: 1.4; }
   body #about .how-it-works { margin: 0 0 12px; padding: 6px 8px; }
   body #about .how-it-works h3 { margin: 0 0 4px; font-size: 0.9rem; }
   body .how-it-works .match-flow:not(.ext-flow) { --tile: 32px; --gap: 8px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0; }
@@ -651,6 +647,58 @@ img.shot.shot-wide { max-width: 960px; }
   body #about .follow-steps .fs-ic { width: 18px; height: 18px; border-radius: 5px; }
   body #about .follow-steps .fs-ic .ic { width: 0.7rem; height: 0.7rem; }
   body #about .about-note { margin: 0; font-size: 0.72rem; }
+
+  /* ===== Mobile menu (phones). Only applies when script.js has put .js-nav on <html>; without it the old scrolling nav stays as it was. =====
+     Brand left, hamburger right; the links drop down under the sticky header (absolute inside the header, not fixed, because of the page zoom). */
+  .js-nav body .topbar .wrap { position: static; }
+  .js-nav body .topbar .wrap::after { display: none; }
+  .js-nav body .nav-toggle { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 52px; height: 52px; margin: -1px 0 -1px auto; padding: 0; border: 0; background: none; color: var(--accent); cursor: pointer; }
+  .js-nav body .nav-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: -6px; border-radius: 10px; }
+  .js-nav body .nav-toggle-bars, .js-nav body .nav-toggle-bars::before, .js-nav body .nav-toggle-bars::after { display: block; width: 22px; height: 2px; border-radius: 2px; background: currentColor; }
+  .js-nav body .nav-toggle-bars { position: relative; }
+  .js-nav body .nav-toggle-bars::before, .js-nav body .nav-toggle-bars::after { content: ""; position: absolute; left: 0; }
+  .js-nav body .nav-toggle-bars::before { top: -7px; }
+  .js-nav body .nav-toggle-bars::after { top: 7px; }
+  .js-nav body .topbar.is-open .nav-toggle-bars { background: transparent; }
+  .js-nav body .topbar.is-open .nav-toggle-bars::before { top: 0; transform: rotate(45deg); }
+  .js-nav body .topbar.is-open .nav-toggle-bars::after { top: 0; transform: rotate(-45deg); }
+  .js-nav body .topbar .nav { display: none; }
+  .js-nav body .topbar.is-open .nav { display: flex; flex-wrap: wrap; align-items: stretch; position: absolute; top: 100%; left: 0; right: 0; z-index: 60; max-height: 75vh; margin: 0; padding: 0 0 12px; overflow-x: hidden; overflow-y: auto; background: #060b14; border-bottom: 1px solid rgba(25, 211, 197, 0.45); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.55); }
+  .js-nav body .topbar.is-open .nav a { display: flex; flex: 1 1 100%; align-items: center; min-height: 52px; margin: 0; padding: 0 16px; border-bottom: 1px solid var(--line); border-left: 3px solid transparent; font-size: 1rem; color: #b9c8da; }
+  .js-nav body .topbar.is-open .nav a::after, .js-nav body .topbar.is-open .nav a.nav-pill::before { display: none; }
+  .js-nav body .topbar.is-open .nav a[aria-current="page"], .js-nav body .topbar.is-open .nav a.is-active { border-left-color: var(--accent); background: rgba(25, 211, 197, 0.08); color: #fff; }
+  .js-nav body .topbar.is-open .nav a.nav-sub, .js-nav body .topbar.is-open .nav a.nav-pill { flex: 1 1 calc(50% - 20px); justify-content: center; margin: 12px 8px 0; padding: 0 12px; border-radius: 999px; font-size: 0.9rem; font-weight: 600; }
+  .js-nav body .topbar.is-open .nav a.nav-sub { border: 1px solid var(--accent); background: var(--accent); color: #04121a; }
+  .js-nav body .topbar.is-open .nav a.nav-pill { border: 1px solid rgba(25, 211, 197, 0.6); background: transparent; color: var(--accent); }
+  .js-nav body .topbar.is-open .nav a.nav-pill[aria-current="page"] { background: rgba(25, 211, 197, 0.14); }
+
+  /* Players page, phones: the Apply card ("What to send", "What happens next"), compact. */
+  body .apply-panel { padding: 8px 10px; }
+  body .apply-panel > h3 { margin: 0 0 4px; font-size: 0.95rem; }
+  body .apply-panel > p:first-of-type { margin-bottom: 6px; }
+  body .apply-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0; }
+  body .apply-grid li { gap: 6px; padding: 6px 8px; font-size: 0.78rem; line-height: 1.3; }
+  body .apply-grid .ap-tile { flex: none; width: 20px; height: 20px; }
+  body .apply-grid .ap-tile .ic { width: 0.85rem; height: 0.85rem; }
+  @media (max-width: 380px) { body .apply-grid li { gap: 5px; padding: 6px; font-size: 0.74rem; } }
+  body .apply-note { margin: 6px 0 0; font-size: 0.72rem; }
+  body .apply-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 8px 0 0; }
+  body .apply-actions .btn { display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 8px; border-radius: 10px; font-size: 0.78rem; letter-spacing: 0.02em; white-space: nowrap; }
+  body .apply-actions .btn .ic { width: 1em; height: 1em; margin-right: 0.4em; }
+  body .apply-panel .apply-next-title { margin: 8px 0 0; padding-top: 8px; font-size: 0.95rem; }
+  @media (max-width: 600px) {
+    /* "What happens next": 38px icon boxes, 11px between steps. The vertical connector is the shared .match-flow one, re-anchored for the new sizes:
+       the line starts 4px under an icon box (its shadow is 2px), runs on the centre of the icon column, and ends in a 6px arrowhead whose tip stops 3px above the next icon box. */
+    body .apply-flow.match-flow:not(.ext-flow) { --tile: 38px; --gap: 11px; margin-top: 6px; }
+    body .apply-flow .flow-step { grid-template-columns: var(--tile) minmax(0, 1fr); column-gap: 10px; min-height: calc(var(--tile) + 8px); align-items: start; }
+    body .apply-flow .flow-tile { margin: 0; border-radius: 9px; box-shadow: 0 2px 0 rgba(25, 211, 197, 0.28), 0 0 10px rgba(25, 211, 197, 0.15); }
+    body .apply-flow .flow-tile .ic { width: 1.1rem; height: 1.1rem; }
+    body .apply-flow .flow-num { right: 4px; bottom: 2px; font-size: 0.62rem; }
+    body .apply-flow .flow-step h4 { margin: 0 0 2px; font-size: 0.95rem; line-height: 1.2; }
+    body .apply-flow .flow-step p { font-size: 0.8rem; line-height: 1.35; }
+    body .apply-flow.match-flow:not(.ext-flow) .flow-step:not(:last-child)::after { top: calc(var(--tile) + 4px); bottom: calc(9px - var(--gap)); height: auto; left: calc(var(--tile) / 2 - 1px); width: 2px; }
+    body .apply-flow.match-flow:not(.ext-flow) .flow-step:not(:last-child)::before { top: auto; bottom: calc(3px - var(--gap)); left: calc(var(--tile) / 2 - 4px); border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 6px solid rgba(25, 211, 197, 0.8); }
+  }
 }
 
 /* Phones: sizes for the design-upgrade elements (after the compact block above) */
@@ -1608,3 +1656,44 @@ footer p { margin: 0; }
 #fair-teaser .box { padding: 0 0 0 10px; border: 0; border-left: 2px solid var(--acc); border-radius: 0; background: none; }
 #fair-teaser .box p { display: inline; margin: 0; font-size: 0.8rem; line-height: 1.4; color: #70849b; }
 #fair-teaser a { padding: 6px 0; }
+
+/* ===== Hero background, all widths: drifting grid, breathing glow, one slow highlight =====
+   Same 34px teal grid and same three teal glows as before. The grid layer (::before) is one 34px cell larger on every side and drifts exactly
+   one cell diagonally (seamless); its fade mask is rewritten for the larger box so the still frame matches the old one. The glow moves from the
+   hero's own background to ::after so only its opacity animates. The highlight is one extra layer (.wrap::before, inside .wrap's stacking context,
+   below the text). Only transform and opacity move. With prefers-reduced-motion the still background is the same as before. */
+body .hero { background: none; }
+body .hero::before {
+  inset: -34px; z-index: 1;
+  background-image:
+    linear-gradient(rgba(25, 211, 197, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 211, 197, 0.06) 1px, transparent 1px);
+  -webkit-mask-image: linear-gradient(#000 calc((100% - 68px) * 0.25 + 34px), transparent calc(100% - 34px));
+  mask-image: linear-gradient(#000 calc((100% - 68px) * 0.25 + 34px), transparent calc(100% - 34px));
+}
+body .hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 30%, rgba(6, 182, 212, 0.12), transparent 75%),
+    radial-gradient(ellipse 60% 70% at 15% 0%, rgba(25, 211, 197, 0.16), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 92% 10%, rgba(34, 184, 238, 0.10), transparent 70%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* grid lines a little stronger while it moves (0.09; phones set --hero-grid to 0.10) */
+  body .hero::before {
+    background-image:
+      linear-gradient(rgba(25, 211, 197, var(--hero-grid, 0.09)) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25, 211, 197, var(--hero-grid, 0.09)) 1px, transparent 1px);
+    will-change: transform; animation: hero-grid-drift 18s linear infinite;
+  }
+  body .hero::after { animation: hero-glow-breathe 7s ease-in-out infinite alternate; }
+  /* the highlight sits in the upper band (logo, headline, tagline), not behind the paragraphs */
+  body .hero .wrap::before {
+    content: ""; position: absolute; z-index: -1; pointer-events: none; top: -60px; left: 50%; width: 56vw; height: 220px; margin-left: -28vw;
+    background: radial-gradient(ellipse closest-side, rgba(25, 211, 197, 0.12), transparent);
+    will-change: transform; animation: hero-highlight-drift 15s ease-in-out infinite alternate;
+  }
+  @keyframes hero-grid-drift { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(34px, 34px, 0); } }
+  @keyframes hero-glow-breathe { from { opacity: 1; } to { opacity: 0.5; } }
+  @keyframes hero-highlight-drift { from { transform: translate3d(-32vw, 0, 0); } to { transform: translate3d(32vw, 0, 0); } }
+}

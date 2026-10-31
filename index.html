@@ -112,6 +112,7 @@
   <div class="wrap">
     <a class="brand" href="#top" aria-label="WPulse Gaming, back to top"><img src="images/wpulse-wordmark.svg" width="98" height="26" alt="WPulse Gaming"></a>
     <nav class="nav" aria-label="Page sections">
+      <a href="index.html" aria-current="page">Home</a>
       <a href="#schedule">Next duel</a>
       <a href="#commentary">Commentary</a>
       <a href="stream.html">The stream</a>
@@ -127,7 +128,6 @@
   <a href="#watch">Home</a>
   <a href="#schedule">Next duel</a>
   <a href="#commentary">Commentary</a>
-  <a href="#stream-peek">Stream preview</a>
   <a href="#fair-teaser">Fair and proctored</a>
   <a href="stream.html">The stream</a>
   <a href="players.html">For players</a>
@@ -154,6 +154,15 @@
       <a class="btn btn-big btn-ghost btn-outline" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>Watch on YouTube</a>
       <a class="btn btn-big btn-ghost btn-outline" href="#schedule"><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg>Next duel</a>
     </div>
+    <!-- Phones only (hidden by default): countdown line under the buttons, filled in by the inline script near the end of the page -->
+    <p class="hero-next" hidden></p>
+    <!-- Phones only (hidden by default): feature cards that stand in for the longer paragraphs above -->
+    <ul class="hero-cards" aria-label="What to expect on WPulse">
+      <li class="hero-card"><svg class="ic" aria-hidden="true"><use href="#i-tiles"/></svg><span class="hc-title">Live tile draws</span><p>See every rack and draw as it happens.</p></li>
+      <li class="hero-card"><svg class="ic" aria-hidden="true"><use href="#i-message"/></svg><span class="hc-title">Live commentary</span><p>Tactics, racks and big plays explained.</p></li>
+      <li class="hero-card"><svg class="ic" aria-hidden="true"><use href="#i-shield-check"/></svg><span class="hc-title">Proctored duels</span><p>Fair, verified head-to-head matches.</p></li>
+      <li class="hero-card"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg><span class="hc-title">Beginner friendly</span><p>Exciting even if you've never played.</p></li>
+    </ul>
   </div>
 </section>
 
@@ -249,18 +258,12 @@
 </section>
 
 <!-- =====================================================================
-     STREAM PREVIEW (short version; the full look, theme tabs and glossary are on stream.html)
+     STREAM CALL-TO-ACTION (the full stream look, how a match works and the Telestrator are on stream.html)
      ===================================================================== -->
-<section id="stream-peek">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>What the stream looks like</h2>
-      <p>Here's a look at what appears on screen during a WPulse Duel.</p>
-    </div>
-    <img class="shot shot-wide" src="images/dark-mode-full-stream.png" width="1919" height="1079" loading="lazy" alt="The WPulse stream overlay in the dark theme: the live board in the centre, move history and the engine's best moves along the top, each player's name, score, clock and rack at the sides, and the unseen tiles and evaluation bar under the board.">
-    <p class="peek-cta"><a class="btn btn-ghost" href="stream.html#stream-preview">See the full stream look</a></p>
-  </div>
-</section>
+<div class="wrap play-line stream-cta">
+  <p>Curious what a WPulse Duel looks like on screen? See how a match works and what the broadcast looks like.</p>
+  <p class="peek-cta"><a class="btn btn-ghost" href="stream.html">See the stream</a></p>
+</div>
 
 <!-- =====================================================================
      FAIR AND PROCTORED (teaser; full rules are under For players)
@@ -443,10 +446,16 @@
   cd.className = 'countdown';
   var anchor = card.querySelector('.duel-details');
   card.insertBefore(cd, anchor || null);
+  var heroNext = document.querySelector('.hero-next');   // small phone-only line under the hero buttons (CSS keeps it hidden elsewhere)
   function tick() {
     var s = countdownState(Date.now(), start);
-    if (s.kind === 'over') { if (cd.parentNode) cd.parentNode.removeChild(cd); return; }
+    if (s.kind === 'over') { if (cd.parentNode) cd.parentNode.removeChild(cd); if (heroNext) heroNext.hidden = true; return; }
     cd.textContent = s.text;
+    if (heroNext) {
+      // Same countdown text as the card, reworded; minutes dropped while days remain. Hidden once the duel has started.
+      heroNext.textContent = s.text.replace(/^Starts in /, 'Next duel in ').replace(/^(Next duel in \d+d \d+h) \d+m$/, '$1');
+      heroNext.hidden = s.kind !== 'before';
+    }
     setTimeout(tick, 60000 - (Date.now() % 60000) + 50);   // next minute boundary
   }
   tick();

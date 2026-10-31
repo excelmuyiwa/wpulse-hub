@@ -181,7 +181,6 @@ img.shot { object-fit: contain; border: 1px solid var(--line); background: var(-
 .box { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
 .box h3 { color: var(--accent); }
 .box > :last-child { margin-bottom: 0; }
-.todo { color: var(--warn); }
 .rules-list { margin: 0; padding-left: 1.2em; }
 .rules-list li { margin-bottom: 0.5em; }
 .rules-list li::marker { color: var(--accent); }

@@ -262,24 +262,40 @@
 
   /* ---------- 2b. Next duel card: one-time unveil ---------- */
   // CSS (styles.css, "Next duel: one-time unveil") hides the pieces only after .unveil-ready is added here.
+  // A click-to-reveal cover sits over the banner; the unveil (.unveil-play) starts only when it is clicked (or Enter / Space).
   function setupUnveil() {
     var card = doc.querySelector('.next-duel');
-    if (!card || reduceMotion || !('IntersectionObserver' in window)) return;
+    var teaser = card && card.querySelector('.players-teaser');
+    if (!card || !teaser || reduceMotion || !('IntersectionObserver' in window)) return;
+    var cover = null;
     try {
-      var steps = [];
-      for (var i = 0; i <= 10; i++) steps.push(i / 10);
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          // About 40% of the card, or 40% of the viewport height if the card is taller than that allows.
-          if (en.intersectionRatio < 0.4 && en.intersectionRect.height < window.innerHeight * 0.4) return;
-          io.disconnect();
-          card.classList.add('unveil-play');
-        });
-      }, { threshold: steps });
+      cover = doc.createElement('button');
+      cover.type = 'button';
+      cover.className = 'uv-cover';
+      cover.setAttribute('aria-label', 'Reveal the next duel players');
+      cover.innerHTML = '<span class="uv-q" aria-hidden="true">?</span>' +
+        '<span class="uv-hint" aria-hidden="true"><span class="uv-hint-touch">Tap to reveal the players</span><span class="uv-hint-mouse">Click to reveal the players</span></span>';
+      var revealed = false;
+      cover.addEventListener('click', function () {
+        if (revealed) return;
+        revealed = true;
+        var hadFocus = doc.activeElement === cover;
+        cover.disabled = true;
+        cover.classList.add('is-leaving');
+        card.classList.add('unveil-play');
+        if (hadFocus) {
+          // Keep keyboard users in place without scrolling.
+          teaser.setAttribute('tabindex', '-1');
+          teaser.focus({ preventScroll: true });
+          teaser.addEventListener('blur', function () { teaser.removeAttribute('tabindex'); }, { once: true });
+        }
+        setTimeout(function () { if (cover.parentNode) cover.parentNode.removeChild(cover); }, 350);
+      });
       card.classList.add('unveil-ready');
-      io.observe(card);
+      teaser.appendChild(cover);
     } catch (e) {
       card.classList.remove('unveil-ready', 'unveil-play');
+      if (cover && cover.parentNode) cover.parentNode.removeChild(cover);
     }
   }
 

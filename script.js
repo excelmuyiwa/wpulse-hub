@@ -260,9 +260,33 @@
     });
   }
 
+  /* ---------- 2b. Next duel card: one-time unveil ---------- */
+  // CSS (styles.css, "Next duel: one-time unveil") hides the pieces only after .unveil-ready is added here.
+  function setupUnveil() {
+    var card = doc.querySelector('.next-duel');
+    if (!card || reduceMotion || !('IntersectionObserver' in window)) return;
+    try {
+      var steps = [];
+      for (var i = 0; i <= 10; i++) steps.push(i / 10);
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          // About 40% of the card, or 40% of the viewport height if the card is taller than that allows.
+          if (en.intersectionRatio < 0.4 && en.intersectionRect.height < window.innerHeight * 0.4) return;
+          io.disconnect();
+          card.classList.add('unveil-play');
+        });
+      }, { threshold: steps });
+      card.classList.add('unveil-ready');
+      io.observe(card);
+    } catch (e) {
+      card.classList.remove('unveil-ready', 'unveil-play');
+    }
+  }
+
   function init() {
     setupCopy();
     setupReveal();
+    setupUnveil();
     setupSpy();
     setupHashOpen();
     setupMenu();

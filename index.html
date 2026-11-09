@@ -128,6 +128,7 @@
   <p class="toc-title">On this page</p>
   <a href="#watch">Home</a>
   <a href="#schedule">Next duel</a>
+  <a href="#past-duels">Past duels</a>
   <a href="#commentary">Commentary</a>
   <a href="#fair-teaser">Fair and proctored</a>
   <a href="#contact">Contact</a>
@@ -173,41 +174,56 @@
   <div class="wrap">
     <div class="section-head">
       <h2>Next duel &amp; schedule</h2>
-      <p>We're going live for the very first time! Come be part of it!</p>
+      <p>Duel 1 is in the books. WPulse Duel Series 2 is on the way.</p>
     </div>
 
     <!-- Layout: the match card(s) on the left, the schedule flyer on the right (desktop); stacked on phones.
-         To add another match later, copy the whole <div class="card next-duel"> block below inside .duel-list.
-         The inline script at the bottom of this page runs the countdown, local time and calendar links on the first .next-duel (the start time is its DUEL_START_ISO constant). If images/next-duel-flyer.png
-         is missing, the flyer drops out and the card goes full width. -->
-    <div class="duel-layout">
+         The inline script at the bottom of this page runs the countdown, local time and calendar links on the first .next-duel,
+         but only when its DUEL_START_ISO constant is set; while it is empty the card shows no date, countdown or calendar buttons.
+         COMING SOON STATE (now): no players, date or settings yet; the flyer is left out (class no-flyer on .duel-layout).
+         WHEN SERIES 2 IS ANNOUNCED: copy the full match card from _backup-2026-11-09/index.html (players banner with photos and names,
+         .duel-details date block, .duel-pills, flyer <figure>, .duel-note) back in, remove "is-coming-soon" and "no-flyer",
+         then set DUEL_START_ISO and DUEL_TITLE in the script at the bottom of this page. -->
+    <div class="duel-layout no-flyer">
     <div class="duel-list">
-    <!-- Next duel highlight. The countdown, local time and calendar links use DUEL_START_ISO in the inline script near the end of this page: update it, together with the WAT text below, whenever the next duel changes. -->
-    <div class="card next-duel">
-      <div class="label">Next duel</div>
-      <div class="players players-teaser"><span class="tz-side tz-left"><span class="tz-col"><span class="tz-stage"><span class="tz-floor" aria-hidden="true"></span><span class="tz-tile"><img src="images/player-left.jpg" alt="David Ojih" style="object-position: 50% 38%"></span></span><span class="tz-name">David Ojih</span></span></span><span class="tz-side tz-right"><span class="tz-col"><span class="tz-stage"><span class="tz-floor" aria-hidden="true"></span><span class="tz-tile"><img src="images/player-right.jpg" alt="Hassan Wasiu" style="object-position: 50% 42%"></span></span><span class="tz-name">Hassan Wasiu</span></span></span><span class="tz-seam" aria-hidden="true"></span><span class="tz-embers" aria-hidden="true"><span class="tz-spark tz-spark-l s1"></span><span class="tz-spark tz-spark-l s2"></span><span class="tz-spark tz-spark-l s3"></span><span class="tz-spark tz-spark-l s4"></span><span class="tz-spark tz-spark-r s5"></span><span class="tz-spark tz-spark-r s6"></span><span class="tz-spark tz-spark-r s7"></span><span class="tz-spark tz-spark-r s8"></span></span><span class="tz-hudset" aria-hidden="true"><span class="tz-hud tz-hud-tl"></span><span class="tz-hud tz-hud-bl"></span><span class="tz-hud tz-hud-tr"></span><span class="tz-hud tz-hud-br"></span></span><span class="tz-vs" aria-hidden="true">VS</span></div>
-      <dl class="duel-details">
-        <div class="duel-wide"><dt><svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg>Date and time</dt><dd>Saturday, 7 November 2026 &middot; 4:00 PM WAT<span class="duel-tz">16:00 WAT (UTC+1) &middot; 15:00 UTC</span></dd></div>
-        <div><dt><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg>Platform</dt><dd>Woogles.io</dd></div>
-      </dl>
-      <ul class="duel-pills" aria-label="Match settings">
-        <li class="pill">Best of 15 (first to 8 wins)</li>
-        <li class="pill">CSW24</li>
-        <li class="pill">10 minutes per player + 1 minute overtime</li>
-        <li class="pill">10-point challenge</li>
-        <li class="pill">Rated on Woogles (not WESPA-rated)</li>
-      </ul>
-      <!-- TODO: replace the channel link with the specific live stream URL when one is available -->
-      <a class="btn btn-ghost" href="https://www.youtube.com/@WPulseGaming" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>WPulse on YouTube</a>
+    <div class="card next-duel is-coming-soon">
+      <div class="label">Coming soon</div>
+      <div class="players players-teaser" aria-hidden="true"><span class="tz-side tz-left"><span class="tz-col"><span class="tz-stage"><span class="tz-floor"></span><span class="tz-tile"><span class="tz-q">?</span></span></span><span class="tz-name">TBA</span></span></span><span class="tz-side tz-right"><span class="tz-col"><span class="tz-stage"><span class="tz-floor"></span><span class="tz-tile"><span class="tz-q">?</span></span></span><span class="tz-name">TBA</span></span></span><span class="tz-seam" aria-hidden="true"></span><span class="tz-embers" aria-hidden="true"><span class="tz-spark tz-spark-l s1"></span><span class="tz-spark tz-spark-l s2"></span><span class="tz-spark tz-spark-l s3"></span><span class="tz-spark tz-spark-l s4"></span><span class="tz-spark tz-spark-r s5"></span><span class="tz-spark tz-spark-r s6"></span><span class="tz-spark tz-spark-r s7"></span><span class="tz-spark tz-spark-r s8"></span></span><span class="tz-hudset" aria-hidden="true"><span class="tz-hud tz-hud-tl"></span><span class="tz-hud tz-hud-bl"></span><span class="tz-hud tz-hud-tr"></span><span class="tz-hud tz-hud-br"></span></span><span class="tz-vs" aria-hidden="true">VS</span></div>
+      <h3 class="cs-title">WPulse Duel Series 2</h3>
+      <p class="cs-text">Details coming soon. Subscribe on YouTube to be the first to know.</p>
+      <a class="btn btn-ghost" href="https://www.youtube.com/@WPulseGaming?sub_confirmation=1" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#icon-youtube"/></svg>Subscribe on YouTube</a>
     </div>
-    <p class="small duel-note">Times are in West Africa Time (WAT, UTC+1). Each match announcement confirms the full settings.</p>
     </div>
-    <figure class="duel-flyer">
-      <a href="images/next-duel-flyer.png" target="_blank" rel="noopener" aria-label="Open the next duel flyer full size (opens in a new tab)">
-        <img src="images/next-duel-flyer.png" loading="lazy" alt="Schedule flyer for the next WPulse duel" onerror="var l=this.closest('.duel-layout');this.closest('figure').remove();l.classList.add('no-flyer')">
-      </a>
-      <figcaption>Click the flyer to open it full size.</figcaption>
-    </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     PAST DUELS
+     One card per finished duel, newest first. To add a duel, copy the whole
+     <article class="card past-duel"> block and paste it ABOVE the existing ones.
+     ===================================================================== -->
+<section id="past-duels">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Past duels</h2>
+      <p>Missed one? Every duel is on YouTube in full.</p>
+    </div>
+
+    <div class="past-duels">
+      <article class="card past-duel">
+        <div class="pd-head">
+          <h3 class="pd-title">Duel 1</h3>
+          <time class="pd-date" datetime="2026-11-07">7 Nov 2026</time>
+        </div>
+        <img class="pd-shot" src="images/davidvshassan.png" width="1919" height="1079" loading="lazy" alt="WPulse Duel 1: David Ojih 7, Hassan Wasiu 8">
+        <p class="pd-result"><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg>Winner: Hassan Wasiu</p>
+        <dl class="pd-info">
+          <div><dt>Format</dt><dd>Best of 15 &middot; 10 min + 1 overtime &middot; 10-point challenge &middot; CSW24 &middot; Rated on Woogles</dd></div>
+          <div><dt>Commentary</dt><dd>Excel Muyiwa and Victor Lawrence</dd></div>
+        </dl>
+        <a class="btn pd-replay" href="https://www.youtube.com/live/RXgoYei7caI" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-play"/></svg>Watch the replay</a>
+      </article>
     </div>
   </div>
 </section>
@@ -219,7 +235,7 @@
 <section id="commentary">
   <div class="wrap">
     <div class="section-head">
-      <h2>Commentary for this duel</h2>
+      <h2>The WPulse commentary team</h2>
     </div>
 
     <div class="commentators">
@@ -227,8 +243,8 @@
         <div class="avatar" data-initials="EM"><img src="images/commentator-excel-muyiwa.jpg" width="240" height="240" loading="lazy" alt="Excel Muyiwa" onerror="this.remove()"></div>
         <div class="commentator-text">
           <h3>Excel Muyiwa</h3>
-          <p class="role"><span class="role-tag">Main commentator</span><span class="role-time">Full stream</span></p>
-          <p class="bio">The founder of WPulse Gaming, Excel Muyiwa is an experienced Nigerian Scrabble commentator, leading the production and coverage of this duel.</p>
+          <p class="role"><span class="role-tag">Main commentator</span></p>
+          <p class="bio">The founder of WPulse Gaming, Excel Muyiwa is an experienced Nigerian Scrabble commentator, leading the production and coverage of WPulse duels.</p>
         </div>
         <a class="social-icon" href="https://www.instagram.com/excelmuyiwa" target="_blank" rel="noopener noreferrer" aria-label="Excel Muyiwa on Instagram (opens in a new tab)" title="Excel Muyiwa on Instagram"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></a>
       </div>
@@ -236,7 +252,7 @@
         <div class="avatar" data-initials="KJ"><img src="images/commentator-kareem-jamiu.jpg" width="240" height="240" loading="lazy" alt="Kareem Jamiu" onerror="this.remove()"></div>
         <div class="commentator-text">
           <h3>Kareem Jamiu</h3>
-          <p class="role"><span class="role-tag">Co-commentator</span><span class="role-time">First half</span></p>
+          <p class="role"><span class="role-tag">Co-commentator</span></p>
           <p class="bio">They call him Babaláwo, and not without reason. Kareem Jamiu is a young Nigerian Masters player, known for conjuring magic on the Scrabble board. Now, he's bringing that experience and analytical eye to the commentary booth.</p>
         </div>
         <a class="social-icon" href="https://www.linkedin.com/in/kareem-jamiu-463141165/" target="_blank" rel="noopener noreferrer" aria-label="Kareem Jamiu on LinkedIn (opens in a new tab)" title="Kareem Jamiu on LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
@@ -245,7 +261,7 @@
         <div class="avatar" data-initials="VL"><img src="images/commentator-victor-lawrence.jpg" width="240" height="240" loading="lazy" alt="" onerror="this.remove()"></div>
         <div class="commentator-text">
           <h3>Victor Lawrence</h3>
-          <p class="role"><span class="role-tag">Co-commentator</span><span class="role-time">Second half</span></p>
+          <p class="role"><span class="role-tag">Co-commentator</span></p>
           <p class="bio">When he's not creating art or taking the stage, Victor Lawrence is teaching Scrabble and putting his memory to the test. A creative artist, thespian and Scrabble tutor, he sure brings plenty of personality to keep an audience engaged.</p>
         </div>
         <a class="social-icon" href="https://www.instagram.com/thor__lawrence/" target="_blank" rel="noopener noreferrer" aria-label="Victor Lawrence on Instagram (opens in a new tab)" title="Victor Lawrence on Instagram"><svg class="ic" aria-hidden="true"><use href="#i-instagram"/></svg></a>
@@ -322,14 +338,15 @@
 </footer>
 
 <!-- Next duel card: local time, countdown and calendar links. Progressive enhancement: without JavaScript the
-     card simply shows the WAT time. To change the duel, edit DUEL_START_ISO (UTC) and the WAT text in the card. -->
+     card simply shows the WAT time. To change the duel, edit DUEL_START_ISO (UTC) and the WAT text in the card.
+     While DUEL_START_ISO is empty (no date announced), the script does nothing: no countdown, no calendar buttons. -->
 <script>
 (function () {
   'use strict';
 
   var DURATION_HOURS = 4;                          // how long the duel is expected to run (countdown + calendar end)
-  var DUEL_START_ISO = '2026-11-07T15:00:00Z';     // 16:00 WAT (UTC+1); the one start-time constant
-  var DUEL_TITLE = 'David Ojih vs Hassan Wasiu';
+  var DUEL_START_ISO = '';                         // the one start-time constant, in UTC, e.g. '2026-12-05T15:00:00Z' (16:00 WAT). Empty = no date yet.
+  var DUEL_TITLE = 'WPulse Duel Series 2';         // calendar event title, e.g. 'Player A vs Player B'
   var HUB_URL = 'https://wpulsegaming.runs-at.dev/';
   var YOUTUBE_URL = 'https://www.youtube.com/@WPulseGaming';
 
@@ -400,6 +417,7 @@
   }
   /*END-PURE*/
 
+  if (!DUEL_START_ISO) return;                    // no duel date yet: leave the card as it is
   var start = new Date(DUEL_START_ISO);
   var card = document.querySelector('.next-duel');
   if (!card || isNaN(start.getTime())) return;
@@ -449,7 +467,7 @@
     g.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-calendar"/></svg>Add to Google Calendar';
     var ics = document.createElement('a');
     ics.className = 'btn btn-sm btn-ghost';
-    ics.download = 'wpulse-duel-2026-11-07.ics';
+    ics.download = 'wpulse-duel-' + DUEL_START_ISO.slice(0, 10) + '.ics';
     ics.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>Download .ics';
     var text = buildIcs(start, new Date());
     try { ics.href = URL.createObjectURL(new Blob([text], { type: 'text/calendar;charset=utf-8' })); }

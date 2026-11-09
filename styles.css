@@ -1793,3 +1793,62 @@ body .hero::after {
   @keyframes uv-pop { 0% { opacity: 0; scale: 0.5; } 65% { opacity: 1; scale: 1.06; } 100% { opacity: 1; scale: 1; } }
   @keyframes uv-rise { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
 }
+
+/* ===== Next duel: "coming soon" state (.is-coming-soon; no players or date yet) =====
+   The players banner keeps its tilted tiles, with a question mark in place of each photo. */
+.tz-q {
+  font-family: var(--head-font); font-size: calc(var(--t) * 0.5); font-weight: 700; line-height: 1;
+  color: rgb(var(--c)); text-shadow: 0 0 18px rgba(var(--c), 0.9), 0 0 4px rgba(0, 0, 0, 0.8);
+}
+.next-duel .cs-title { margin: 0; font-size: clamp(1.7rem, 5vw, 2.3rem); color: #fff; }
+.next-duel .cs-text { margin: 0; color: var(--muted); }
+@media (max-width: 719px) {
+  .next-duel .cs-text { font-size: 0.92rem; }
+}
+
+/* ===== Past duels (Home): one repeatable card per finished duel, newest first ===== */
+#past-duels { padding-top: 34px; }
+.past-duel { display: grid; gap: 14px; padding: 22px 24px; }
+.past-duel > * { margin: 0; min-width: 0; }
+.pd-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; }
+.pd-title { margin: 0; font-size: 1.6rem; color: #fff; }
+.pd-date { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.pd-shot { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); background: var(--bg-2); } /* match screenshot: full card width, aspect ratio kept */
+.pd-match {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 12px; padding: 14px 16px;
+  background: rgba(148, 180, 220, 0.05); border: 1px solid rgba(148, 180, 220, 0.16); border-radius: 10px;
+}
+.pd-player { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.pd-player-r { flex-direction: row-reverse; text-align: right; }
+.pd-photo { flex: none; display: block; width: 48px; height: 48px; border-radius: 10px; object-fit: cover; border: 2px solid var(--line); background: var(--bg-2); }
+.pd-name {
+  min-width: 0; font-family: var(--head-font); font-size: 1.3rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1.15;
+  text-transform: uppercase; color: var(--text); overflow-wrap: anywhere;
+}
+.pd-winner .pd-photo { border-color: var(--accent); box-shadow: 0 0 14px rgba(25, 211, 197, 0.35); }
+.pd-winner .pd-name { color: #fff; }
+.pd-score {
+  margin: 0; display: flex; align-items: center; gap: 6px; white-space: nowrap;
+  font-family: var(--head-font); font-size: 2.1rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; color: var(--muted);
+}
+.pd-score .pd-dash { font-size: 0.7em; }
+.pd-score .pd-win { color: var(--accent); text-shadow: 0 0 12px rgba(25, 211, 197, 0.45); }
+.pd-result { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-weight: 700; color: var(--accent); }
+.pd-result .ic { width: 1.2em; height: 1.2em; }
+.pd-info { display: grid; gap: 8px; }
+.pd-info > div { display: grid; gap: 1px; }
+.pd-info dt { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.pd-info dd { margin: 0; font-size: 0.92rem; color: var(--text); }
+.btn.pd-replay { justify-self: start; padding: 6px 18px; font-size: 0.95rem; line-height: 1.3; border-radius: 999px; }
+@media (max-width: 719px) {
+  #past-duels { padding-top: 22px; }
+  .past-duel { gap: 11px; padding: 16px 14px; }
+  .pd-title { font-size: 1.35rem; }
+  .pd-match { gap: 8px; padding: 12px 10px; }
+  .pd-player, .pd-player-r { flex-direction: column; gap: 6px; text-align: center; }
+  .pd-photo { width: 44px; height: 44px; }
+  .pd-name { font-size: 1rem; letter-spacing: 0.03em; }
+  .pd-score { font-size: 1.7rem; gap: 4px; }
+  .pd-info dd { font-size: 0.86rem; }
+  .btn.pd-replay { justify-self: stretch; display: flex; align-items: center; justify-content: center; min-height: 46px; font-size: 0.85rem; }
+}

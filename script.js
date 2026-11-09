@@ -266,7 +266,8 @@
   function setupUnveil() {
     var card = doc.querySelector('.next-duel');
     var teaser = card && card.querySelector('.players-teaser');
-    if (!card || !teaser || reduceMotion || !('IntersectionObserver' in window)) return;
+    // No unveil in the "coming soon" state (no players to reveal yet).
+    if (!card || !teaser || card.classList.contains('is-coming-soon') || reduceMotion || !('IntersectionObserver' in window)) return;
     var cover = null;
     try {
       cover = doc.createElement('button');

@@ -8,7 +8,7 @@ The live site is at **https://wpulsegaming.runs-at.dev/**
 
 | File / folder | What it is |
 |---|---|
-| `index.html` | Home: the intro, the Next duel card (countdown and calendar buttons), Commentary, the "Fair and proctored" note. |
+| `index.html` | Home: the intro, the Next duel card (now "WPulse Duel Series 2: coming soon"; countdown and calendar buttons appear once a date is set), Past duels, Commentary, the "Fair and proctored" note. |
 | `stream.html` | The **Broadcast** page: About the stream, How a match works, Where to watch, On screen, the Telestrator. |
 | `faq.html` | The **FAQ** page. |
 | `players.html` | **For players**: apply, fair play and rules, install the extension (the download), update, match-day setup. |
@@ -33,7 +33,8 @@ Double-click `index.html`. Links between the pages work the same way, because th
 
 Things you will change most often:
 
-- **Next duel** (`index.html`): edit the card in the "Next duel & schedule" section (players, date and time, format). The countdown, local time and calendar buttons come from the script at the bottom of the page, which has these constants: `DUEL_START_ISO` (the start time, in UTC), `DUEL_TITLE`, `DURATION_HOURS`, and `HUB_URL` and `YOUTUBE_URL` (used in the calendar text). Change the date text in the card to match `DUEL_START_ISO`, and the calendar file name `wpulse-duel-2026-11-07.ics` in the same script. When the players are announced, follow the `REVEAL` comment in the card.
+- **Next duel** (`index.html`): the card in the "Next duel & schedule" section currently shows the "coming soon" state for WPulse Duel Series 2 (no date, players or countdown). When the next duel is announced, follow the `WHEN SERIES 2 IS ANNOUNCED` comment above the card. The countdown, local time and calendar buttons come from the script at the bottom of the page, which has these constants: `DUEL_START_ISO` (the start time, in UTC; leave it empty `''` while there is no date and the countdown and calendar buttons stay hidden), `DUEL_TITLE`, `DURATION_HOURS`, and `HUB_URL` and `YOUTUBE_URL` (used in the calendar text). The calendar file name is made from `DUEL_START_ISO` automatically. Change the date text in the card to match `DUEL_START_ISO`.
+- **Past duels** (`index.html`): one card per finished duel, newest first. Copy a whole `<article class="card past-duel">` block, paste it above the existing ones, and change the title, date, players, score, winner, format, commentators and replay link.
 - **Flyer**: save it as `images/next-duel-flyer.png`. It is shown next to the Next duel card and is also the image in link previews (`og:image` and `twitter:image` on every page).
 - **Stream link**: the page links to the YouTube channel. When a specific live stream URL is available, search `index.html` for `TODO: replace the channel link` and replace the channel link at each of those places.
 - **Extension version and date** (`players.html`): one line under the download button in "Install the extension" (search `Version:`). The zip is `downloads/wpulse-extension.zip`.
